@@ -5,7 +5,8 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:opacity-90",
+        default:
+          "bg-primary text-primary-foreground shadow-[0_1px_2px_color-mix(in_oklab,var(--color-fg)_20%,transparent)] hover:opacity-90",
         secondary: "bg-surface text-fg border border-border hover:bg-surface-2",
         ghost: "text-fg hover:bg-surface-2",
         link: "text-primary underline-offset-4 hover:underline",

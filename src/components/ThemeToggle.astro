@@ -1,0 +1,45 @@
+---
+import { Sun, Moon } from "lucide-react";
+---
+
+<button
+  type="button"
+  id="theme-toggle"
+  class="focus-ring flex size-11 shrink-0 items-center justify-center rounded-md border border-border bg-surface text-fg transition-colors duration-[var(--motion-quick)] hover:bg-surface-2"
+  aria-label="Switch to dark theme"
+>
+  <Sun className="size-[18px]" data-icon="light" strokeWidth={1.75} />
+  <Moon className="hidden size-[18px]" data-icon="dark" strokeWidth={1.75} />
+</button>
+
+<script>
+  const STORAGE_KEY = "sfg-theme";
+  const toggle = document.getElementById("theme-toggle");
+  const lightIcon = toggle?.querySelector<HTMLElement>('[data-icon="light"]');
+  const darkIcon = toggle?.querySelector<HTMLElement>('[data-icon="dark"]');
+
+  function systemPrefersDark() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  function activeTheme(): "light" | "dark" {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+    return systemPrefersDark() ? "dark" : "light";
+  }
+
+  function syncIcon(theme: "light" | "dark") {
+    lightIcon?.classList.toggle("hidden", theme === "dark");
+    darkIcon?.classList.toggle("hidden", theme !== "dark");
+    toggle?.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  }
+
+  syncIcon(activeTheme());
+
+  toggle?.addEventListener("click", () => {
+    const next = activeTheme() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem(STORAGE_KEY, next);
+    syncIcon(next);
+  });
+</script>

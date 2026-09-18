@@ -16,14 +16,17 @@ const others = METHODS.filter((m) => m.slug !== slug);
 
 <Layout title={`${guide.title} | Stop Fungus Gnats`} description={guide.description}>
   <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <a href="/" class="inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg">
+    <a
+      href="/"
+      class="focus-ring inline-flex min-h-11 items-center gap-2 rounded-md text-sm text-muted transition-colors duration-[var(--motion-quick)] hover:text-fg"
+    >
       <ArrowLeft className="size-4" />
       All methods
     </a>
     <p class="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-muted">{guide.kicker}</p>
     <h1 class="mt-2 font-display text-4xl tracking-tight">{guide.title}</h1>
     <p class="mt-4 text-lg leading-relaxed text-muted">{guide.description}</p>
-    <figure class="mt-8 overflow-hidden rounded-xl border border-border">
+    <figure class="mt-8 overflow-hidden rounded-xl border border-border shadow-[0_20px_50px_-25px_color-mix(in_oklab,var(--color-fg)_35%,transparent)]">
       <img src={guide.image} alt="" class="aspect-video w-full object-cover" />
     </figure>
     <div class="mt-10 grid gap-10">
@@ -44,7 +47,10 @@ const others = METHODS.filter((m) => m.slug !== slug);
         {
           others.slice(0, 3).map((m) => (
             <li>
-              <a href={`/guides/${m.slug}`} class="text-sm text-primary hover:underline">
+              <a
+                href={`/guides/${m.slug}`}
+                class="focus-ring inline-flex rounded-sm text-sm text-primary hover:underline"
+              >
                 {m.title}
               </a>
             </li>

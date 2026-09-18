@@ -114,7 +114,10 @@ export function PestIdentifier() {
 
   if (finished) {
     return (
-      <div className="rounded-xl border border-border bg-surface p-6 shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_6%,transparent)]">
+      <div
+        key="result"
+        className="animate-in rounded-xl border border-border bg-surface p-6 shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_6%,transparent)]"
+      >
         <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">Result</p>
         <div className="mt-3 flex items-start gap-3">
           <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" />
@@ -145,18 +148,23 @@ export function PestIdentifier() {
       </div>
       <div className="mt-3 h-1 overflow-hidden rounded-full bg-surface-2">
         <div
-          className="h-full bg-primary transition-[width] duration-[var(--motion-fast)] ease-[var(--ease-out)]"
+          className="h-full rounded-full bg-primary transition-[width] duration-[var(--motion-fast)] ease-[var(--ease-out)]"
           style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
         />
       </div>
-      <h3 className="mt-5 font-display text-2xl tracking-tight">{question.prompt}</h3>
-      <div className="mt-5 grid gap-2">
+      <h3
+        key={`title-${question.id}`}
+        className="animate-in mt-5 font-display text-2xl tracking-tight"
+      >
+        {question.prompt}
+      </h3>
+      <div key={`options-${question.id}`} className="animate-in mt-5 grid gap-2">
         {question.options.map((opt, i) => (
           <button
             key={opt.label}
             type="button"
             onClick={() => choose(i)}
-            className="min-h-12 rounded-md border border-border bg-bg px-4 py-3 text-left text-sm leading-snug text-fg transition-colors duration-[var(--motion-quick)] hover:border-primary hover:bg-surface-2"
+            className="focus-ring min-h-12 rounded-md border border-border bg-bg px-4 py-3 text-left text-sm leading-snug text-fg transition-all duration-[var(--motion-quick)] hover:border-primary hover:bg-surface-2 active:scale-[0.99]"
           >
             {opt.label}
           </button>
@@ -165,7 +173,7 @@ export function PestIdentifier() {
       {step > 0 ? (
         <button
           type="button"
-          className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg"
+          className="focus-ring mt-4 inline-flex min-h-11 items-center gap-2 rounded-md text-sm text-muted hover:text-fg"
           onClick={() => {
             setPicks((p) => p.slice(0, -1));
             setStep((s) => Math.max(0, s - 1));

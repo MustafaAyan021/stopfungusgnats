@@ -1,11 +1,15 @@
 ---
+import { Sprout } from "lucide-react";
 import { SITE } from "@/data/content";
 ---
 
 <footer class="mt-16 border-t border-border bg-surface">
   <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
     <div>
-      <p class="font-display text-lg">{SITE.name}</p>
+      <p class="flex items-center gap-2 font-display text-lg">
+        <Sprout className="size-4 text-primary" strokeWidth={1.75} />
+        {SITE.name}
+      </p>
       <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted">
         A practical guide for houseplant owners who want fungus gnats gone — not another recycled
         pest article.
@@ -14,10 +18,10 @@ import { SITE } from "@/data/content";
     <div>
       <p class="text-sm font-medium">Guides</p>
       <ul class="mt-3 space-y-2 text-sm text-muted">
-        <li><a href="/" class="hover:text-fg">How to get rid of fungus gnats</a></li>
-        <li><a href="/identify" class="hover:text-fg">Identify the pest</a></li>
-        <li><a href="/plan" class="hover:text-fg">7-day plan</a></li>
-        <li><a href="/guides/mosquito-bits" class="hover:text-fg">Mosquito Bits / Bti</a></li>
+        <li><a href="/" class="focus-ring rounded-sm hover:text-fg">How to get rid of fungus gnats</a></li>
+        <li><a href="/identify" class="focus-ring rounded-sm hover:text-fg">Identify the pest</a></li>
+        <li><a href="/plan" class="focus-ring rounded-sm hover:text-fg">7-day plan</a></li>
+        <li><a href="/guides/mosquito-bits" class="focus-ring rounded-sm hover:text-fg">Mosquito Bits / Bti</a></li>
       </ul>
     </div>
     <div>
@@ -27,5 +31,8 @@ import { SITE } from "@/data/content";
         eat treated mix, talk to a local nursery or vet.
       </p>
     </div>
+  </div>
+  <div class="border-t border-border px-4 py-4 text-center text-xs text-subtle sm:px-6">
+    {SITE.tagline}
   </div>
 </footer>

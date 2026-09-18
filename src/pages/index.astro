@@ -1,7 +1,9 @@
 ---
-import { ArrowRight, Droplets, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight, ChevronDown, Droplets, Layers, ShieldCheck } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
+import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
+import { buttonVariants } from "@/lib/button-variants";
 import { FAQS, METHODS } from "@/data/content";
 
 const STEPS = [
@@ -50,42 +52,41 @@ const PREVENTION_CARDS = [
   description="How to get rid of fungus gnats for good: identify them, dry the soil, catch adults on sticky traps, kill larvae with Bti or peroxide, and prevent the next generation."
 >
   <main>
-    <section class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:py-16">
-      <div>
-        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-          Houseplant pest guide
-        </p>
-        <h1 class="mt-3 font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl">
-          How to get rid of fungus gnats
-        </h1>
-        <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-          Those tiny dark flies over your pots are breeding in wet mix. Stop the nursery, catch
-          the adults, kill the larvae. Most infestations break in one to three weeks.
-        </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a
-            href="/plan"
-            class="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-6 text-base font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Start the 7-day plan
-          </a>
-          <a
-            href="/identify"
-            class="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-surface px-6 text-base font-medium text-fg transition-colors hover:bg-surface-2"
-          >
-            Identify the pest
-          </a>
-        </div>
+    <section class="relative overflow-hidden">
+      <div
+        class="pointer-events-none absolute -top-32 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
+        style="background: radial-gradient(closest-side, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent);"
+      >
       </div>
-      <figure class="overflow-hidden rounded-xl border border-border">
-        <img
-          src="/images/hero.jpg"
-          alt="Indoor houseplant on a windowsill with damp soil where fungus gnats breed"
-          class="aspect-video w-full object-cover"
-          width={1792}
-          height={1008}
-        />
-      </figure>
+      <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:py-16">
+        <div>
+          <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
+            Houseplant pest guide
+          </p>
+          <h1 class="mt-3 font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+            How to get rid of fungus gnats
+          </h1>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+            Those tiny dark flies over your pots are breeding in wet mix. Stop the nursery, catch
+            the adults, kill the larvae. Most infestations break in one to three weeks.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="/plan" class={buttonVariants({ size: "lg" })}>Start the 7-day plan</a>
+            <a href="/identify" class={buttonVariants({ variant: "secondary", size: "lg" })}>
+              Identify the pest
+            </a>
+          </div>
+        </div>
+        <figure class="overflow-hidden rounded-xl border border-border shadow-[0_20px_50px_-25px_color-mix(in_oklab,var(--color-fg)_35%,transparent)]">
+          <img
+            src="/images/hero.jpg"
+            alt="Indoor houseplant on a windowsill with damp soil where fungus gnats breed"
+            class="aspect-video w-full object-cover"
+            width={1792}
+            height={1008}
+          />
+        </figure>
+      </div>
     </section>
 
     <section class="border-y border-border bg-surface">
@@ -142,15 +143,20 @@ const PREVENTION_CARDS = [
         <h2 class="mt-2 max-w-2xl font-display text-3xl tracking-tight">
           You are fighting a life cycle, not a few flies
         </h2>
-        <div class="mt-8 grid gap-4 sm:grid-cols-3">
-          {
-            CYCLE_CARDS.map((card) => (
-              <article class="rounded-lg border border-border bg-bg p-5">
-                <h3 class="font-display text-xl tracking-tight">{card.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted">{card.body}</p>
-              </article>
-            ))
-          }
+        <div class="mt-8 grid gap-8 lg:grid-cols-[minmax(0,300px)_1fr] lg:items-center">
+          <div class="flex justify-center rounded-xl border border-border bg-bg p-6 lg:justify-start">
+            <GnatLifecycleDiagram />
+          </div>
+          <div class="grid gap-4 sm:grid-cols-3">
+            {
+              CYCLE_CARDS.map((card) => (
+                <article class="rounded-lg border border-border bg-bg p-5 transition-colors duration-[var(--motion-quick)] hover:border-primary/40">
+                  <h3 class="font-display text-xl tracking-tight">{card.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted">{card.body}</p>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>
@@ -163,9 +169,12 @@ const PREVENTION_CARDS = [
           </p>
           <h2 class="mt-2 font-display text-3xl tracking-tight">Stack three attacks at once</h2>
         </div>
-        <a href="/plan" class="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary">
+        <a
+          href="/plan"
+          class="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-medium text-primary"
+        >
           Follow them in order
-          <ArrowRight className="size-4" />
+          <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
         </a>
       </div>
       <div class="mt-8 grid gap-5 md:grid-cols-2">
@@ -173,9 +182,15 @@ const PREVENTION_CARDS = [
           METHODS.map((method) => (
             <a
               href={`/guides/${method.slug}`}
-              class="group overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-[var(--motion-quick)] hover:border-primary"
+              class="focus-ring group overflow-hidden rounded-xl border border-border bg-surface shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_5%,transparent)] transition-all duration-[var(--motion-quick)] hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_16px_32px_-20px_color-mix(in_oklab,var(--color-fg)_35%,transparent)]"
             >
-              <img src={method.image} alt="" class="aspect-video w-full object-cover" />
+              <div class="overflow-hidden">
+                <img
+                  src={method.image}
+                  alt=""
+                  class="aspect-video w-full object-cover transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-105"
+                />
+              </div>
               <div class="p-5">
                 <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">
                   {method.kicker} · {method.time}
@@ -196,7 +211,9 @@ const PREVENTION_CARDS = [
         {
           PREVENTION_CARDS.map((item) => (
             <article>
-              <item.icon className="size-5 text-primary" strokeWidth={1.6} />
+              <span class="flex size-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                <item.icon className="size-5" strokeWidth={1.6} />
+              </span>
               <h3 class="mt-3 font-display text-xl tracking-tight">{item.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
             </article>
@@ -211,17 +228,19 @@ const PREVENTION_CARDS = [
         {
           FAQS.slice(0, 4).map((item) => (
             <details class="group py-4">
-              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-medium">
+              <summary class="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <span class="text-muted group-open:hidden">+</span>
-                <span class="hidden text-muted group-open:inline">−</span>
+                <ChevronDown className="size-4 shrink-0 text-muted transition-transform duration-[var(--motion-quick)] group-open:rotate-180" />
               </summary>
               <p class="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
             </details>
           ))
         }
       </div>
-      <a href="/faq" class="mt-6 inline-flex min-h-11 items-center text-sm font-medium text-primary">
+      <a
+        href="/faq"
+        class="focus-ring mt-6 inline-flex min-h-11 items-center rounded-md text-sm font-medium text-primary"
+      >
         All questions
       </a>
     </section>

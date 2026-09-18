@@ -1,4 +1,5 @@
 ---
+import { ChevronDown } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import { FAQS } from "@/data/content";
 ---
@@ -14,8 +15,9 @@ import { FAQS } from "@/data/content";
       {
         FAQS.map((item) => (
           <details class="group py-4" open>
-            <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-medium">
+            <summary class="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
               {item.q}
+              <ChevronDown className="size-4 shrink-0 text-muted transition-transform duration-[var(--motion-quick)] group-open:rotate-180" />
             </summary>
             <p class="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
           </details>
