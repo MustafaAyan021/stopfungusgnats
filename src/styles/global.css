@@ -15,6 +15,7 @@
   --color-danger: #a8412c;
   --color-ink: #14170f;
   --color-paper: #f4efe4;
+  --color-shadow-ink: #14170f;
 
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
   --font-sans: "Figtree", "Segoe UI", system-ui, sans-serif;
@@ -52,6 +53,7 @@
     --color-ring: #7ed88a;
     --color-danger: #e88a6d;
     --color-ink: #f1f3e8;
+    --color-shadow-ink: #8a9680;
     color-scheme: dark;
   }
 }
@@ -71,6 +73,7 @@
   --color-ring: #7ed88a;
   --color-danger: #e88a6d;
   --color-ink: #f1f3e8;
+  --color-shadow-ink: #8a9680;
   color-scheme: dark;
 }
 
@@ -157,21 +160,21 @@
     font-weight: 500;
   }
 
-  /* Signature offset "stamp" glow — soft-edged, not a hard graphic block. */
+  /* Signature offset "stamp" shadow — the maximalist card treatment. */
   .shadow-stamp {
-    box-shadow: 6px 6px 24px -6px var(--color-primary);
+    box-shadow: 6px 6px 0 0 var(--color-primary);
   }
 
   .shadow-stamp-danger {
-    box-shadow: 6px 6px 24px -6px var(--color-danger);
+    box-shadow: 6px 6px 0 0 var(--color-danger);
   }
 
   .shadow-stamp-ink {
-    box-shadow: 6px 6px 20px -6px var(--color-ink);
+    box-shadow: 6px 6px 0 0 var(--color-shadow-ink);
   }
 
   .shadow-stamp-sm {
-    box-shadow: 4px 4px 18px -5px var(--color-primary);
+    box-shadow: 4px 4px 0 0 var(--color-primary);
   }
 
   /* Frosted-glass card: translucent, blurred, softly bordered. */
