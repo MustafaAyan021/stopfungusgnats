@@ -95,31 +95,32 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
       </div>
     </div>
 
-    <div id="mobile-nav" class="collapse border-t border-border bg-surface/85 backdrop-blur-md md:hidden">
-      <div>
-        <nav class="mx-auto flex max-w-6xl flex-col px-4 py-3" aria-label="Mobile">
-          {
-            NAV.map((item) => (
-              <a
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                class:list={[
-                  "label-mono focus-ring flex min-h-11 items-center rounded-md px-2 text-sm",
-                  isActive(item.href) ? "text-primary" : "text-fg",
-                ]}
-              >
-                {item.label}
-              </a>
-            ))
-          }
-          <a
-            href="/plan"
-            class="mt-2 flex min-h-11 items-center justify-center rounded-md border-2 border-ink bg-primary font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Start the 7-day plan
-          </a>
-        </nav>
-      </div>
+    <div
+      id="mobile-nav"
+      class="max-h-0 overflow-hidden border-t border-border bg-surface/85 backdrop-blur-md transition-[max-height] duration-[var(--motion-fast)] ease-[var(--ease-out)] md:hidden"
+    >
+      <nav class="mx-auto flex max-w-6xl flex-col px-4 py-3" aria-label="Mobile">
+        {
+          NAV.map((item) => (
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              class:list={[
+                "label-mono focus-ring flex min-h-11 items-center rounded-md px-2 text-sm",
+                isActive(item.href) ? "text-primary" : "text-fg",
+              ]}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          href="/plan"
+          class="mt-2 flex min-h-11 items-center justify-center rounded-md border-2 border-ink bg-primary font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+        >
+          Start the 7-day plan
+        </a>
+      </nav>
     </div>
   </div>
 </header>
@@ -129,20 +130,24 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
   const nav = document.getElementById("mobile-nav");
   const openIcon = toggle?.querySelector<HTMLElement>('[data-icon="open"]');
   const closeIcon = toggle?.querySelector<HTMLElement>('[data-icon="close"]');
+  let isOpen = false;
 
-  function setOpen(isOpen: boolean) {
-    nav?.classList.toggle("is-open", isOpen);
-    toggle?.setAttribute("aria-expanded", String(isOpen));
-    toggle?.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    openIcon?.classList.toggle("hidden", isOpen);
-    closeIcon?.classList.toggle("hidden", !isOpen);
+  function setOpen(next: boolean) {
+    isOpen = next;
+    if (nav) nav.style.maxHeight = next ? `${nav.scrollHeight}px` : "0px";
+    toggle?.setAttribute("aria-expanded", String(next));
+    toggle?.setAttribute("aria-label", next ? "Close menu" : "Open menu");
+    openIcon?.classList.toggle("hidden", next);
+    closeIcon?.classList.toggle("hidden", !next);
   }
 
-  toggle?.addEventListener("click", () => {
-    setOpen(!nav?.classList.contains("is-open"));
-  });
+  toggle?.addEventListener("click", () => setOpen(!isOpen));
 
   nav?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => setOpen(false));
+  });
+
+  window.addEventListener("resize", () => {
+    if (isOpen && nav) nav.style.maxHeight = `${nav.scrollHeight}px`;
   });
 </script>

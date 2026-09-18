@@ -4,7 +4,7 @@ import { Sun, Moon } from "lucide-react";
 
 <button
   type="button"
-  id="theme-toggle"
+  data-theme-toggle
   class="focus-ring flex size-10 shrink-0 items-center justify-center rounded-md border-2 border-ink bg-surface text-fg shadow-stamp-sm transition-[transform,background-color] duration-[var(--motion-quick)] hover:-translate-y-0.5 hover:bg-surface-2 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
   aria-label="Switch to dark theme"
 >
@@ -14,9 +14,7 @@ import { Sun, Moon } from "lucide-react";
 
 <script>
   const STORAGE_KEY = "sfg-theme";
-  const toggle = document.getElementById("theme-toggle");
-  const lightIcon = toggle?.querySelector<HTMLElement>('[data-icon="light"]');
-  const darkIcon = toggle?.querySelector<HTMLElement>('[data-icon="dark"]');
+  const toggles = document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]");
 
   function systemPrefersDark() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -28,18 +26,22 @@ import { Sun, Moon } from "lucide-react";
     return systemPrefersDark() ? "dark" : "light";
   }
 
-  function syncIcon(theme: "light" | "dark") {
-    lightIcon?.classList.toggle("hidden", theme === "dark");
-    darkIcon?.classList.toggle("hidden", theme !== "dark");
-    toggle?.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  function syncIcons(theme: "light" | "dark") {
+    toggles.forEach((toggle) => {
+      toggle.querySelector<HTMLElement>('[data-icon="light"]')?.classList.toggle("hidden", theme === "dark");
+      toggle.querySelector<HTMLElement>('[data-icon="dark"]')?.classList.toggle("hidden", theme !== "dark");
+      toggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    });
   }
 
-  syncIcon(activeTheme());
+  syncIcons(activeTheme());
 
-  toggle?.addEventListener("click", () => {
-    const next = activeTheme() === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem(STORAGE_KEY, next);
-    syncIcon(next);
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const next = activeTheme() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem(STORAGE_KEY, next);
+      syncIcons(next);
+    });
   });
 </script>

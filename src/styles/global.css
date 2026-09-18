@@ -133,21 +133,6 @@
       0 0 0 4px var(--color-ring);
   }
 
-  /* Smooth height transition without measuring pixels. */
-  .collapse {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows var(--motion-fast) var(--ease-out);
-  }
-
-  .collapse.is-open {
-    grid-template-rows: 1fr;
-  }
-
-  .collapse > div {
-    overflow: hidden;
-  }
-
   .animate-in {
     animation: fade-in-up var(--motion-fast) var(--ease-out) both;
   }
