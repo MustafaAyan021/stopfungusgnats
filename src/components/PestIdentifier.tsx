@@ -116,13 +116,13 @@ export function PestIdentifier() {
     return (
       <div
         key="result"
-        className="animate-in rounded-xl border border-border bg-surface p-6 shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_6%,transparent)]"
+        className="animate-in rounded-xl border-2 border-ink bg-surface p-6 shadow-stamp"
       >
-        <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">Result</p>
+        <p className="label-mono text-[11px] text-primary">Verdict</p>
         <div className="mt-3 flex items-start gap-3">
           <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" />
           <div>
-            <h3 className="font-display text-2xl tracking-tight">{result.title}</h3>
+            <h3 className="font-display text-2xl font-semibold tracking-tight">{result.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">{result.blurb}</p>
           </div>
         </div>
@@ -139,14 +139,14 @@ export function PestIdentifier() {
   }
 
   return (
-    <div className="rounded-xl border border-border bg-surface p-6">
-      <div className="flex items-center justify-between gap-3 text-xs font-medium uppercase tracking-[0.14em] text-muted">
+    <div className="rounded-xl border-2 border-ink bg-surface p-6 shadow-stamp">
+      <div className="label-mono flex items-center justify-between gap-3 text-[11px] text-muted">
         <span>Identify the pest</span>
         <span className="tabular-nums">
           {step + 1} / {QUESTIONS.length}
         </span>
       </div>
-      <div className="mt-3 h-1 overflow-hidden rounded-full bg-surface-2">
+      <div className="mt-3 h-1.5 overflow-hidden rounded-full border border-ink/20 bg-surface-2">
         <div
           className="h-full rounded-full bg-primary transition-[width] duration-[var(--motion-fast)] ease-[var(--ease-out)]"
           style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
@@ -154,7 +154,7 @@ export function PestIdentifier() {
       </div>
       <h3
         key={`title-${question.id}`}
-        className="animate-in mt-5 font-display text-2xl tracking-tight"
+        className="animate-in mt-5 font-display text-2xl font-semibold tracking-tight"
       >
         {question.prompt}
       </h3>
@@ -164,7 +164,7 @@ export function PestIdentifier() {
             key={opt.label}
             type="button"
             onClick={() => choose(i)}
-            className="focus-ring min-h-12 rounded-md border border-border bg-bg px-4 py-3 text-left text-sm leading-snug text-fg transition-all duration-[var(--motion-quick)] hover:border-primary hover:bg-surface-2 active:scale-[0.99]"
+            className="focus-ring min-h-12 rounded-md border-2 border-ink bg-bg px-4 py-3 text-left text-sm leading-snug font-medium text-fg transition-all duration-[var(--motion-quick)] hover:-translate-y-0.5 hover:bg-surface-2 hover:shadow-stamp-sm active:translate-y-0 active:shadow-none"
           >
             {opt.label}
           </button>
@@ -183,7 +183,7 @@ export function PestIdentifier() {
           Back
         </button>
       ) : (
-        <p className="mt-4 inline-flex items-center gap-2 text-sm text-subtle">
+        <p className="label-mono mt-4 inline-flex items-center gap-2 text-[11px] text-subtle">
           Three questions
           <ArrowRight className="size-4" />
         </p>

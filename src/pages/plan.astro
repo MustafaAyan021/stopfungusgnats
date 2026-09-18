@@ -7,14 +7,17 @@ import { TreatmentPlan } from "@/components/TreatmentPlan";
   title="7-Day Plan to Get Rid of Fungus Gnats | Stop Fungus Gnats"
   description="A day-by-day plan to get rid of fungus gnats: dry the mix, set sticky traps, treat larvae, and prevent the next wave."
 >
-  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">Protocol</p>
-    <h1 class="mt-2 font-display text-4xl tracking-tight">
-      7-day plan to get rid of fungus gnats
+  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
+    <span class="label-mono inline-flex -rotate-2 items-center rounded-md border-2 border-ink bg-primary px-3 py-1.5 text-[11px] text-primary-foreground shadow-stamp-sm">
+      The protocol
+    </span>
+    <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+      Seven days. <span class="text-primary italic">One</span> checklist.
     </h1>
-    <p class="mt-4 leading-relaxed text-muted">
-      Check off each task as you go. Progress stays on this device. Keep the dry-top habit for two
-      weeks after day 7 even if the air looks clear.
+    <p class="mt-4 max-w-xl leading-relaxed text-muted">
+      Check off each task as you go — your progress stays on this device. Keep the dry-top habit
+      for two more weeks after day 7, even if the air already looks clear. That's the step people
+      skip, and the reason gnats come back.
     </p>
     <div class="mt-10">
       <TreatmentPlan client:load />

@@ -44,9 +44,9 @@ export function TreatmentPlan() {
   return (
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-        <p className="text-sm text-muted">
+        <p className="label-mono text-xs text-muted">
           Progress{" "}
-          <span className="tabular-nums font-medium text-fg">
+          <span className="font-display text-lg font-semibold text-fg">
             {complete}/{total}
           </span>
         </p>
@@ -60,9 +60,9 @@ export function TreatmentPlan() {
           </button>
         ) : null}
       </div>
-      <div className="mb-8 h-1.5 overflow-hidden rounded-full bg-surface-2">
+      <div className="mb-8 h-2 overflow-hidden rounded-full border-2 border-ink bg-surface-2">
         <div
-          className="h-full rounded-full bg-primary transition-[width] duration-[var(--motion-fast)] ease-[var(--ease-out)]"
+          className="h-full bg-primary transition-[width] duration-[var(--motion-fast)] ease-[var(--ease-out)]"
           style={{ width: `${total ? (complete / total) * 100 : 0}%` }}
         />
       </div>
@@ -74,26 +74,28 @@ export function TreatmentPlan() {
             <li
               key={block.day}
               className={cn(
-                "rounded-xl border bg-surface p-5 transition-colors duration-[var(--motion-quick)] sm:p-6",
-                dayComplete ? "border-primary/40" : "border-border",
+                "rounded-xl border-2 border-ink bg-surface p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] sm:p-6",
+                dayComplete && "border-primary",
               )}
             >
               <div className="flex items-center justify-between gap-3">
-                <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
-                  Day {block.day}
+                <p className="label-mono text-[11px] text-muted">
+                  Day {String(block.day).padStart(2, "0")}
                 </p>
                 {dayComplete ? (
-                  <span className="flex items-center gap-1 text-xs font-medium text-primary">
+                  <span className="label-mono flex items-center gap-1 text-[11px] text-primary">
                     <CheckCircle2 className="size-3.5" />
                     Done
                   </span>
                 ) : (
-                  <span className="text-xs tabular-nums text-subtle">
+                  <span className="label-mono text-[11px] tabular-nums text-subtle">
                     {dayDone}/{block.tasks.length}
                   </span>
                 )}
               </div>
-              <h3 className="mt-1 font-display text-xl tracking-tight">{block.title}</h3>
+              <h3 className="mt-1 font-display text-xl font-semibold tracking-tight">
+                {block.title}
+              </h3>
               <ul className="mt-4 grid gap-1">
                 {block.tasks.map((task, i) => {
                   const key = taskKey(block.day, i);
@@ -103,9 +105,9 @@ export function TreatmentPlan() {
                       <label className="has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-bg -mx-1 flex min-h-11 cursor-pointer items-start gap-3 rounded-md px-1 py-1.5 transition-colors duration-[var(--motion-quick)] hover:bg-surface-2/60 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-offset-2">
                         <span
                           className={cn(
-                            "mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-xs border transition-colors duration-[var(--motion-quick)]",
+                            "mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-xs border-2 transition-colors duration-[var(--motion-quick)]",
                             checked
-                              ? "border-primary bg-primary text-primary-foreground"
+                              ? "border-ink bg-primary text-primary-foreground"
                               : "border-border bg-bg",
                           )}
                         >

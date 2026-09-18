@@ -1,7 +1,7 @@
 ---
 import {
   ArrowRight,
-  Clock,
+  Check,
   Droplets,
   ChevronDown,
   Layers,
@@ -22,6 +22,12 @@ const HOW_IT_WORKS = [
   { icon: ShieldCheck, label: "Prevent" },
 ];
 
+const SYMPTOMS = [
+  "Tiny flies lift off every time you water",
+  "They gather at windows, not the fruit bowl",
+  "The soil never seems to fully dry out",
+];
+
 const STEPS = [
   "Let the top 1–2 inches of mix dry before you water again. Empty saucers.",
   "Stand yellow sticky cards at soil level to catch egg-laying adults.",
@@ -29,16 +35,25 @@ const STEPS = [
   "Keep that up for two weeks after the last fly. One soggy week restarts the cycle.",
 ];
 
+const STATS = [
+  { value: "3–4", unit: "weeks", label: "egg to adult, indoors" },
+  { value: "~2", unit: "weeks", label: "larvae feed in the mix" },
+  { value: "7–10", unit: "days", label: "to clear a light infestation" },
+];
+
 const CYCLE_CARDS = [
   {
+    n: "01",
     title: "Eggs in wet mix",
     body: "Females lay in moist organic soil. Eggs hatch in a few days.",
   },
   {
+    n: "02",
     title: "Larvae underground",
-    body: "White maggots with black heads feed for about two weeks. Traps miss them.",
+    body: "White maggots with black heads feed for about two weeks. Traps miss them completely.",
   },
   {
+    n: "03",
     title: "Short-lived adults",
     body: "Adults are weak fliers. Kill them and the next wave still emerges from the pot.",
   },
@@ -68,126 +83,157 @@ const PREVENTION_CARDS = [
   description="How to get rid of fungus gnats for good: identify them, dry the soil, catch adults on sticky traps, kill larvae with Bti or peroxide, and prevent the next generation."
 >
   <main>
-    <div class="flex min-h-[calc(100dvh-4rem)] flex-col">
-    <section class="relative flex flex-1 items-center overflow-hidden">
-      <div
-        class="pointer-events-none absolute -top-32 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
-        style="background: radial-gradient(closest-side, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent);"
-      >
-      </div>
-      <div class="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-10">
-        <div>
-          <span class="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            <Clock className="size-3.5" />
-            Most infestations clear in 7–10 days
-          </span>
-          <h1 class="mt-4 font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl">
-            How to get rid of <span class="text-primary">fungus gnats</span> for good
-          </h1>
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-            Those tiny dark flies over your pots are breeding in wet mix. Stop the nursery, catch
-            the adults, kill the larvae — in that order.
-          </p>
-          <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <a href="/plan" class={buttonVariants({ size: "lg" })}>
-              Start the 7-day plan
-              <ArrowRight className="size-4" />
-            </a>
+    <div class="flex min-h-[calc(100dvh-6rem)] flex-col">
+      <section class="relative flex flex-1 items-center overflow-hidden bg-grain">
+        <div
+          class="pointer-events-none absolute -top-40 left-1/2 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
+          style="background: radial-gradient(closest-side, color-mix(in oklab, var(--color-primary) 26%, transparent), transparent);"
+        >
+        </div>
+        <div class="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-10">
+          <div>
+            <span class="label-mono inline-flex -rotate-2 items-center gap-1.5 rounded-md border-2 border-ink bg-danger px-3 py-1.5 text-[11px] text-bg shadow-stamp-sm">
+              <TriangleAlert className="size-3.5" />
+              If you see them, they're already breeding
+            </span>
+            <h1 class="mt-5 font-display text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              Fungus gnats don't stop at <span class="text-primary italic">one</span> fly.
+            </h1>
+            <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+              Swat one and a hundred eggs are already in the soil. New adults emerge every few
+              days — the cycle doesn't break on its own. This is how you break it.
+            </p>
+
+            <div class="mt-6 inline-block rotate-1 rounded-lg border-2 border-dashed border-border bg-surface p-4">
+              <p class="label-mono text-[10px] text-subtle">Is this you?</p>
+              <ul class="mt-2 grid gap-1.5">
+                {
+                  SYMPTOMS.map((symptom) => (
+                    <li class="flex items-start gap-2 text-sm text-fg">
+                      <Check className="mt-0.5 size-3.5 shrink-0 text-primary" strokeWidth={3} />
+                      {symptom}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <a href="/plan" class={buttonVariants({ size: "lg" })}>
+                Start the 7-day fix
+                <ArrowRight className="size-4" />
+              </a>
+              <a
+                href="/identify"
+                class="focus-ring inline-flex min-h-11 items-center gap-1.5 rounded-md text-sm font-medium text-fg underline decoration-border underline-offset-4 hover:decoration-fg"
+              >
+                Not sure it's gnats? Identify first
+              </a>
+            </div>
+            <ol class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
+              {
+                HOW_IT_WORKS.map((step, i) => (
+                  <>
+                    <li class="label-mono flex items-center gap-2 rounded-full border-2 border-ink bg-surface py-1.5 pr-3.5 pl-1.5 text-[11px] text-fg">
+                      <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                        <step.icon className="size-3.5" strokeWidth={2} />
+                      </span>
+                      {step.label}
+                    </li>
+                    {i < HOW_IT_WORKS.length - 1 && (
+                      <ArrowRight className="size-3.5 shrink-0 text-subtle" />
+                    )}
+                  </>
+                ))
+              }
+            </ol>
+          </div>
+          <figure class="relative rotate-1 overflow-hidden rounded-xl border-2 border-ink shadow-stamp">
+            <img
+              src="/images/hero.jpg"
+              alt="Indoor houseplant on a windowsill with damp soil where fungus gnats breed"
+              class="aspect-video w-full object-cover"
+              width={1792}
+              height={1008}
+            />
+            <figcaption class="label-mono absolute bottom-3 left-3 flex items-center gap-2 rounded-md border-2 border-ink bg-bg px-3 py-2 text-[10px] text-fg shadow-stamp-sm">
+              <TriangleAlert className="size-3.5 shrink-0 text-danger" />
+              Damp soil like this is the nursery
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="flex flex-1 items-center border-y-2 border-ink bg-surface">
+        <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-6 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+          <div>
+            <p class="label-mono flex items-center gap-1.5 text-[11px] text-muted">
+              <Sparkles className="size-3.5 text-primary" />
+              The whole fix
+            </p>
+            <h2 class="mt-2 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Dry the top, trap the adults, treat the larvae
+            </h2>
+            <p class="mt-4 max-w-md leading-relaxed text-muted">
+              Four moves, stacked in order. Skip the order and you're just delaying the next
+              generation. The 7-day plan turns this into a checklist you can't get wrong.
+            </p>
             <a
-              href="/identify"
-              class="focus-ring inline-flex min-h-11 items-center gap-1.5 rounded-md text-sm font-medium text-fg underline decoration-border underline-offset-4 hover:decoration-fg"
+              href="/plan"
+              class="focus-ring group mt-6 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary"
             >
-              Not sure it's gnats? Identify first
+              See the full 7-day plan
+              <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
             </a>
           </div>
-          <ol class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
-            {
-              HOW_IT_WORKS.map((step, i) => (
-                <>
-                  <li class="flex items-center gap-2 rounded-full border border-border bg-surface py-1.5 pr-3.5 pl-1.5 text-xs font-medium text-muted">
-                    <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-surface-2 text-fg">
-                      <step.icon className="size-3.5" strokeWidth={1.75} />
+          <div class="rounded-2xl border-2 border-ink bg-surface-2 p-6 shadow-stamp sm:p-7">
+            <ol class="relative grid gap-5">
+              <div class="absolute top-4.5 bottom-4.5 left-4.5 w-px bg-border" aria-hidden="true" />
+              {
+                STEPS.map((step, i) => (
+                  <li class="relative flex gap-4">
+                    <span class="relative z-10 flex size-9 shrink-0 items-center justify-center rounded-md border-2 border-ink bg-primary font-display text-sm font-bold text-primary-foreground tabular-nums">
+                      {i + 1}
                     </span>
-                    {step.label}
+                    <p class="pt-1.5 text-sm leading-relaxed sm:text-base">{step}</p>
                   </li>
-                  {i < HOW_IT_WORKS.length - 1 && (
-                    <ArrowRight className="size-3.5 shrink-0 text-subtle" />
-                  )}
-                </>
-              ))
-            }
-          </ol>
+                ))
+              }
+            </ol>
+          </div>
         </div>
-        <figure class="relative overflow-hidden rounded-xl border border-border shadow-[0_20px_50px_-25px_color-mix(in_oklab,var(--color-fg)_35%,transparent)]">
-          <img
-            src="/images/hero.jpg"
-            alt="Indoor houseplant on a windowsill with damp soil where fungus gnats breed"
-            class="aspect-video w-full object-cover"
-            width={1792}
-            height={1008}
-          />
-          <figcaption class="absolute bottom-3 left-3 flex items-center gap-2 rounded-lg border border-border bg-bg/90 px-3 py-2 text-xs font-medium text-fg shadow-lg backdrop-blur-sm">
-            <TriangleAlert className="size-3.5 shrink-0 text-danger" />
-            Damp soil like this is the nursery
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="flex flex-1 items-center border-y border-border bg-surface">
-      <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-6 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-        <div>
-          <p class="flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.16em] text-muted">
-            <Sparkles className="size-3.5 text-primary" />
-            Quick answer
-          </p>
-          <h2 class="mt-2 font-display text-2xl tracking-tight sm:text-3xl">
-            Dry the top, trap the adults, treat the larvae
-          </h2>
-          <p class="mt-4 max-w-md leading-relaxed text-muted">
-            That's the whole fix, stacked in order. The 7-day plan turns it into a day-by-day
-            checklist so you don't have to remember any of this.
-          </p>
-          <a
-            href="/plan"
-            class="focus-ring group mt-6 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-medium text-primary"
-          >
-            See the full 7-day plan
-            <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
-          </a>
-        </div>
-        <div class="rounded-2xl border border-border bg-surface-2 p-6 shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_5%,transparent)] sm:p-7">
-          <ol class="relative grid gap-5">
-            <div class="absolute top-4 bottom-4 left-4 w-px bg-border" aria-hidden="true" />
-            {
-              STEPS.map((step, i) => (
-                <li class="relative flex gap-4">
-                  <span class="relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full bg-primary font-display text-sm font-semibold text-primary-foreground shadow-sm ring-4 ring-surface-2 tabular-nums">
-                    {i + 1}
-                  </span>
-                  <p class="pt-1 text-sm leading-relaxed sm:text-base">{step}</p>
-                </li>
-              ))
-            }
-          </ol>
-        </div>
-      </div>
-    </section>
+      </section>
     </div>
 
-    <section class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2">
+    <section class="border-b-2 border-ink bg-ink" data-reveal>
+      <div class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-3 sm:px-6">
+        {
+          STATS.map((stat) => (
+            <div class="flex items-baseline gap-3">
+              <span class="font-display text-4xl font-semibold text-primary">{stat.value}</span>
+              <span class="label-mono text-xs text-paper/60">
+                {stat.unit}
+                <br />
+                {stat.label}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2" data-reveal>
       <div>
-        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-          First: confirm the pest
-        </p>
-        <h2 class="mt-2 font-display text-3xl tracking-tight">
-          Fungus gnats, fruit flies, or drain flies?
+        <p class="label-mono text-[11px] text-muted">First: confirm the pest</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">
+          Wrong diagnosis, wasted week.
         </h2>
         <p class="mt-4 leading-relaxed text-muted">
-          Wrong pest, wasted week. Fungus gnats live in potting mix. Fruit flies live in kitchens.
-          Drain flies live in pipes. Three answers will sort it.
+          Fungus gnats live in potting mix. Fruit flies live in kitchens. Drain flies live in
+          pipes. Treat the wrong one and you're back here in seven days. Three questions will
+          sort it.
         </p>
-        <figure class="mt-6 overflow-hidden rounded-lg border border-border">
+        <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp-sm">
           <img
             src="/images/macro.jpg"
             alt="Close-up of a fungus gnat on moist potting soil"
@@ -200,23 +246,30 @@ const PREVENTION_CARDS = [
       <PestIdentifier client:load />
     </section>
 
-    <section class="bg-surface">
-      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-          Why they keep coming back
-        </p>
-        <h2 class="mt-2 max-w-2xl font-display text-3xl tracking-tight">
-          You are fighting a life cycle, not a few flies
+    <section class="relative overflow-hidden border-y-2 border-ink bg-surface" data-reveal>
+      <p
+        class="pointer-events-none absolute -top-6 right-4 hidden font-display text-[13rem] leading-none font-bold text-outline select-none sm:block"
+        aria-hidden="true"
+      >
+        02
+      </p>
+      <div class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p class="label-mono text-[11px] text-muted">Why they keep coming back</p>
+        <h2 class="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight">
+          You're fighting a life cycle, not a few flies
         </h2>
         <div class="mt-8 grid gap-8 lg:grid-cols-[minmax(0,300px)_1fr] lg:items-center">
-          <div class="flex justify-center rounded-xl border border-border bg-surface-2 p-6 lg:justify-start">
+          <div class="flex justify-center rounded-xl border-2 border-ink bg-surface-2 p-6 shadow-stamp-sm lg:justify-start">
             <GnatLifecycleDiagram />
           </div>
           <div class="grid gap-4 sm:grid-cols-3">
             {
               CYCLE_CARDS.map((card) => (
-                <article class="rounded-lg border border-border bg-surface-2 p-5 transition-colors duration-[var(--motion-quick)] hover:border-primary/40">
-                  <h3 class="font-display text-xl tracking-tight">{card.title}</h3>
+                <article class="rounded-lg border-2 border-ink bg-surface-2 p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] hover:-translate-y-1">
+                  <span class="label-mono text-xs text-primary">{card.n}</span>
+                  <h3 class="mt-1 font-display text-xl font-semibold tracking-tight">
+                    {card.title}
+                  </h3>
                   <p class="mt-2 text-sm leading-relaxed text-muted">{card.body}</p>
                 </article>
               ))
@@ -226,30 +279,33 @@ const PREVENTION_CARDS = [
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6" data-reveal>
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
-            Methods that work
-          </p>
-          <h2 class="mt-2 font-display text-3xl tracking-tight">Stack three attacks at once</h2>
+          <p class="label-mono text-[11px] text-muted">Methods that work</p>
+          <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">
+            Stack three attacks at once
+          </h2>
         </div>
         <a
           href="/plan"
-          class="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-medium text-primary"
+          class="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary"
         >
           Follow them in order
           <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
         </a>
       </div>
-      <div class="mt-8 grid gap-5 md:grid-cols-2">
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
         {
-          METHODS.map((method) => (
+          METHODS.map((method, i) => (
             <a
               href={`/guides/${method.slug}`}
-              class="focus-ring group overflow-hidden rounded-xl border border-border bg-surface shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_5%,transparent)] transition-all duration-[var(--motion-quick)] hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_16px_32px_-20px_color-mix(in_oklab,var(--color-fg)_35%,transparent)]"
+              class:list={[
+                "focus-ring group overflow-hidden rounded-xl border-2 border-ink bg-surface shadow-stamp transition-transform duration-[var(--motion-quick)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-none",
+                i % 2 === 0 ? "sm:rotate-[-0.6deg]" : "sm:rotate-[0.6deg]",
+              ]}
             >
-              <div class="overflow-hidden">
+              <div class="overflow-hidden border-b-2 border-ink">
                 <img
                   src={method.image}
                   alt=""
@@ -257,10 +313,10 @@ const PREVENTION_CARDS = [
                 />
               </div>
               <div class="p-5">
-                <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+                <p class="label-mono text-[10px] text-primary">
                   {method.kicker} · {method.time}
                 </p>
-                <h3 class="mt-1 font-display text-xl tracking-tight group-hover:text-primary">
+                <h3 class="mt-1 font-display text-xl font-semibold tracking-tight">
                   {method.title}
                 </h3>
                 <p class="mt-2 text-sm leading-relaxed text-muted">{method.summary}</p>
@@ -271,15 +327,15 @@ const PREVENTION_CARDS = [
       </div>
     </section>
 
-    <section class="border-y border-border bg-surface">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-3">
+    <section class="border-y-2 border-ink bg-surface" data-reveal>
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-3">
         {
           PREVENTION_CARDS.map((item) => (
             <article>
-              <span class="flex size-10 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <item.icon className="size-5" strokeWidth={1.6} />
+              <span class="flex size-11 rotate-[-3deg] items-center justify-center rounded-md border-2 border-ink bg-primary text-primary-foreground shadow-stamp-sm">
+                <item.icon className="size-5" strokeWidth={1.75} />
               </span>
-              <h3 class="mt-3 font-display text-xl tracking-tight">{item.title}</h3>
+              <h3 class="mt-3 font-display text-xl font-semibold tracking-tight">{item.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
             </article>
           ))
@@ -287,24 +343,30 @@ const PREVENTION_CARDS = [
       </div>
     </section>
 
-    <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-      <h2 class="font-display text-3xl tracking-tight">Common questions</h2>
-      <div class="mt-6 divide-y divide-border border-y border-border">
+    <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6" data-reveal>
+      <p class="label-mono text-[11px] text-muted">Still wondering</p>
+      <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Common questions</h2>
+      <div class="mt-6 grid gap-3">
         {
-          FAQS.slice(0, 4).map((item) => (
-            <details class="group py-4">
-              <summary class="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
-                {item.q}
+          FAQS.slice(0, 4).map((item, i) => (
+            <details class="group rounded-lg border-2 border-ink bg-surface px-4 py-1 shadow-stamp-sm">
+              <summary class="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
+                <span class="flex items-start gap-3">
+                  <span class="label-mono mt-0.5 shrink-0 text-xs text-primary">
+                    Q{String(i + 1).padStart(2, "0")}
+                  </span>
+                  {item.q}
+                </span>
                 <ChevronDown className="size-4 shrink-0 text-muted transition-transform duration-[var(--motion-quick)] group-open:rotate-180" />
               </summary>
-              <p class="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
+              <p class="mt-1 pb-4 pl-8 text-sm leading-relaxed text-muted">{item.a}</p>
             </details>
           ))
         }
       </div>
       <a
         href="/faq"
-        class="focus-ring mt-6 inline-flex min-h-11 items-center rounded-md text-sm font-medium text-primary"
+        class="focus-ring mt-6 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-primary"
       >
         All questions
       </a>

@@ -1,41 +1,45 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
+
+const CLUES = [
+  { who: "Fungus gnats", where: "Soil, long legs, fly up when you water." },
+  { who: "Fruit flies", where: "Fruit, trash, compost — rounder body, red eyes." },
+  { who: "Drain flies", where: "Drains, fuzzy wings — hop more than they fly." },
+];
 ---
 
 <Layout
   title="Identify Fungus Gnats vs Fruit Flies | Stop Fungus Gnats"
   description="Tell fungus gnats from fruit flies and drain flies in three questions so you treat the right pest."
 >
-  <main class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2">
+  <main class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2" data-reveal>
     <div>
-      <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">Identify</p>
-      <h1 class="mt-2 font-display text-4xl tracking-tight">Are these fungus gnats?</h1>
+      <p class="label-mono text-[11px] text-muted">Diagnosis</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">
+        Are these <span class="text-primary italic">actually</span> fungus gnats?
+      </h1>
       <p class="mt-4 leading-relaxed text-muted">
         Fungus gnats are slender, dark, mosquito-like flies that hover over houseplant soil. They
         are weak fliers. Fruit flies prefer kitchens. Drain flies look moth-like and sit on
-        porcelain.
+        porcelain. Treat the wrong one and you'll be right back here in a week.
       </p>
-      <figure class="mt-6 overflow-hidden rounded-lg border border-border shadow-[0_16px_32px_-24px_color-mix(in_oklab,var(--color-fg)_35%,transparent)]">
+      <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp">
         <img
           src="/images/macro.jpg"
           alt="Macro photo of a fungus gnat on potting soil"
           class="aspect-4/3 w-full object-cover"
         />
       </figure>
-      <ul class="mt-6 grid gap-3 text-sm leading-relaxed text-muted">
-        <li>
-          <span class="font-medium text-fg">Fungus gnats:</span> soil, long legs, fly up when you
-          water.
-        </li>
-        <li>
-          <span class="font-medium text-fg">Fruit flies:</span> fruit, trash, compost, rounder body,
-          red eyes.
-        </li>
-        <li>
-          <span class="font-medium text-fg">Drain flies:</span> drains, fuzzy wings, hop more than
-          they fly.
-        </li>
+      <ul class="mt-6 grid gap-3">
+        {
+          CLUES.map((clue) => (
+            <li class="flex items-start gap-3 rounded-md border-2 border-ink bg-surface px-3 py-2.5 shadow-stamp-sm">
+              <span class="label-mono shrink-0 text-[11px] text-primary">{clue.who}</span>
+              <span class="text-sm leading-relaxed text-muted">{clue.where}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
     <PestIdentifier client:load />

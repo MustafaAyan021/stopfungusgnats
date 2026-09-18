@@ -8,18 +8,25 @@ import { FAQS } from "@/data/content";
   title="Fungus Gnat FAQ | Stop Fungus Gnats"
   description="Do fungus gnats bite? How long to get rid of them? Is cinnamon enough? Answers for houseplant owners."
 >
-  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">FAQ</p>
-    <h1 class="mt-2 font-display text-4xl tracking-tight">Fungus gnat questions</h1>
-    <div class="mt-8 divide-y divide-border border-y border-border">
+  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
+    <p class="label-mono text-[11px] text-muted">Everything, answered</p>
+    <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">
+      Fungus gnat <span class="text-primary italic">questions</span>
+    </h1>
+    <div class="mt-8 grid gap-3">
       {
-        FAQS.map((item) => (
-          <details class="group py-4" open>
-            <summary class="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
-              {item.q}
+        FAQS.map((item, i) => (
+          <details class="group rounded-lg border-2 border-ink bg-surface px-4 py-1 shadow-stamp-sm" open={i === 0}>
+            <summary class="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
+              <span class="flex items-start gap-3">
+                <span class="label-mono mt-0.5 shrink-0 text-xs text-primary">
+                  Q{String(i + 1).padStart(2, "0")}
+                </span>
+                {item.q}
+              </span>
               <ChevronDown className="size-4 shrink-0 text-muted transition-transform duration-[var(--motion-quick)] group-open:rotate-180" />
             </summary>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
+            <p class="mt-1 pb-4 pl-8 text-sm leading-relaxed text-muted">{item.a}</p>
           </details>
         ))
       }
