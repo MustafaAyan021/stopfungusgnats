@@ -51,6 +51,7 @@
     --color-border: #3c492e;
     --color-ring: #7ed88a;
     --color-danger: #e88a6d;
+    --color-ink: #f1f3e8;
     color-scheme: dark;
   }
 }
@@ -69,6 +70,7 @@
   --color-border: #3c492e;
   --color-ring: #7ed88a;
   --color-danger: #e88a6d;
+  --color-ink: #f1f3e8;
   color-scheme: dark;
 }
 
@@ -155,21 +157,29 @@
     font-weight: 500;
   }
 
-  /* Signature offset "stamp" shadow — the maximalist card treatment. */
+  /* Signature offset "stamp" glow — soft-edged, not a hard graphic block. */
   .shadow-stamp {
-    box-shadow: 6px 6px 0 0 var(--color-primary);
+    box-shadow: 6px 6px 24px -6px var(--color-primary);
   }
 
   .shadow-stamp-danger {
-    box-shadow: 6px 6px 0 0 var(--color-danger);
+    box-shadow: 6px 6px 24px -6px var(--color-danger);
   }
 
   .shadow-stamp-ink {
-    box-shadow: 6px 6px 0 0 var(--color-ink);
+    box-shadow: 6px 6px 20px -6px var(--color-ink);
   }
 
   .shadow-stamp-sm {
-    box-shadow: 4px 4px 0 0 var(--color-primary);
+    box-shadow: 4px 4px 18px -5px var(--color-primary);
+  }
+
+  /* Frosted-glass card: translucent, blurred, softly bordered. */
+  .glass {
+    background: color-mix(in oklab, var(--color-surface-2) 62%, transparent);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1.5px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
   }
 
   /* Subtle grain so flat color fields feel printed, not flat vector. */

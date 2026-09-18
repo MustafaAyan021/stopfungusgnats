@@ -74,7 +74,7 @@ export function TreatmentPlan() {
             <li
               key={block.day}
               className={cn(
-                "rounded-xl border-2 border-ink bg-surface p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] sm:p-6",
+                "rounded-xl glass p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] sm:p-6",
                 dayComplete && "border-primary",
               )}
             >

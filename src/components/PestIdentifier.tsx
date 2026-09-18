@@ -116,7 +116,7 @@ export function PestIdentifier() {
     return (
       <div
         key="result"
-        className="animate-in rounded-xl border-2 border-ink bg-surface p-6 shadow-stamp"
+        className="animate-in glass rounded-xl p-6 shadow-stamp"
       >
         <p className="label-mono text-[11px] text-primary">Verdict</p>
         <div className="mt-3 flex items-start gap-3">
@@ -139,7 +139,7 @@ export function PestIdentifier() {
   }
 
   return (
-    <div className="rounded-xl border-2 border-ink bg-surface p-6 shadow-stamp">
+    <div className="glass rounded-xl p-6 shadow-stamp">
       <div className="label-mono flex items-center justify-between gap-3 text-[11px] text-muted">
         <span>Identify the pest</span>
         <span className="tabular-nums">
@@ -164,7 +164,7 @@ export function PestIdentifier() {
             key={opt.label}
             type="button"
             onClick={() => choose(i)}
-            className="focus-ring min-h-12 rounded-md border-2 border-ink bg-bg px-4 py-3 text-left text-sm leading-snug font-medium text-fg transition-all duration-[var(--motion-quick)] hover:-translate-y-0.5 hover:bg-surface-2 hover:shadow-stamp-sm active:translate-y-0 active:shadow-none"
+            className="focus-ring min-h-12 rounded-md border-2 border-ink bg-bg px-4 py-3 text-left text-sm leading-snug font-medium text-fg transition-[transform,background-color] duration-[var(--motion-quick)] hover:-translate-y-0.5 hover:bg-surface-2 hover:shadow-stamp-sm active:translate-y-0 active:shadow-none"
           >
             {opt.label}
           </button>

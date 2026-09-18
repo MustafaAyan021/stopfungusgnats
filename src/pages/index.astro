@@ -83,8 +83,7 @@ const PREVENTION_CARDS = [
   description="How to get rid of fungus gnats for good: identify them, dry the soil, catch adults on sticky traps, kill larvae with Bti or peroxide, and prevent the next generation."
 >
   <main>
-    <div class="flex min-h-[calc(100dvh-6rem)] flex-col">
-      <section class="relative flex flex-1 items-center overflow-hidden bg-grain">
+    <section class="relative flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden bg-grain">
         <div
           class="pointer-events-none absolute -top-40 left-1/2 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
           style="background: radial-gradient(closest-side, color-mix(in oklab, var(--color-primary) 26%, transparent), transparent);"
@@ -164,8 +163,8 @@ const PREVENTION_CARDS = [
         </div>
       </section>
 
-      <section class="flex flex-1 items-center border-y-2 border-ink bg-surface">
-        <div class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-6 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+      <section class="border-y border-border bg-surface/70 backdrop-blur-md" data-reveal>
+        <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
             <p class="label-mono flex items-center gap-1.5 text-[11px] text-muted">
               <Sparkles className="size-3.5 text-primary" />
@@ -186,7 +185,7 @@ const PREVENTION_CARDS = [
               <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
             </a>
           </div>
-          <div class="rounded-xl border-2 border-ink bg-surface-2 p-6 shadow-stamp sm:p-7">
+          <div class="glass rounded-xl p-6 shadow-stamp sm:p-7">
             <ol class="relative grid gap-5">
               <div class="absolute top-4.5 bottom-4.5 left-4.5 w-px bg-border" aria-hidden="true" />
               {
@@ -203,9 +202,8 @@ const PREVENTION_CARDS = [
           </div>
         </div>
       </section>
-    </div>
 
-    <section class="border-b-2 border-ink bg-surface-2" data-reveal>
+    <section class="border-b border-border bg-surface-2/70 backdrop-blur-md" data-reveal>
       <div class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-3 sm:px-6">
         {
           STATS.map((stat) => (
@@ -246,7 +244,7 @@ const PREVENTION_CARDS = [
       <PestIdentifier client:load />
     </section>
 
-    <section class="relative overflow-hidden border-y-2 border-ink bg-surface" data-reveal>
+    <section class="relative overflow-hidden border-y border-border bg-surface/70 backdrop-blur-md" data-reveal>
       <p
         class="pointer-events-none absolute -top-6 right-4 hidden font-display text-[13rem] leading-none font-bold text-outline select-none sm:block"
         aria-hidden="true"
@@ -259,13 +257,13 @@ const PREVENTION_CARDS = [
           You're fighting a life cycle, not a few flies
         </h2>
         <div class="mt-8 grid gap-8">
-          <div class="rounded-xl border-2 border-ink bg-surface-2 p-4 shadow-stamp sm:p-8">
+          <div class="glass rounded-xl p-4 shadow-stamp sm:p-8">
             <GnatLifecycleDiagram />
           </div>
           <div class="grid gap-4 sm:grid-cols-3">
             {
               CYCLE_CARDS.map((card) => (
-                <article class="rounded-lg border-2 border-ink bg-surface-2 p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] hover:-translate-y-1">
+                <article class="glass rounded-lg p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] hover:-translate-y-1">
                   <span class="label-mono text-xs text-primary">{card.n}</span>
                   <h3 class="mt-1 font-display text-xl font-semibold tracking-tight">
                     {card.title}
@@ -301,11 +299,11 @@ const PREVENTION_CARDS = [
             <a
               href={`/guides/${method.slug}`}
               class:list={[
-                "focus-ring group overflow-hidden rounded-xl border-2 border-ink bg-surface shadow-stamp transition-transform duration-[var(--motion-quick)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-none",
+                "focus-ring group overflow-hidden glass rounded-xl shadow-stamp transition-transform duration-[var(--motion-quick)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-none",
                 i % 2 === 0 ? "sm:rotate-[-0.6deg]" : "sm:rotate-[0.6deg]",
               ]}
             >
-              <div class="overflow-hidden border-b-2 border-ink">
+              <div class="overflow-hidden border-b border-border/60">
                 <img
                   src={method.image}
                   alt=""
@@ -327,7 +325,7 @@ const PREVENTION_CARDS = [
       </div>
     </section>
 
-    <section class="border-y-2 border-ink bg-surface" data-reveal>
+    <section class="border-y border-border bg-surface/70 backdrop-blur-md" data-reveal>
       <div class="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-3">
         {
           PREVENTION_CARDS.map((item) => (
@@ -349,7 +347,7 @@ const PREVENTION_CARDS = [
       <div class="mt-6 grid gap-3">
         {
           FAQS.slice(0, 4).map((item, i) => (
-            <details class="group rounded-lg border-2 border-ink bg-surface px-4 py-1 shadow-stamp-sm">
+            <details class="group glass rounded-lg px-4 py-1 shadow-stamp-sm">
               <summary class="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
                 <span class="flex items-start gap-3">
                   <span class="label-mono mt-0.5 shrink-0 text-xs text-primary">
