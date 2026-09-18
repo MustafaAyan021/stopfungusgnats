@@ -52,13 +52,13 @@ const PREVENTION_CARDS = [
   description="How to get rid of fungus gnats for good: identify them, dry the soil, catch adults on sticky traps, kill larvae with Bti or peroxide, and prevent the next generation."
 >
   <main>
-    <section class="relative overflow-hidden">
+    <section class="relative flex min-h-[calc(100dvh-4rem)] items-center overflow-hidden">
       <div
         class="pointer-events-none absolute -top-32 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
         style="background: radial-gradient(closest-side, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent);"
       >
       </div>
-      <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:py-16">
+      <div class="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:py-16">
         <div>
           <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
             Houseplant pest guide
@@ -89,24 +89,27 @@ const PREVENTION_CARDS = [
       </div>
     </section>
 
-    <section class="border-y border-border bg-surface">
-      <div class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <section class="flex min-h-[calc(100dvh-4rem)] items-center border-y border-border bg-surface">
+      <div class="mx-auto w-full max-w-3xl px-4 py-14 sm:px-6">
         <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">Quick answer</p>
         <h2 class="mt-2 font-display text-2xl tracking-tight sm:text-3xl">
           Dry the top, trap the adults, treat the larvae
         </h2>
-        <ol class="mt-6 grid gap-4">
-          {
-            STEPS.map((step, i) => (
-              <li class="flex gap-4">
-                <span class="flex size-8 shrink-0 items-center justify-center rounded-md bg-primary font-display text-sm text-primary-foreground tabular-nums">
-                  {i + 1}
-                </span>
-                <p class="pt-1 text-sm leading-relaxed sm:text-base">{step}</p>
-              </li>
-            ))
-          }
-        </ol>
+        <div class="mt-6 rounded-2xl border border-border bg-bg p-6 shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_5%,transparent)] sm:p-8">
+          <ol class="relative grid gap-6">
+            <div class="absolute top-4 bottom-4 left-4 w-px bg-border" aria-hidden="true" />
+            {
+              STEPS.map((step, i) => (
+                <li class="relative flex gap-4">
+                  <span class="relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full bg-primary font-display text-sm font-semibold text-primary-foreground shadow-sm ring-4 ring-bg tabular-nums">
+                    {i + 1}
+                  </span>
+                  <p class="pt-1 text-sm leading-relaxed sm:text-base">{step}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
       </div>
     </section>
 
