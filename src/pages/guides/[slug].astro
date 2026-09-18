@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { ArrowLeft } from "lucide-react";
+import { GUIDES, METHODS } from "@/data/content";
+
+export function getStaticPaths() {
+  return Object.keys(GUIDES).map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const guide = GUIDES[slug as string];
+if (!guide) return Astro.redirect("/404");
+
+const others = METHODS.filter((m) => m.slug !== slug);
+---
+
+<Layout title={`${guide.title} | Stop Fungus Gnats`} description={guide.description}>
+  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <a href="/" class="inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg">
+      <ArrowLeft className="size-4" />
+      All methods
+    </a>
+    <p class="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-muted">{guide.kicker}</p>
+    <h1 class="mt-2 font-display text-4xl tracking-tight">{guide.title}</h1>
+    <p class="mt-4 text-lg leading-relaxed text-muted">{guide.description}</p>
+    <figure class="mt-8 overflow-hidden rounded-xl border border-border">
+      <img src={guide.image} alt="" class="aspect-video w-full object-cover" />
+    </figure>
+    <div class="mt-10 grid gap-10">
+      {
+        guide.body.map((section) => (
+          <section>
+            <h2 class="font-display text-2xl tracking-tight">{section.heading}</h2>
+            {section.paragraphs.map((p) => (
+              <p class="mt-3 leading-relaxed text-muted">{p}</p>
+            ))}
+          </section>
+        ))
+      }
+    </div>
+    <aside class="mt-14 border-t border-border pt-8">
+      <p class="text-sm font-medium">Next methods</p>
+      <ul class="mt-3 grid gap-2">
+        {
+          others.slice(0, 3).map((m) => (
+            <li>
+              <a href={`/guides/${m.slug}`} class="text-sm text-primary hover:underline">
+                {m.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+  </main>
+</Layout>

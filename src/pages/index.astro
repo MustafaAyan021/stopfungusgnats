@@ -1,0 +1,229 @@
+---
+import { ArrowRight, Droplets, Layers, ShieldCheck } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import { PestIdentifier } from "@/components/PestIdentifier";
+import { FAQS, METHODS } from "@/data/content";
+
+const STEPS = [
+  "Let the top 1–2 inches of mix dry before you water again. Empty saucers.",
+  "Stand yellow sticky cards at soil level to catch egg-laying adults.",
+  "Drench larvae with Bti (Mosquito Bits) or a 1:4 mix of 3% hydrogen peroxide and water.",
+  "Keep that up for two weeks after the last fly. One soggy week restarts the cycle.",
+];
+
+const CYCLE_CARDS = [
+  {
+    title: "Eggs in wet mix",
+    body: "Females lay in moist organic soil. Eggs hatch in a few days.",
+  },
+  {
+    title: "Larvae underground",
+    body: "White maggots with black heads feed for about two weeks. Traps miss them.",
+  },
+  {
+    title: "Short-lived adults",
+    body: "Adults are weak fliers. Kill them and the next wave still emerges from the pot.",
+  },
+];
+
+const PREVENTION_CARDS = [
+  {
+    icon: Droplets,
+    title: "Water from below",
+    body: "Bottom watering keeps the surface drier so females have nowhere useful to lay.",
+  },
+  {
+    icon: Layers,
+    title: "Cover the soil",
+    body: "A half-inch of coarse sand or grit after larvae are down makes egg-laying harder.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Quarantine new plants",
+    body: "Nursery mix is a common hitchhike. One sticky card for a week before they join the shelf.",
+  },
+];
+---
+
+<Layout
+  title="How to Get Rid of Fungus Gnats | Stop Fungus Gnats"
+  description="How to get rid of fungus gnats for good: identify them, dry the soil, catch adults on sticky traps, kill larvae with Bti or peroxide, and prevent the next generation."
+>
+  <main>
+    <section class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:py-16">
+      <div>
+        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
+          Houseplant pest guide
+        </p>
+        <h1 class="mt-3 font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+          How to get rid of fungus gnats
+        </h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+          Those tiny dark flies over your pots are breeding in wet mix. Stop the nursery, catch
+          the adults, kill the larvae. Most infestations break in one to three weeks.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a
+            href="/plan"
+            class="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-6 text-base font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Start the 7-day plan
+          </a>
+          <a
+            href="/identify"
+            class="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-surface px-6 text-base font-medium text-fg transition-colors hover:bg-surface-2"
+          >
+            Identify the pest
+          </a>
+        </div>
+      </div>
+      <figure class="overflow-hidden rounded-xl border border-border">
+        <img
+          src="/images/hero.jpg"
+          alt="Indoor houseplant on a windowsill with damp soil where fungus gnats breed"
+          class="aspect-video w-full object-cover"
+          width={1792}
+          height={1008}
+        />
+      </figure>
+    </section>
+
+    <section class="border-y border-border bg-surface">
+      <div class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">Quick answer</p>
+        <h2 class="mt-2 font-display text-2xl tracking-tight sm:text-3xl">
+          Dry the top, trap the adults, treat the larvae
+        </h2>
+        <ol class="mt-6 grid gap-4">
+          {
+            STEPS.map((step, i) => (
+              <li class="flex gap-4">
+                <span class="flex size-8 shrink-0 items-center justify-center rounded-md bg-primary font-display text-sm text-primary-foreground tabular-nums">
+                  {i + 1}
+                </span>
+                <p class="pt-1 text-sm leading-relaxed sm:text-base">{step}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2">
+      <div>
+        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
+          First: confirm the pest
+        </p>
+        <h2 class="mt-2 font-display text-3xl tracking-tight">
+          Fungus gnats, fruit flies, or drain flies?
+        </h2>
+        <p class="mt-4 leading-relaxed text-muted">
+          Wrong pest, wasted week. Fungus gnats live in potting mix. Fruit flies live in kitchens.
+          Drain flies live in pipes. Three answers will sort it.
+        </p>
+        <figure class="mt-6 overflow-hidden rounded-lg border border-border">
+          <img
+            src="/images/macro.jpg"
+            alt="Close-up of a fungus gnat on moist potting soil"
+            class="aspect-4/3 w-full object-cover"
+            width={1600}
+            height={1200}
+          />
+        </figure>
+      </div>
+      <PestIdentifier client:load />
+    </section>
+
+    <section class="bg-surface">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
+          Why they keep coming back
+        </p>
+        <h2 class="mt-2 max-w-2xl font-display text-3xl tracking-tight">
+          You are fighting a life cycle, not a few flies
+        </h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          {
+            CYCLE_CARDS.map((card) => (
+              <article class="rounded-lg border border-border bg-bg p-5">
+                <h3 class="font-display text-xl tracking-tight">{card.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted">{card.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">
+            Methods that work
+          </p>
+          <h2 class="mt-2 font-display text-3xl tracking-tight">Stack three attacks at once</h2>
+        </div>
+        <a href="/plan" class="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary">
+          Follow them in order
+          <ArrowRight className="size-4" />
+        </a>
+      </div>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {
+          METHODS.map((method) => (
+            <a
+              href={`/guides/${method.slug}`}
+              class="group overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-[var(--motion-quick)] hover:border-primary"
+            >
+              <img src={method.image} alt="" class="aspect-video w-full object-cover" />
+              <div class="p-5">
+                <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+                  {method.kicker} · {method.time}
+                </p>
+                <h3 class="mt-1 font-display text-xl tracking-tight group-hover:text-primary">
+                  {method.title}
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted">{method.summary}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="border-y border-border bg-surface">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-3">
+        {
+          PREVENTION_CARDS.map((item) => (
+            <article>
+              <item.icon className="size-5 text-primary" strokeWidth={1.6} />
+              <h3 class="mt-3 font-display text-xl tracking-tight">{item.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <h2 class="font-display text-3xl tracking-tight">Common questions</h2>
+      <div class="mt-6 divide-y divide-border border-y border-border">
+        {
+          FAQS.slice(0, 4).map((item) => (
+            <details class="group py-4">
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-medium">
+                {item.q}
+                <span class="text-muted group-open:hidden">+</span>
+                <span class="hidden text-muted group-open:inline">−</span>
+              </summary>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+      <a href="/faq" class="mt-6 inline-flex min-h-11 items-center text-sm font-medium text-primary">
+        All questions
+      </a>
+    </section>
+  </main>
+</Layout>
