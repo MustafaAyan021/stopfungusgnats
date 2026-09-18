@@ -1,5 +1,5 @@
 ---
-import { Sprout, Menu, X } from "lucide-react";
+import { Sprout } from "lucide-react";
 import { buttonVariants } from "@/lib/button-variants";
 import { SITE } from "@/data/content";
 import ThemeToggle from "@/components/ThemeToggle.astro";
@@ -41,113 +41,45 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
   </div>
 </div>
 
-<header class="sticky top-0 z-40">
-  <div class="border-b border-border bg-bg/75 backdrop-blur-md">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-      <a href="/" class="focus-ring flex items-center gap-2.5 rounded-md text-fg">
-        <span
-          class="flex size-10 rotate-[-4deg] items-center justify-center rounded-md border-2 border-ink bg-primary text-primary-foreground shadow-stamp-ink"
-        >
-          <Sprout className="size-5" strokeWidth={2} />
-        </span>
-        <span class="font-display text-xl font-semibold tracking-tight">{SITE.name}</span>
-      </a>
+<header class="sticky top-0 z-40 border-b border-border bg-bg/75 backdrop-blur-md">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <a href="/" class="focus-ring flex items-center gap-2.5 rounded-md text-fg">
+      <span
+        class="flex size-10 rotate-[-4deg] items-center justify-center rounded-md border-2 border-ink bg-primary text-primary-foreground shadow-stamp-ink"
+      >
+        <Sprout className="size-5" strokeWidth={2} />
+      </span>
+      <span class="font-display text-xl font-semibold tracking-tight">{SITE.name}</span>
+    </a>
 
-      <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
-        {
-          NAV.map((item) => (
-            <a
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              class:list={[
-                "label-mono focus-ring relative rounded-md px-3 py-2 text-xs transition-colors duration-[var(--motion-quick)]",
-                isActive(item.href)
-                  ? "text-fg"
-                  : "text-muted hover:bg-surface-2 hover:text-fg",
-              ]}
-            >
-              {item.label}
-              {isActive(item.href) && (
-                <span class="absolute inset-x-2.5 -bottom-px h-0.5 rounded-full bg-primary" />
-              )}
-            </a>
-          ))
-        }
-        <div class="ml-3 flex items-center gap-2">
-          <ThemeToggle />
-          <a href="/plan" class={buttonVariants({ size: "sm" })}>Start the plan</a>
-        </div>
-      </nav>
-
-      <div class="flex items-center gap-2 md:hidden">
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class:list={[
+              "label-mono focus-ring relative rounded-md px-3 py-2 text-xs transition-colors duration-[var(--motion-quick)]",
+              isActive(item.href)
+                ? "text-fg"
+                : "text-muted hover:bg-surface-2 hover:text-fg",
+            ]}
+          >
+            {item.label}
+            {isActive(item.href) && (
+              <span class="absolute inset-x-2.5 -bottom-px h-0.5 rounded-full bg-primary" />
+            )}
+          </a>
+        ))
+      }
+      <div class="ml-3 flex items-center gap-2">
         <ThemeToggle />
-        <button
-          type="button"
-          id="menu-toggle"
-          class="focus-ring flex size-10 items-center justify-center glass rounded-md shadow-stamp-sm"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-          aria-label="Open menu"
-        >
-          <Menu className="size-5" data-icon="open" />
-          <X className="hidden size-5" data-icon="close" />
-        </button>
+        <a href="/plan" class={buttonVariants({ size: "sm" })}>Start the plan</a>
       </div>
-    </div>
+    </nav>
 
-    <div
-      id="mobile-nav"
-      class="max-h-0 overflow-hidden border-t border-border bg-surface/85 backdrop-blur-md transition-[max-height] duration-[var(--motion-fast)] ease-[var(--ease-out)] md:hidden"
-    >
-      <nav class="mx-auto flex max-w-6xl flex-col px-4 py-3" aria-label="Mobile">
-        {
-          NAV.map((item) => (
-            <a
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              class:list={[
-                "label-mono focus-ring flex min-h-11 items-center rounded-md px-2 text-sm",
-                isActive(item.href) ? "text-primary" : "text-fg",
-              ]}
-            >
-              {item.label}
-            </a>
-          ))
-        }
-        <a
-          href="/plan"
-          class="mt-2 flex min-h-11 items-center justify-center rounded-md border-2 border-ink bg-primary font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-        >
-          Start the 7-day plan
-        </a>
-      </nav>
+    <div class="md:hidden">
+      <ThemeToggle />
     </div>
   </div>
 </header>
-
-<script>
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("mobile-nav");
-  const openIcon = toggle?.querySelector<HTMLElement>('[data-icon="open"]');
-  const closeIcon = toggle?.querySelector<HTMLElement>('[data-icon="close"]');
-  let isOpen = false;
-
-  function setOpen(next: boolean) {
-    isOpen = next;
-    if (nav) nav.style.maxHeight = next ? `${nav.scrollHeight}px` : "0px";
-    toggle?.setAttribute("aria-expanded", String(next));
-    toggle?.setAttribute("aria-label", next ? "Close menu" : "Open menu");
-    openIcon?.classList.toggle("hidden", next);
-    closeIcon?.classList.toggle("hidden", !next);
-  }
-
-  toggle?.addEventListener("click", () => setOpen(!isOpen));
-
-  nav?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setOpen(false));
-  });
-
-  window.addEventListener("resize", () => {
-    if (isOpen && nav) nav.style.maxHeight = `${nav.scrollHeight}px`;
-  });
-</script>
