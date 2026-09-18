@@ -7,11 +7,11 @@
   --color-fg: #1a2216;
   --color-muted: #5d6758;
   --color-subtle: #7a8474;
-  --color-primary: #3d5a45;
-  --color-primary-foreground: #f4efe4;
-  --color-accent: #3d5a45;
+  --color-primary: #45f249;
+  --color-primary-foreground: #0f1a0b;
+  --color-accent: #45f249;
   --color-border: #d4cbb8;
-  --color-ring: #3d5a45;
+  --color-ring: #45f249;
   --color-danger: #8a3b2a;
 
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
@@ -41,11 +41,11 @@
     --color-fg: #f1f3e8;
     --color-muted: #aeb99e;
     --color-subtle: #8a9680;
-    --color-primary: #8fbd8d;
+    --color-primary: #45f249;
     --color-primary-foreground: #0d1509;
-    --color-accent: #8fbd8d;
+    --color-accent: #45f249;
     --color-border: #3c492e;
-    --color-ring: #8fbd8d;
+    --color-ring: #45f249;
     --color-danger: #e39683;
     color-scheme: dark;
   }
@@ -59,11 +59,11 @@
   --color-fg: #f1f3e8;
   --color-muted: #aeb99e;
   --color-subtle: #8a9680;
-  --color-primary: #8fbd8d;
+  --color-primary: #45f249;
   --color-primary-foreground: #0d1509;
-  --color-accent: #8fbd8d;
+  --color-accent: #45f249;
   --color-border: #3c492e;
-  --color-ring: #8fbd8d;
+  --color-ring: #45f249;
   --color-danger: #e39683;
   color-scheme: dark;
 }
