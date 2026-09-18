@@ -35,36 +35,36 @@
 /* System preference, unless the user has explicitly chosen light. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #12150f;
-    --color-surface: #191d13;
-    --color-surface-2: #242a1b;
-    --color-fg: #edf0e4;
-    --color-muted: #a7b199;
-    --color-subtle: #85917a;
-    --color-primary: #8bb98a;
-    --color-primary-foreground: #0f1a10;
-    --color-accent: #8bb98a;
-    --color-border: #313a26;
-    --color-ring: #8bb98a;
-    --color-danger: #e0917f;
+    --color-bg: #0e120b;
+    --color-surface: #1a2014;
+    --color-surface-2: #2b3520;
+    --color-fg: #f1f3e8;
+    --color-muted: #aeb99e;
+    --color-subtle: #8a9680;
+    --color-primary: #8fbd8d;
+    --color-primary-foreground: #0d1509;
+    --color-accent: #8fbd8d;
+    --color-border: #3c492e;
+    --color-ring: #8fbd8d;
+    --color-danger: #e39683;
     color-scheme: dark;
   }
 }
 
 /* Explicit user choice always wins over system preference. */
 :root[data-theme="dark"] {
-  --color-bg: #12150f;
-  --color-surface: #191d13;
-  --color-surface-2: #242a1b;
-  --color-fg: #edf0e4;
-  --color-muted: #a7b199;
-  --color-subtle: #85917a;
-  --color-primary: #8bb98a;
-  --color-primary-foreground: #0f1a10;
-  --color-accent: #8bb98a;
-  --color-border: #313a26;
-  --color-ring: #8bb98a;
-  --color-danger: #e0917f;
+  --color-bg: #0e120b;
+  --color-surface: #1a2014;
+  --color-surface-2: #2b3520;
+  --color-fg: #f1f3e8;
+  --color-muted: #aeb99e;
+  --color-subtle: #8a9680;
+  --color-primary: #8fbd8d;
+  --color-primary-foreground: #0d1509;
+  --color-accent: #8fbd8d;
+  --color-border: #3c492e;
+  --color-ring: #8fbd8d;
+  --color-danger: #e39683;
   color-scheme: dark;
 }
 
