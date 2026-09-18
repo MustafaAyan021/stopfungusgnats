@@ -186,7 +186,7 @@ const PREVENTION_CARDS = [
               <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
             </a>
           </div>
-          <div class="rounded-2xl border-2 border-ink bg-surface-2 p-6 shadow-stamp sm:p-7">
+          <div class="rounded-xl border-2 border-ink bg-surface-2 p-6 shadow-stamp sm:p-7">
             <ol class="relative grid gap-5">
               <div class="absolute top-4.5 bottom-4.5 left-4.5 w-px bg-border" aria-hidden="true" />
               {
@@ -205,13 +205,13 @@ const PREVENTION_CARDS = [
       </section>
     </div>
 
-    <section class="border-b-2 border-ink bg-ink" data-reveal>
+    <section class="border-b-2 border-ink bg-surface-2" data-reveal>
       <div class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-3 sm:px-6">
         {
           STATS.map((stat) => (
             <div class="flex items-baseline gap-3">
               <span class="font-display text-4xl font-semibold text-primary">{stat.value}</span>
-              <span class="label-mono text-xs text-paper/60">
+              <span class="label-mono text-xs text-muted">
                 {stat.unit}
                 <br />
                 {stat.label}
@@ -258,8 +258,8 @@ const PREVENTION_CARDS = [
         <h2 class="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight">
           You're fighting a life cycle, not a few flies
         </h2>
-        <div class="mt-8 grid gap-8 lg:grid-cols-[minmax(0,300px)_1fr] lg:items-center">
-          <div class="flex justify-center rounded-xl border-2 border-ink bg-surface-2 p-6 shadow-stamp-sm lg:justify-start">
+        <div class="mt-8 grid gap-8">
+          <div class="rounded-xl border-2 border-ink bg-surface-2 p-4 shadow-stamp sm:p-8">
             <GnatLifecycleDiagram />
           </div>
           <div class="grid gap-4 sm:grid-cols-3">

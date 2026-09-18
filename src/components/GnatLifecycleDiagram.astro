@@ -2,88 +2,136 @@
 ---
 
 <svg
-  viewBox="0 0 400 340"
-  class="w-full max-w-sm"
+  viewBox="0 0 1200 460"
+  class="w-full"
   role="img"
-  aria-labelledby="gnat-diagram-title"
+  aria-labelledby="gnat-diagram-title gnat-diagram-desc"
 >
-  <title id="gnat-diagram-title">
-    Cross-section of a potted plant showing gnats laying eggs in wet soil, larvae feeding below
-    the surface, and a sticky trap catching adults
-  </title>
+  <title id="gnat-diagram-title">The fungus gnat life cycle, illustrated in three stages</title>
+  <desc id="gnat-diagram-desc">
+    Stage one: eggs laid in wet soil hatch within days. Stage two: larvae feed underground for
+    about two weeks, invisible to sticky traps. Stage three: short-lived adults emerge, fly up
+    when disturbed, and lay the next batch of eggs — restarting the cycle unless it's broken.
+  </desc>
 
-  <!-- leaves -->
-  <g stroke="var(--color-primary)" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M200 92 C 170 60, 140 55, 118 70 C 130 96, 160 104, 200 92 Z" />
-    <path d="M200 92 C 230 55, 265 50, 292 66 C 278 96, 244 106, 200 92 Z" />
-    <path d="M200 92 C 194 48, 202 18, 222 2" />
-  </g>
-  <g fill="var(--color-primary)" opacity="0.9">
-    <path d="M200 92 C 170 60, 140 55, 118 70 C 130 96, 160 104, 200 92 Z" />
-    <path d="M200 92 C 230 55, 265 50, 292 66 C 278 96, 244 106, 200 92 Z" />
-  </g>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--color-ink)" />
+    </marker>
+    <marker id="arrow-danger" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--color-danger)" />
+    </marker>
+  </defs>
 
-  <!-- pot -->
+  <!-- connecting arrows between panels -->
+  <line x1="382" y1="150" x2="422" y2="150" stroke="var(--color-ink)" stroke-width="4" marker-end="url(#arrow-ink)" />
+  <line x1="782" y1="150" x2="822" y2="150" stroke="var(--color-ink)" stroke-width="4" marker-end="url(#arrow-ink)" />
+
+  <!-- the return loop: adults lay the next batch, the cycle repeats -->
   <path
-    d="M130 190 L270 190 L250 300 L150 300 Z"
-    fill="var(--color-bg)"
-    stroke="var(--color-border)"
-    stroke-width="3"
+    d="M 1002 302 C 1002 410 202 410 202 302"
+    fill="none"
+    stroke="var(--color-danger)"
+    stroke-width="4"
+    stroke-linecap="round"
+    class="cycle-arc"
+    marker-end="url(#arrow-danger)"
   />
-  <rect x="122" y="176" width="156" height="20" rx="6" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="3" />
+  <text x="602" y="444" text-anchor="middle" font-family="var(--font-mono)" font-weight="700" font-size="15" letter-spacing="1.5" fill="var(--color-danger)">
+    THE CYCLE REPEATS — UNLESS YOU BREAK IT
+  </text>
 
-  <!-- soil, dry top / damp zone -->
-  <path d="M138 196 L262 196 L262 204 L138 204 Z" fill="color-mix(in oklab, var(--color-fg) 22%, var(--color-bg))" />
-  <path
-    d="M138 204 L262 204 L254 236 L146 236 Z"
-    fill="color-mix(in oklab, var(--color-fg) 40%, var(--color-bg))"
-  />
+  <!-- ================= PANEL 1: EGG ================= -->
+  <g transform="translate(24,20)">
+    <rect width="356" height="282" rx="12" fill="var(--color-bg)" stroke="var(--color-ink)" stroke-width="3" />
+    <circle cx="36" cy="38" r="22" fill="var(--color-primary)" stroke="var(--color-ink)" stroke-width="3" />
+    <text x="36" y="38" text-anchor="middle" dominant-baseline="central" font-family="var(--font-mono)" font-weight="700" font-size="17" fill="var(--color-primary-foreground)">01</text>
+    <text x="70" y="33" font-family="var(--font-display)" font-weight="700" font-size="26" letter-spacing="0.5" fill="var(--color-fg)">EGG</text>
+    <text x="70" y="55" font-family="var(--font-sans)" font-size="13" fill="var(--color-muted)">Hatches in days</text>
 
-  <!-- larvae in the damp zone -->
-  <g stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" opacity="0.85">
-    <path d="M168 216 q4 5 8 0" />
-    <path d="M196 224 q4 5 8 0" />
-    <path d="M226 214 q4 5 8 0" />
-  </g>
-
-  <!-- sticky trap card -->
-  <line x1="252" y1="150" x2="252" y2="200" stroke="var(--color-border)" stroke-width="3" />
-  <rect
-    x="238"
-    y="120"
-    width="28"
-    height="40"
-    rx="2"
-    fill="#e8c94a"
-    stroke="color-mix(in oklab, var(--color-fg) 30%, transparent)"
-    stroke-width="1.5"
-  />
-  <g fill="var(--color-fg)" opacity="0.55">
-    <circle cx="246" cy="130" r="1.6" />
-    <circle cx="258" cy="136" r="1.6" />
-    <circle cx="250" cy="146" r="1.6" />
-  </g>
-
-  <!-- flying adults -->
-  <g fill="var(--color-fg)" opacity="0.75">
-    <g transform="translate(150 110)">
-      <ellipse rx="3.4" ry="1.6" />
-      <path d="M0 0 l-7 -4 M0 0 l-7 4" stroke="var(--color-fg)" stroke-width="1" opacity="0.5" fill="none" />
+    <path d="M20 250 Q178 210 336 250 L336 262 Q178 222 20 262 Z" fill="color-mix(in oklab, var(--color-fg) 26%, var(--color-bg))" />
+    <g fill="var(--color-bg)" stroke="var(--color-ink)" stroke-width="2">
+      <ellipse cx="128" cy="210" rx="12" ry="15" transform="rotate(-12 128 210)" />
+      <ellipse cx="160" cy="222" rx="12" ry="15" transform="rotate(6 160 222)" />
+      <ellipse cx="192" cy="206" rx="12" ry="15" transform="rotate(-8 192 206)" />
+      <ellipse cx="222" cy="222" rx="12" ry="15" transform="rotate(10 222 222)" />
     </g>
-    <g transform="translate(178 78)">
-      <ellipse rx="3.4" ry="1.6" />
-      <path d="M0 0 l-7 -4 M0 0 l-7 4" stroke="var(--color-fg)" stroke-width="1" opacity="0.5" fill="none" />
-    </g>
-    <g transform="translate(122 142)">
-      <ellipse rx="3.4" ry="1.6" />
-      <path d="M0 0 l-7 -4 M0 0 l-7 4" stroke="var(--color-fg)" stroke-width="1" opacity="0.5" fill="none" />
+    <g stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" opacity="0.85">
+      <path d="M110 178 l-8 -10 M118 172 l-2 -13 M128 172 l6 -12" />
+      <path d="M238 190 l9 -9 M246 196 l12 -4 M248 206 l13 3" />
     </g>
   </g>
 
-  <!-- labels -->
-  <g font-family="var(--font-sans)" font-size="11" fill="var(--color-muted)">
-    <text x="90" y="132">Adults</text>
-    <text x="270" y="112">Trap</text>
-    <text x="90" y="222">Larvae</text>
+  <!-- ================= PANEL 2: LARVA ================= -->
+  <g transform="translate(424,20)">
+    <rect width="356" height="282" rx="12" fill="var(--color-bg)" stroke="var(--color-ink)" stroke-width="3" />
+    <circle cx="36" cy="38" r="22" fill="var(--color-primary)" stroke="var(--color-ink)" stroke-width="3" />
+    <text x="36" y="38" text-anchor="middle" dominant-baseline="central" font-family="var(--font-mono)" font-weight="700" font-size="17" fill="var(--color-primary-foreground)">02</text>
+    <text x="70" y="33" font-family="var(--font-display)" font-weight="700" font-size="26" letter-spacing="0.5" fill="var(--color-fg)">LARVA</text>
+    <text x="70" y="55" font-family="var(--font-sans)" font-size="13" fill="var(--color-muted)">Feeds ~2 weeks</text>
+
+    <path d="M20 190 Q178 155 336 190 L336 262 Q178 232 20 262 Z" fill="color-mix(in oklab, var(--color-fg) 30%, var(--color-bg))" />
+    <g stroke="var(--color-bg)" stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M78 220 q18 20 36 0 q18 -20 36 0 q18 20 36 0" />
+      <path d="M150 240 q16 16 32 0 q16 -16 32 0" />
+    </g>
+    <g fill="var(--color-ink)">
+      <circle cx="78" cy="220" r="3.5" />
+      <circle cx="150" cy="240" r="3.5" />
+    </g>
+    <text x="178" y="150" text-anchor="middle" font-family="var(--font-mono)" font-size="11" letter-spacing="1" fill="var(--color-danger)">INVISIBLE TO TRAPS</text>
+  </g>
+
+  <!-- ================= PANEL 3: ADULT ================= -->
+  <g transform="translate(824,20)">
+    <rect width="356" height="282" rx="12" fill="var(--color-bg)" stroke="var(--color-ink)" stroke-width="3" />
+    <circle cx="36" cy="38" r="22" fill="var(--color-primary)" stroke="var(--color-ink)" stroke-width="3" />
+    <text x="36" y="38" text-anchor="middle" dominant-baseline="central" font-family="var(--font-mono)" font-weight="700" font-size="17" fill="var(--color-primary-foreground)">03</text>
+    <text x="70" y="33" font-family="var(--font-display)" font-weight="700" font-size="26" letter-spacing="0.5" fill="var(--color-fg)">ADULT</text>
+    <text x="70" y="55" font-family="var(--font-sans)" font-size="13" fill="var(--color-muted)">Lays the next batch</text>
+
+    <!-- pot -->
+    <path d="M118 262 L238 262 L222 210 L134 210 Z" fill="var(--color-surface-2)" stroke="var(--color-ink)" stroke-width="2.5" />
+    <path d="M128 150 C 108 122 82 118 64 130 C 76 154 100 162 128 150 Z" fill="var(--color-primary)" stroke="var(--color-ink)" stroke-width="2" />
+    <path d="M128 150 C 148 120 176 116 196 130 C 184 154 158 162 128 150 Z" fill="var(--color-primary)" stroke="var(--color-ink)" stroke-width="2" />
+    <line x1="128" y1="150" x2="128" y2="210" stroke="var(--color-ink)" stroke-width="2.5" />
+
+    <!-- sticky trap -->
+    <line x1="286" y1="132" x2="286" y2="210" stroke="var(--color-ink)" stroke-width="2.5" />
+    <rect x="266" y="88" width="40" height="52" rx="2" fill="#e8c94a" stroke="var(--color-ink)" stroke-width="2" />
+    <g fill="var(--color-ink)" opacity="0.6">
+      <circle cx="278" cy="102" r="2" />
+      <circle cx="296" cy="110" r="2" />
+      <circle cx="284" cy="122" r="2" />
+    </g>
+
+    <!-- big clear adult gnat in flight -->
+    <g transform="translate(196,88)">
+      <path d="M-16 0 Q-2 -22 16 0 Q-2 22 -16 0 Z" fill="var(--color-fg)" opacity="0.16" />
+      <path d="M16 -2 Q-2 -24 -18 -2 Q-2 20 16 -2 Z" fill="var(--color-fg)" opacity="0.16" />
+      <ellipse rx="6" ry="14" fill="var(--color-fg)" />
+      <circle r="3.4" fill="var(--color-fg)" />
+      <path d="M0 -16 l-9 -10 M0 -16 l9 -10" stroke="var(--color-fg)" stroke-width="1.6" stroke-linecap="round" fill="none" />
+      <path d="M-2 -4 l-13 -6 M2 -4 l13 -6 M-2 6 l-13 6 M2 6 l13 6 M0 12 l-8 10 M0 12 l8 10" stroke="var(--color-fg)" stroke-width="1.4" stroke-linecap="round" opacity="0.8" />
+    </g>
   </g>
 </svg>
+
+<style>
+  .cycle-arc {
+    stroke-dasharray: 11 7;
+    animation: cycle-flow 1.4s linear infinite;
+  }
+
+  @keyframes cycle-flow {
+    to {
+      stroke-dashoffset: -36;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cycle-arc {
+      animation: none;
+    }
+  }
+</style>
