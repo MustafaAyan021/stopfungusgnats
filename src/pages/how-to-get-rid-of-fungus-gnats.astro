@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, CircleAlert, Clock, TriangleAlert, Youtube } from "lucide-react";
+import { ArrowRight, CircleAlert, Clock, Play, TriangleAlert, Youtube } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
@@ -231,17 +231,30 @@ const schema = schemaGraph(
           walkthrough of the same core method described above.
         </p>
         <figure class="glass mt-6 overflow-hidden rounded-xl p-2.5 shadow-stamp sm:p-3">
-          <div class="aspect-video w-full overflow-hidden rounded-lg border-2 border-ink">
-            <iframe
-              class="size-full"
-              src={`https://www.youtube-nocookie.com/embed/${VIDEO.youtubeId}`}
-              title={VIDEO.title}
+          <a
+            href={`https://www.youtube.com/watch?v=${VIDEO.youtubeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Watch "${VIDEO.title}" on YouTube (opens in a new tab)`}
+            class="focus-ring group relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg border-2 border-ink bg-ink"
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${VIDEO.youtubeId}/hqdefault.jpg`}
+              alt={VIDEO.title}
+              class="absolute inset-0 size-full object-cover opacity-90 transition-opacity duration-[var(--motion-quick)] group-hover:opacity-100"
               loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
+              width="480"
+              height="360"
+            />
+            <span class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" aria-hidden="true" />
+            <span class="relative flex size-16 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-primary text-primary-foreground shadow-stamp-sm transition-transform duration-[var(--motion-quick)] group-hover:scale-110">
+              <Play className="size-6 translate-x-0.5" fill="currentColor" strokeWidth={0} />
+            </span>
+            <span class="label-mono absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md border-2 border-ink bg-bg px-2.5 py-1.5 text-[10px] text-fg shadow-stamp-sm">
+              <Youtube className="size-3.5 shrink-0 text-danger" />
+              Watch on YouTube
+            </span>
+          </a>
           <figcaption class="label-mono px-2 pt-3 pb-1 text-[11px] text-subtle">
             {VIDEO.title}
           </figcaption>
