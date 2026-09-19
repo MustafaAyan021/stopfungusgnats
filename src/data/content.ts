@@ -199,7 +199,7 @@ export const TROUBLESHOOTING = [
   },
   {
     q: "How do I know if larvae are still in the soil?",
-    a: "The classic check is the potato test: bury a half-inch cube of raw potato just under the soil surface and leave it overnight. Larvae are drawn to it and will be visible on the underside when you lift it out the next morning. No larvae on two consecutive nights is a reasonable sign the soil population is down.",
+    a: "The classic check is the potato test: bury a half-inch cube of raw potato just under the soil surface, then check the underside after 1–2 days. Larvae are drawn to it and should be visible if present. Repeatedly finding none is a useful sign the population may be declining, but it doesn't prove the pot is pest-free — treat it as one data point, not a final verdict.",
   },
   {
     q: "What should I do during a severe, multi-plant infestation?",
@@ -346,7 +346,7 @@ export const PLAN_DAYS = [
     title: "Reassess before a second round",
     tasks: [
       "If using Bti, follow the product label on whether and when to reapply — don't reapply on a fixed schedule that ignores the label",
-      "Optional: potato slice test to check for larvae — bury a cube overnight, then throw it out",
+      "Optional: potato slice test to check for larvae — bury a cube, check it after 1–2 days, then throw it out",
       "Replace sticky traps that are dusty or full",
     ],
   },

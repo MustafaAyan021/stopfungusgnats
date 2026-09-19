@@ -16,16 +16,16 @@ const CHECKS = [
       "Adults wander between nearby pots and will lay eggs anywhere the mix is moist enough — including plants that looked fine. Treat every pot in the same room or shelf at the same time, not just the one you spotted first.",
   },
   {
-    id: "under-3-weeks",
-    label: "It's been less than 3 weeks of consistent treatment",
+    id: "short-treatment-time",
+    label: "You've only been treating consistently for a short time",
     diagnosis:
-      "Eggs and larvae already in the soil when you started keep developing on their own schedule — roughly 3–4 weeks egg to adult. Seeing occasional adults this early is expected, not a sign the plan has failed. Keep going and watch the trend on your sticky cards, not the raw count.",
+      "Eggs and larvae already in the soil when you started keep developing on their own schedule — indoor development is roughly 3–4 weeks egg to adult, longer or shorter depending on temperature. Seeing occasional adults early on is expected, not a sign the plan has failed. Keep going and watch the trend on your sticky cards, not the raw count.",
   },
   {
     id: "no-larvae-check",
     label: "You haven't actually confirmed whether larvae are still in the soil",
     diagnosis:
-      "Adult counts on traps can lag behind what's happening underground. Run the potato test: bury a half-inch cube of raw potato just under the surface overnight, then check the underside in the morning. No larvae for two nights running is a real sign the soil population is down — trust that over a guess.",
+      "Adult counts on traps can lag behind what's happening underground. Run the potato test: bury a half-inch cube of raw potato just under the surface, then check the underside after 1–2 days. Repeatedly finding no larvae is a useful sign the population may be declining — more trustworthy than a guess, though not absolute proof the pot is clear.",
   },
   {
     id: "traps-only",
