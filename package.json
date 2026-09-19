@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
-    "build": "astro build && wrangler pages deploy dist --project-name=stopfungusgnats",
+    "build": "astro check && astro build",
     "preview": "astro preview --host 0.0.0.0",
     "typecheck": "astro check",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "deploy": "astro build && wrangler pages deploy dist --project-name=stopfungusgnats"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
