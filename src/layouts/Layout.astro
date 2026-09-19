@@ -47,13 +47,16 @@ const jsonLd = schemaGraph(organizationSchema(), websiteSchema(), ...extraNodes)
     <script is:inline>
       (function () {
         var stored = localStorage.getItem("sfg-theme");
-        if (stored === "light" || stored === "dark") {
-          document.documentElement.setAttribute("data-theme", stored);
+        var theme = stored === "light" || stored === "dark" ? stored : null;
+        if (!theme) {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         }
+        document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     {
@@ -92,6 +95,13 @@ const jsonLd = schemaGraph(organizationSchema(), websiteSchema(), ...extraNodes)
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <a
+      href="#main-content"
+      class="focus-ring sr-only rounded-md border-2 border-ink bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+      data-print-hide
+    >
+      Skip to content
+    </a>
     <div class="min-h-screen bg-bg pb-[calc(4rem+env(safe-area-inset-bottom))] text-fg md:pb-0">
       <SiteHeader />
       <slot />

@@ -6,9 +6,9 @@ import { LAST_UPDATED, PEST_COMPARISON } from "@/data/content";
 import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/fungus-gnats-vs-fruit-flies";
-const TITLE = "Fungus Gnats vs. Fruit Flies vs. Drain Flies";
+const TITLE = "Fungus Gnats vs. Fruit Flies, Drain Flies, and Springtails";
 const DESCRIPTION =
-  "Tell fungus gnats apart from fruit flies and drain flies by look, behavior, and where they breed — so you treat the right pest the first time.";
+  "Tell fungus gnats apart from fruit flies, drain flies, and springtails by look, behavior, and where they breed — so you treat the right pest the first time.";
 
 const schema = schemaGraph(
   articleSchema({
@@ -24,21 +24,22 @@ const schema = schemaGraph(
 
 <Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
   <Breadcrumbs items={[{ name: "Fungus Gnats vs. Fruit Flies", path: PATH }]} />
-  <main class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+  <main id="main-content" class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
     <article>
       <header data-reveal>
         <p class="label-mono text-[11px] text-muted">Identification</p>
         <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-          Fungus gnats vs. <span class="text-primary italic">fruit flies</span> vs. drain flies
+          Fungus gnats vs. <span class="text-primary italic">fruit flies</span>, drain flies, and springtails
         </h1>
         <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
           <p class="label-mono text-[11px] text-primary">Direct answer</p>
           <p class="mt-2 leading-relaxed">
             Fungus gnats hover over houseplant soil and are dark with long, mosquito-like legs.
             Fruit flies are tan with red eyes and cluster around ripening produce or drains.
-            Drain flies are fuzzy, moth-shaped, and sit still near sinks and floor drains. Where
-            you find them, more than what they look like, is usually the fastest way to tell them
-            apart.
+            Drain flies are fuzzy, moth-shaped, and sit still near sinks and floor drains.
+            Springtails aren't flies at all — they're tiny, wingless, and jump rather than fly,
+            usually on soil that's staying too wet. Where you find them, more than what they look
+            like, is usually the fastest way to tell them apart.
           </p>
         </div>
       </header>

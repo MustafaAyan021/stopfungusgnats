@@ -1,4 +1,4 @@
-import { Check, CheckCircle2 } from "lucide-react";
+import { Check, CheckCircle2, Printer } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { PLAN_DAYS } from "@/data/content";
 import { cn } from "@/lib/utils";
@@ -50,15 +50,25 @@ export function TreatmentPlan() {
             {complete}/{total}
           </span>
         </p>
-        {complete > 0 ? (
+        <div className="flex items-center gap-4" data-print-hide>
           <button
             type="button"
-            className="focus-ring rounded-sm text-sm text-muted underline-offset-4 hover:text-fg hover:underline"
-            onClick={() => setDone({})}
+            className="focus-ring inline-flex items-center gap-1.5 rounded-sm text-sm text-muted underline-offset-4 hover:text-fg hover:underline"
+            onClick={() => window.print()}
           >
-            Reset plan
+            <Printer className="size-3.5" />
+            Print plan
           </button>
-        ) : null}
+          {complete > 0 ? (
+            <button
+              type="button"
+              className="focus-ring rounded-sm text-sm text-muted underline-offset-4 hover:text-fg hover:underline"
+              onClick={() => setDone({})}
+            >
+              Reset plan
+            </button>
+          ) : null}
+        </div>
       </div>
       <div className="mb-8 h-2 overflow-hidden rounded-full border-2 border-ink bg-surface-2">
         <div

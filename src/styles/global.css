@@ -270,3 +270,28 @@
     animation: none;
   }
 }
+
+@media print {
+  [data-print-hide],
+  .glass::before,
+  .glass::after {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    font-weight: normal;
+  }
+
+  .shadow-stamp,
+  .shadow-stamp-sm,
+  .shadow-stamp-ink {
+    box-shadow: none !important;
+  }
+}

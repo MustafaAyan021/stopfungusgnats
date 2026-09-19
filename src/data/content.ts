@@ -126,6 +126,13 @@ export const PEST_COMPARISON = [
     breeds: "Gelatinous organic film inside drain pipes",
     bite: "No",
   },
+  {
+    pest: "Springtails",
+    body: "Tiny (under 1/8 in), wingless, gray to white. Not a fly at all — a distinct group of soil arthropods.",
+    behavior: "Don't fly. Jump or spring when disturbed. Often seen clustered on very wet soil surfaces or floating in a saucer.",
+    breeds: "Overly wet, organic-rich soil or decaying plant matter",
+    bite: "No",
+  },
 ] as const;
 
 export const NATURAL_METHODS = [

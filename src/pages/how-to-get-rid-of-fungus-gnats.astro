@@ -63,7 +63,7 @@ const schema = schemaGraph(
 <Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
   <Breadcrumbs items={[{ name: "How to Get Rid of Fungus Gnats", path: PATH }]} />
 
-  <main class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+  <main id="main-content" class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
     <article>
       <header data-reveal>
         <span class="label-mono inline-flex -rotate-2 items-center rounded-md border-2 border-ink bg-primary px-3 py-1.5 text-[11px] text-primary-foreground shadow-stamp-sm">
@@ -236,12 +236,12 @@ const schema = schemaGraph(
             href={`https://www.youtube.com/watch?v=${VIDEO.youtubeId}`}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Watch "${VIDEO.title}" on YouTube (opens in a new tab)`}
+            aria-label="Watch the dry-soil-plus-larvae treatment demonstrated on YouTube (opens in a new tab)"
             class="focus-ring group relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg border-2 border-ink bg-ink"
           >
             <img
               src={`https://i.ytimg.com/vi/${VIDEO.youtubeId}/hqdefault.jpg`}
-              alt={VIDEO.title}
+              alt="Video thumbnail: dry-soil-plus-larvae fungus gnat treatment walkthrough"
               class="absolute inset-0 size-full object-cover opacity-90 transition-opacity duration-[var(--motion-quick)] group-hover:opacity-100"
               loading="lazy"
               width="480"
@@ -257,7 +257,7 @@ const schema = schemaGraph(
             </span>
           </a>
           <figcaption class="label-mono px-2 pt-3 pb-1 text-[11px] text-subtle">
-            {VIDEO.title}
+            External video, titled "{VIDEO.title}" on YouTube — not a claim made by this site
           </figcaption>
         </figure>
       </section>

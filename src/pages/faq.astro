@@ -13,7 +13,7 @@ const schema = schemaGraph(breadcrumbSchema([{ name: "FAQ", path: PATH }]), faqS
 
 <Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
   <Breadcrumbs items={[{ name: "FAQ", path: PATH }]} />
-  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
+  <main id="main-content" class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
     <p class="label-mono text-[11px] text-muted">Everything, answered</p>
     <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">
       Fungus gnat <span class="text-primary italic">questions</span>
