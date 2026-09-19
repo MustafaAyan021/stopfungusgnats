@@ -446,7 +446,7 @@ export const GUIDES: Record<
       {
         heading: "The limit",
         paragraphs: [
-          "Traps do not kill eggs or larvae in the soil. If you only trap adults, larvae keep pupating and the cloud returns. Pair traps with dry soil and a larval treatment (Bti or peroxide).",
+          "Traps do not kill eggs or larvae in the soil. If you only trap adults, larvae keep pupating and the cloud returns. Pair traps with managed moisture and, if that's not enough, a labeled Bti product — hydrogen peroxide is an optional, more cautious add-on, not an equal alternative.",
         ],
       },
     ],

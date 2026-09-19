@@ -7,7 +7,7 @@ const CHECKS = [
     id: "damp-surface",
     label: "The soil surface is still damp within a day of watering",
     diagnosis:
-      "This is almost always the reason a plan stalls. Every other step — traps, Bti, peroxide — is undone if the surface stays wet long enough for the next batch of eggs to survive. Bottom-water, water less often, or switch to a chunkier mix before repeating any treatment.",
+      "This is almost always the reason a plan stalls. Every other step — traps, a labeled Bti product, even the optional peroxide add-on — is undone if the surface stays wet long enough for the next batch of eggs to survive. Bottom-water, water less often, or switch to a chunkier mix before repeating any treatment.",
   },
   {
     id: "one-pot",
@@ -31,7 +31,7 @@ const CHECKS = [
     id: "traps-only",
     label: "You've mainly relied on sticky traps, without a soil drench",
     diagnosis:
-      "Traps only ever catch flying adults — they do nothing to eggs or larvae, which is where most of the population lives at any given moment. Add a Bti or hydrogen peroxide drench to reach the stage traps can't touch.",
+      "Traps only ever catch flying adults — they do nothing to eggs or larvae, which is where most of the population lives at any given moment. Add a labeled Bti product to reach the stage traps can't touch; hydrogen peroxide is an optional, more cautious alternative, not an equal default.",
   },
 ] as const;
 
