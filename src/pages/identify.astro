@@ -1,6 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/identify";
+const TITLE = "Identify Fungus Gnats vs. Fruit Flies";
+const DESCRIPTION = "Tell fungus gnats from fruit flies and drain flies in three questions so you treat the right pest.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "Identify", path: PATH }]));
 
 const CLUES = [
   { who: "Fungus gnats", where: "Soil, long legs, fly up when you water." },
@@ -9,10 +16,8 @@ const CLUES = [
 ];
 ---
 
-<Layout
-  title="Identify Fungus Gnats vs Fruit Flies | Stop Fungus Gnats"
-  description="Tell fungus gnats from fruit flies and drain flies in three questions so you treat the right pest."
->
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "Identify", path: PATH }]} />
   <main class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2" data-reveal>
     <div>
       <p class="label-mono text-[11px] text-muted">Diagnosis</p>
@@ -41,6 +46,9 @@ const CLUES = [
           ))
         }
       </ul>
+      <a href="/fungus-gnats-vs-fruit-flies" class="focus-ring mt-4 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-primary hover:underline">
+        Full comparison table
+      </a>
     </div>
     <PestIdentifier client:load />
   </main>

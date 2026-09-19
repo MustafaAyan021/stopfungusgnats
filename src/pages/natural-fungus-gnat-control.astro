@@ -1,0 +1,91 @@
+---
+import { ArrowRight } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { LAST_UPDATED, NATURAL_METHODS, SOURCES } from "@/data/content";
+import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/natural-fungus-gnat-control";
+const TITLE = "Natural Fungus Gnat Control: What Actually Works";
+const DESCRIPTION =
+  "An honest, evidence-graded look at natural fungus gnat remedies — from Bti and beneficial nematodes to cinnamon and vinegar traps — so you know what to rely on and what's just a common claim.";
+
+const schema = schemaGraph(
+  articleSchema({
+    headline: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([{ name: "Natural Fungus Gnat Control", path: PATH }]),
+);
+
+const GROUPS = [
+  { key: "well-supported", label: "Well-supported", desc: "Backed by how the method mechanically works, and consistently recommended by extension sources." },
+  { key: "limited evidence", label: "Limited evidence", desc: "Has a plausible mechanism and may help at the margins, but isn't a standalone fix." },
+  { key: "common claim", label: "Common claim", desc: "Widely repeated online without strong houseplant-specific evidence behind it." },
+] as const;
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
+  <Breadcrumbs items={[{ name: "Natural Fungus Gnat Control", path: PATH }]} />
+  <main class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <article>
+      <header data-reveal>
+        <p class="label-mono text-[11px] text-muted">Natural methods</p>
+        <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+          Natural fungus gnat control, <span class="text-primary italic">honestly rated</span>
+        </h1>
+        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
+          <p class="label-mono text-[11px] text-primary">Direct answer</p>
+          <p class="mt-2 leading-relaxed">
+            The best-supported natural methods are drying the soil, Bti (Mosquito Bits), beneficial
+            nematodes, and yellow sticky traps — all of which work by removing moisture or directly
+            targeting a life stage. Cinnamon, vinegar traps, and essential oil sprays are widely
+            recommended online but have weaker evidence behind them for fungus gnats specifically.
+          </p>
+        </div>
+      </header>
+
+      <section class="mt-10 grid gap-6" data-reveal>
+        {
+          GROUPS.map((group) => (
+            <div>
+              <h2 class="font-display text-xl font-semibold tracking-tight">{group.label}</h2>
+              <p class="mt-1 text-sm text-muted">{group.desc}</p>
+              <div class="mt-4 grid gap-3">
+                {NATURAL_METHODS.filter((m) => m.evidence === group.key).map((item) => (
+                  <div class="glass rounded-lg p-4 shadow-stamp-sm">
+                    <p class="font-medium text-fg">{item.method}</p>
+                    <p class="mt-1.5 text-sm leading-relaxed text-muted">{item.note}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">Sources</h2>
+        <ul class="mt-3 grid gap-1.5 text-sm">
+          {
+            SOURCES.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                  {source.label}
+                </a>
+                <span class="text-muted"> — {source.publisher}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <a href="/how-to-get-rid-of-fungus-gnats" class="focus-ring group mt-6 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary">
+          Back to the full elimination guide
+          <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+        </a>
+      </section>
+    </article>
+  </main>
+</Layout>

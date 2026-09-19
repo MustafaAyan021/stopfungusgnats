@@ -1,0 +1,82 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { LAST_UPDATED } from "@/data/content";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/terms-of-use";
+const TITLE = "Terms of Use";
+const DESCRIPTION = "The terms for using Stop Fungus Gnats.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "Terms of Use", path: PATH }]));
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "Terms of Use", path: PATH }]} />
+  <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article data-reveal>
+      <p class="label-mono text-[11px] text-muted">Legal</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">Terms of Use</h1>
+      <p class="mt-2 label-mono text-[11px] text-subtle">Last updated {LAST_UPDATED}</p>
+
+      <div class="mt-8 grid gap-6 text-sm leading-relaxed text-muted sm:text-base">
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Acceptance</h2>
+          <p class="mt-3">
+            By using stopfungusgnats.com, you agree to these terms. If you don't agree, please
+            don't use the site.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Content is informational</h2>
+          <p class="mt-3">
+            Content on this site is provided for general, educational, houseplant-care purposes
+            only. It is not professional horticultural, pest-control, veterinary, or medical
+            advice. See the <a href="/disclaimer" class="text-primary hover:underline">disclaimer</a> for
+            more detail.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">No warranty</h2>
+          <p class="mt-3">
+            The site and its content are provided "as is," without warranties of any kind, express
+            or implied, including as to accuracy, completeness, or fitness for a particular
+            purpose. Treatment outcomes vary by plant, environment, and infestation severity, and
+            we don't guarantee any specific result.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Limitation of liability</h2>
+          <p class="mt-3">
+            To the fullest extent permitted by law, this site and its operator are not liable for
+            any damage — to plants, property, pets, or otherwise — arising from use of information
+            found here. Always follow the actual label instructions of any product you use.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Third-party links</h2>
+          <p class="mt-3">
+            This site links to external sources (including university extension pages) for further
+            reading. We don't control and aren't responsible for the content or availability of
+            external sites.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Intellectual property</h2>
+          <p class="mt-3">
+            Original text, design, and graphics on this site belong to Stop Fungus Gnats unless
+            otherwise noted. Don't republish substantial portions of this content elsewhere without
+            permission.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Changes</h2>
+          <p class="mt-3">These terms may be updated from time to time; the date above reflects the most recent revision.</p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Contact</h2>
+          <p class="mt-3">Questions about these terms: see <a href="/contact" class="text-primary hover:underline">contact</a>.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>

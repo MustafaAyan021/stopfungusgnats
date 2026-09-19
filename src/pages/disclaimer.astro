@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { LAST_UPDATED } from "@/data/content";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/disclaimer";
+const TITLE = "Disclaimer";
+const DESCRIPTION = "What Stop Fungus Gnats is and isn't a substitute for.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "Disclaimer", path: PATH }]));
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "Disclaimer", path: PATH }]} />
+  <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article data-reveal>
+      <p class="label-mono text-[11px] text-muted">Legal</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">Disclaimer</h1>
+      <p class="mt-2 label-mono text-[11px] text-subtle">Last updated {LAST_UPDATED}</p>
+
+      <div class="mt-8 grid gap-6 text-sm leading-relaxed text-muted sm:text-base">
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Educational content only</h2>
+          <p class="mt-3">
+            Everything on Stop Fungus Gnats is written for general houseplant-care education. It
+            is not professional horticultural advice, pest-control advice, or veterinary advice,
+            and it isn't a substitute for consulting a qualified professional about your specific
+            plants, home, or pets.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Follow product labels</h2>
+          <p class="mt-3">
+            Any product mentioned here — including Bti products like Mosquito Bits or Gnatrol,
+            hydrogen peroxide, or beneficial nematodes — should be used strictly according to its
+            own manufacturer label. This site's descriptions are general and do not override
+            label instructions, which vary by product and formulation.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Individual results vary</h2>
+          <p class="mt-3">
+            Timelines given on this site (such as "7–10 days for a light infestation") are general
+            ranges, not guarantees. Plant species, home humidity, infestation severity, and how
+            consistently a method is followed all affect real results.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">When to seek other help</h2>
+          <p class="mt-3">
+            If a plant is collapsing rapidly, if you suspect a pet or child has ingested a
+            treatment product, or if an infestation is severe enough to affect a whole home,
+            contact a local nursery, a veterinarian or poison control, or a licensed pest control
+            professional rather than relying solely on this site.
+          </p>
+        </section>
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">No affiliation</h2>
+          <p class="mt-3">
+            This site is not affiliated with, endorsed by, or sponsored by any product manufacturer
+            named in its content.
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>

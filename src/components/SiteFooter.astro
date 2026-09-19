@@ -4,8 +4,8 @@ import { SITE } from "@/data/content";
 ---
 
 <footer class="mt-16 border-t border-border bg-surface-2/80 backdrop-blur-md">
-  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-3">
-    <div>
+  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-4">
+    <div class="md:col-span-1">
       <p class="flex items-center gap-2 font-display text-lg font-semibold">
         <span class="flex size-7 rotate-[-4deg] items-center justify-center rounded-md border-2 border-primary bg-primary/15 text-primary">
           <Sprout className="size-3.5" strokeWidth={2} />
@@ -13,25 +13,40 @@ import { SITE } from "@/data/content";
         {SITE.name}
       </p>
       <p class="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-        A practical guide for houseplant owners who want fungus gnats gone — not another recycled
+        A focused, single-topic resource for getting rid of fungus gnats — not another recycled
         pest article.
       </p>
     </div>
     <div>
-      <p class="label-mono text-[11px] text-primary">Guides</p>
+      <p class="label-mono text-[11px] text-primary">Learn</p>
       <ul class="mt-3 space-y-2 text-sm text-muted">
-        <li><a href="/" class="focus-ring rounded-sm hover:text-fg">How to get rid of fungus gnats</a></li>
-        <li><a href="/identify" class="focus-ring rounded-sm hover:text-fg">Identify the pest</a></li>
-        <li><a href="/plan" class="focus-ring rounded-sm hover:text-fg">7-day plan</a></li>
-        <li><a href="/guides/mosquito-bits" class="focus-ring rounded-sm hover:text-fg">Mosquito Bits / Bti</a></li>
+        <li><a href="/how-to-get-rid-of-fungus-gnats" class="focus-ring rounded-sm hover:text-fg">How to get rid of fungus gnats</a></li>
+        <li><a href="/why-do-i-have-fungus-gnats" class="focus-ring rounded-sm hover:text-fg">Why do I have fungus gnats?</a></li>
+        <li><a href="/fungus-gnat-life-cycle" class="focus-ring rounded-sm hover:text-fg">Fungus gnat life cycle</a></li>
+        <li><a href="/fungus-gnats-vs-fruit-flies" class="focus-ring rounded-sm hover:text-fg">Fungus gnats vs. fruit flies</a></li>
+        <li><a href="/fungus-gnat-troubleshooting" class="focus-ring rounded-sm hover:text-fg">Troubleshooting</a></li>
       </ul>
     </div>
     <div>
-      <p class="label-mono text-[11px] text-primary">Note</p>
-      <p class="mt-3 text-sm leading-relaxed text-muted">
-        Educational houseplant care only. Follow product labels. If a plant is collapsing or pets
-        eat treated mix, talk to a local nursery or vet.
-      </p>
+      <p class="label-mono text-[11px] text-primary">Treat</p>
+      <ul class="mt-3 space-y-2 text-sm text-muted">
+        <li><a href="/fungus-gnat-treatments" class="focus-ring rounded-sm hover:text-fg">All treatments</a></li>
+        <li><a href="/natural-fungus-gnat-control" class="focus-ring rounded-sm hover:text-fg">Natural control, rated</a></li>
+        <li><a href="/guides/mosquito-bits" class="focus-ring rounded-sm hover:text-fg">Mosquito Bits / Bti</a></li>
+        <li><a href="/guides/prevention" class="focus-ring rounded-sm hover:text-fg">Prevention</a></li>
+        <li><a href="/plan" class="focus-ring rounded-sm hover:text-fg">7-day plan</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="label-mono text-[11px] text-primary">Site</p>
+      <ul class="mt-3 space-y-2 text-sm text-muted">
+        <li><a href="/about" class="focus-ring rounded-sm hover:text-fg">About</a></li>
+        <li><a href="/editorial-policy" class="focus-ring rounded-sm hover:text-fg">Editorial policy</a></li>
+        <li><a href="/contact" class="focus-ring rounded-sm hover:text-fg">Contact</a></li>
+        <li><a href="/privacy-policy" class="focus-ring rounded-sm hover:text-fg">Privacy policy</a></li>
+        <li><a href="/terms-of-use" class="focus-ring rounded-sm hover:text-fg">Terms of use</a></li>
+        <li><a href="/disclaimer" class="focus-ring rounded-sm hover:text-fg">Disclaimer</a></li>
+      </ul>
     </div>
   </div>
   <div class="border-t border-border px-4 py-4 text-center">

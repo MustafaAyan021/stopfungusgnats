@@ -1,0 +1,402 @@
+---
+import { ArrowRight, CircleAlert, Clock, TriangleAlert } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
+import { buttonVariants } from "@/lib/button-variants";
+import {
+  CAUSES,
+  FAQS,
+  GUIDES,
+  LAST_UPDATED,
+  METHODS,
+  NATURAL_METHODS,
+  SOURCES,
+  TROUBLESHOOTING,
+} from "@/data/content";
+import { articleSchema, breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/how-to-get-rid-of-fungus-gnats";
+const TITLE = "How to Get Rid of Fungus Gnats: The Full Guide";
+const DESCRIPTION =
+  "Get rid of fungus gnats by drying the soil, trapping the adults, and killing the larvae — in that order. A complete, step-by-step guide covering causes, identification, the life cycle, every treatment option, and prevention.";
+
+const MISTAKES = [
+  {
+    title: "Treating only the adults",
+    detail: "Sprays and traps knock down what's flying, but the soil keeps producing more. Larvae are the part of the population doing the real damage to a treatment plan.",
+  },
+  {
+    title: "Stopping as soon as the flies disappear",
+    detail: "Eggs and pupae already in the soil will still finish developing. Hold the dry-top habit for two more weeks after the last adult, not just until the air looks clear.",
+  },
+  {
+    title: "Watering \"just to be safe\"",
+    detail: "A single deep watering out of habit can rewet a drying pot and hand the next generation exactly what it needs. Check the soil, don't guess on a schedule.",
+  },
+  {
+    title: "Missing a second infested pot",
+    detail: "Gnats move freely between nearby plants. Treating one pot while a neighboring one stays wet just gives the population a place to wait you out.",
+  },
+] as const;
+
+const schema = schemaGraph(
+  articleSchema({
+    headline: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    image: "/images/hero.jpg",
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([{ name: "How to Get Rid of Fungus Gnats", path: PATH }]),
+  faqSchema(FAQS),
+);
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
+  <Breadcrumbs items={[{ name: "How to Get Rid of Fungus Gnats", path: PATH }]} />
+
+  <main class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <article>
+      <header data-reveal>
+        <span class="label-mono inline-flex -rotate-2 items-center rounded-md border-2 border-ink bg-primary px-3 py-1.5 text-[11px] text-primary-foreground shadow-stamp-sm">
+          The complete guide
+        </span>
+        <h1 class="mt-4 font-display text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl">
+          How to get rid of fungus gnats
+        </h1>
+        <p class="label-mono mt-3 flex items-center gap-1.5 text-[11px] text-subtle">
+          <Clock className="size-3.5" />
+          Reviewed {LAST_UPDATED}
+        </p>
+
+        <div class="glass mt-6 rounded-xl p-6 shadow-stamp sm:p-7">
+          <p class="label-mono text-[11px] text-primary">Direct answer</p>
+          <p class="mt-2 text-lg leading-relaxed">
+            Get rid of fungus gnats by doing three things at once: let the top 1–2 inches of soil
+            dry between waterings so eggs and larvae lose their moisture, set yellow sticky traps
+            at soil level to catch and count egg-laying adults, and drench the soil with Bti
+            (sold as Mosquito Bits) or a 1:4 hydrogen-peroxide-to-water mix to kill larvae already
+            feeding underground. A light infestation usually clears in 7–10 days; a heavy one can
+            take 3–4 weeks. Keep the dry-soil habit for two extra weeks after the last adult —
+            that's the step most people skip, and the reason gnats come back.
+          </p>
+          <a href="/plan" class={`${buttonVariants({ size: "default" })} mt-5`}>
+            Get the day-by-day plan
+            <ArrowRight className="size-4" />
+          </a>
+        </div>
+      </header>
+
+      <nav aria-label="On this page" class="mt-10 rounded-lg border-2 border-dashed border-border p-4" data-reveal>
+        <p class="label-mono text-[11px] text-muted">On this page</p>
+        <ol class="label-mono mt-2 grid gap-1.5 text-xs text-fg sm:grid-cols-2">
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#why-they-appear">Why fungus gnats appear</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#identify">How to identify them</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#life-cycle">The life cycle</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#steps">Step-by-step elimination</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#treatments">Every treatment option</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#natural">Natural methods, honestly rated</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#timeline">How long it takes</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#prevention">Keeping them from returning</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#mistakes">Common mistakes</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#troubleshooting">Troubleshooting</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#faq">FAQ</a></li>
+          <li><a class="focus-ring rounded-sm hover:text-primary" href="#sources">Sources</a></li>
+        </ol>
+      </nav>
+
+      <section id="why-they-appear" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Why fungus gnats appear
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Fungus gnats don't come from nowhere — every case traces back to moisture and organic
+          matter in the soil. The full breakdown is in our
+          <a href="/why-do-i-have-fungus-gnats" class="text-primary hover:underline">causes guide</a>,
+          but the short version:
+        </p>
+        <ul class="mt-4 grid gap-3">
+          {
+            CAUSES.slice(0, 4).map((cause) => (
+              <li class="flex items-start gap-3">
+                <CircleAlert className="mt-0.5 size-4 shrink-0 text-primary" />
+                <span class="text-sm leading-relaxed">
+                  <strong class="font-semibold text-fg">{cause.title}.</strong>{" "}
+                  <span class="text-muted">{cause.detail}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section id="identify" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          How to identify fungus gnats
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Fungus gnats are slender, dark, mosquito-like flies with long legs and weak flight —
+          they hover near soil and lift off when you water, rather than darting toward fruit or
+          drains. If you're not certain, use the
+          <a href="/identify" class="text-primary hover:underline">interactive identifier</a> or
+          read the full <a href="/fungus-gnats-vs-fruit-flies" class="text-primary hover:underline">fungus gnats vs. fruit flies comparison</a>.
+          Treating the wrong pest is the single most common reason people think a method "didn't work."
+        </p>
+      </section>
+
+      <section id="life-cycle" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          The fungus gnat life cycle
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          You're fighting a life cycle, not a batch of flies. Indoors, egg to adult takes roughly
+          three to four weeks, and every stage after the egg overlaps with the next — which is why
+          a single treatment rarely finishes the job. Full detail, including how to interrupt each
+          stage, is in the <a href="/fungus-gnat-life-cycle" class="text-primary hover:underline">life cycle guide</a>.
+        </p>
+        <div class="glass mt-6 rounded-xl p-4 shadow-stamp sm:p-7">
+          <GnatLifecycleDiagram />
+        </div>
+      </section>
+
+      <section id="steps" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Step-by-step elimination process
+        </h2>
+        <ol class="relative mt-6 grid gap-6">
+          <div class="absolute top-5 bottom-5 left-4.5 w-px bg-border" aria-hidden="true" />
+          {
+            [
+              {
+                title: "Confirm the pest and stop watering on a schedule",
+                body: "Rule out fruit flies and drain flies. Check the top inch of every pot — anything still damp does not get watered today, no matter the calendar.",
+              },
+              {
+                title: "Set yellow sticky traps at soil level",
+                body: "One card per small pot, two for a large planter, pushed into the mix so the yellow face sits just above the soil. This is your monitoring tool for the rest of the process.",
+              },
+              {
+                title: "Target the adults (what's flying now)",
+                body: "Sticky traps intercept egg-laying females before they lay the next batch. This slows the population but does nothing to eggs or larvae already in the soil — it's step two of three, not the whole plan.",
+              },
+              {
+                title: "Target the larvae (what's in the soil)",
+                body: "Drench with Bti (Mosquito Bits or Gnatrol) or a 1:4 mix of 3% hydrogen peroxide and water. This is the step that actually reduces the population living in the pot.",
+              },
+              {
+                title: "Hold the dry-top habit and repeat",
+                body: "Let the top 1–2 inches dry between waterings, bottom-water where possible, and repeat the larval treatment every 5–7 days for two to three rounds if adults are still appearing.",
+              },
+              {
+                title: "Keep going for two weeks after the last adult",
+                body: "Eggs and pupae already in the soil will still finish developing. Stopping early is the most common reason an infestation comes back.",
+              },
+            ].map((step, i) => (
+              <li class="relative flex gap-4 pl-0">
+                <span class="relative z-10 flex size-9 shrink-0 items-center justify-center rounded-md border-2 border-ink bg-primary font-display text-sm font-bold text-primary-foreground tabular-nums">
+                  {i + 1}
+                </span>
+                <div class="pt-1">
+                  <h3 class="font-display text-lg font-semibold tracking-tight">{step.title}</h3>
+                  <p class="mt-1 text-sm leading-relaxed text-muted">{step.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+        <a href="/plan" class="focus-ring group mt-6 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary">
+          Turn this into a 7-day checklist
+          <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+        </a>
+      </section>
+
+      <section id="treatments" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Every treatment option, compared
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Each method targets a different stage of the life cycle. Full instructions for each are
+          one tap away — see the <a href="/fungus-gnat-treatments" class="text-primary hover:underline">treatments hub</a>.
+        </p>
+        <div class="mt-6 overflow-x-auto rounded-lg border-2 border-ink">
+          <table class="w-full min-w-[560px] border-collapse text-sm">
+            <thead>
+              <tr class="border-b-2 border-ink bg-surface-2 text-left">
+                <th scope="col" class="p-3 font-display font-semibold">Method</th>
+                <th scope="col" class="p-3 font-display font-semibold">Targets</th>
+                <th scope="col" class="p-3 font-display font-semibold">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                METHODS.map((method) => (
+                  <tr class="border-b border-border last:border-none">
+                    <td class="p-3">
+                      <a href={`/guides/${method.slug}`} class="font-medium text-fg hover:text-primary hover:underline">
+                        {method.title}
+                      </a>
+                    </td>
+                    <td class="p-3 text-muted">{method.targets}</td>
+                    <td class="p-3 text-muted">{method.time}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="natural" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Natural methods, honestly rated
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Search results for fungus gnats are full of home remedies. Some hold up; others are
+          repeated because they're cheap and easy, not because they work well. Here's the
+          distinction — full detail in the <a href="/natural-fungus-gnat-control" class="text-primary hover:underline">natural control guide</a>.
+        </p>
+        <ul class="mt-6 grid gap-3">
+          {
+            NATURAL_METHODS.slice(0, 5).map((item) => (
+              <li class="glass rounded-lg p-4 shadow-stamp-sm">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="font-medium text-fg">{item.method}</span>
+                  <span
+                    class:list={[
+                      "label-mono rounded-full px-2 py-0.5 text-[10px]",
+                      item.evidence === "well-supported" && "bg-primary/15 text-primary",
+                      item.evidence === "limited evidence" && "bg-surface-2 text-muted",
+                      item.evidence === "common claim" && "bg-danger/15 text-danger",
+                    ]}
+                  >
+                    {item.evidence}
+                  </span>
+                </div>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted">{item.note}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section id="timeline" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          How long elimination takes
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          A light infestation on one or two plants usually calms in <strong class="text-fg">7–10 days</strong> once
+          the soil surface stays dry and you've run at least one larval treatment. A heavier,
+          multi-plant infestation often takes <strong class="text-fg">3–4 weeks</strong>, because
+          eggs and larvae already in the soil keep completing their development even after
+          treatment starts. Budget for the full window before concluding a method has failed —
+          see <a href="#troubleshooting" class="text-primary hover:underline">troubleshooting</a> below
+          if you're past that window and still seeing adults.
+        </p>
+      </section>
+
+      <section id="prevention" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Keeping them from coming back
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Prevention is the same dry-soil habit that got rid of them, kept up after the infestation
+          looks over. Bottom-water where you can, top-dress with sand or grit once larvae are down,
+          use a well-draining mix, and give new plants a week of quarantine with their own sticky
+          card before they join the rest of the collection. Full walkthrough:{" "}
+          <a href="/guides/prevention" class="text-primary hover:underline">prevention that actually sticks</a>.
+        </p>
+      </section>
+
+      <section id="mistakes" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Common mistakes
+        </h2>
+        <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+          {
+            MISTAKES.map((mistake) => (
+              <li class="flex items-start gap-3">
+                <TriangleAlert className="mt-0.5 size-4 shrink-0 text-danger" />
+                <span class="text-sm leading-relaxed">
+                  <strong class="font-semibold text-fg">{mistake.title}.</strong>{" "}
+                  <span class="text-muted">{mistake.detail}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section id="troubleshooting" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+          Troubleshooting
+        </h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          More scenarios in the full <a href="/fungus-gnat-troubleshooting" class="text-primary hover:underline">troubleshooting guide</a>.
+        </p>
+        <div class="mt-6 grid gap-3">
+          {
+            TROUBLESHOOTING.slice(0, 3).map((item) => (
+              <div class="glass rounded-lg p-5 shadow-stamp-sm">
+                <h3 class="font-display text-lg font-semibold tracking-tight">{item.q}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="faq" class="mt-14 scroll-mt-20" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">FAQ</h2>
+        <div class="mt-6 grid gap-3">
+          {
+            FAQS.map((item, i) => (
+              <details class="group glass rounded-lg px-4 py-1 shadow-stamp-sm">
+                <summary class="focus-ring flex min-h-14 cursor-pointer list-none items-center gap-3 rounded-md font-medium [&::-webkit-details-marker]:hidden">
+                  <span class="label-mono shrink-0 text-xs text-primary">Q{String(i + 1).padStart(2, "0")}</span>
+                  {item.q}
+                </summary>
+                <p class="mt-1 pb-4 pl-8 text-sm leading-relaxed text-muted">{item.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="sources" class="mt-14 scroll-mt-20 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-xl font-semibold tracking-tight">Sources</h2>
+        <p class="mt-2 text-sm leading-relaxed text-muted">
+          Factual claims about biology and treatment mechanisms on this page are checked against
+          university extension and public-health sources, including:
+        </p>
+        <ul class="mt-3 grid gap-1.5 text-sm">
+          {
+            SOURCES.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                  {source.label}
+                </a>
+                <span class="text-muted"> — {source.publisher}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <nav aria-label="Related guides" class="mt-14 grid gap-3 border-t border-border pt-8 sm:grid-cols-2" data-reveal>
+        {
+          Object.entries(GUIDES).map(([slug, guide]) => (
+            <a href={`/guides/${slug}`} class="focus-ring glass rounded-lg p-4 shadow-stamp-sm hover:-translate-y-0.5 transition-transform duration-[var(--motion-quick)]">
+              <p class="label-mono text-[10px] text-primary">{guide.kicker}</p>
+              <p class="mt-1 flex items-center justify-between gap-2 font-medium text-fg">
+                {guide.title}
+                <ArrowRight className="size-4 shrink-0 text-subtle" />
+              </p>
+            </a>
+          ))
+        }
+      </nav>
+    </article>
+  </main>
+</Layout>

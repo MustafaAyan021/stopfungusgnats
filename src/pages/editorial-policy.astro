@@ -1,0 +1,78 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/editorial-policy";
+const TITLE = "Editorial Policy";
+const DESCRIPTION = "How content on Stop Fungus Gnats is written, sourced, and kept up to date.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "Editorial Policy", path: PATH }]));
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "Editorial Policy", path: PATH }]} />
+  <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article data-reveal>
+      <p class="label-mono text-[11px] text-muted">Trust</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">Editorial policy</h1>
+
+      <div class="mt-8 grid gap-6 text-sm leading-relaxed text-muted sm:text-base">
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">What this site does not do</h2>
+          <ul class="mt-3 grid gap-2">
+            <li>It does not invent statistics, study results, or citations.</li>
+            <li>It does not claim first-hand product testing that didn't happen.</li>
+            <li>It does not present a common internet claim as settled fact.</li>
+            <li>It does not fabricate reviews, testimonials, or user counts.</li>
+            <li>It does not attribute content to a named expert or credential that doesn't exist.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">How claims are sourced</h2>
+          <p class="mt-3">
+            Factual claims about fungus gnat biology, life cycle timing, and how treatments
+            mechanically work are checked against university extension programs, government
+            agricultural and public-health sources, and recognized horticultural fact sheets.
+            Pages that make specific biological or safety claims link a sources section listing
+            what was consulted — see, for example, the sources on the
+            <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">main guide</a>.
+          </p>
+          <p class="mt-3">
+            Where a widely repeated home remedy (cinnamon, vinegar traps, certain essential oils)
+            has weak or no houseplant-specific evidence behind it, that's stated directly rather
+            than smoothed over — see the
+            <a href="/natural-fungus-gnat-control" class="text-primary hover:underline">natural methods guide</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Updates</h2>
+          <p class="mt-3">
+            Pages show when they were last reviewed. A page is updated when its substance changes
+            — a correction, a new treatment option, or a revision based on reader feedback — not
+            on a fixed schedule purely to appear "fresh."
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Product mentions</h2>
+          <p class="mt-3">
+            Product names (Mosquito Bits, Gnatrol, and similar) are mentioned because they're how
+            people search for and buy the active ingredients discussed (Bti, for example). Mentioning
+            a product is not an endorsement of a specific brand over generic equivalents with the
+            same active ingredient.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Corrections</h2>
+          <p class="mt-3">
+            Found something inaccurate? See <a href="/contact" class="text-primary hover:underline">contact</a>.
+            Corrections are the fastest way this site improves.
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>

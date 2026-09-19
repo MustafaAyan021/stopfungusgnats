@@ -1,0 +1,96 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { LAST_UPDATED } from "@/data/content";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/privacy-policy";
+const TITLE = "Privacy Policy";
+const DESCRIPTION = "What information Stop Fungus Gnats collects, what it doesn't, and how that may change if advertising is added.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "Privacy Policy", path: PATH }]));
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "Privacy Policy", path: PATH }]} />
+  <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article data-reveal>
+      <p class="label-mono text-[11px] text-muted">Legal</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">Privacy Policy</h1>
+      <p class="mt-2 label-mono text-[11px] text-subtle">Last updated {LAST_UPDATED}</p>
+
+      <div class="mt-8 grid gap-6 text-sm leading-relaxed text-muted sm:text-base">
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">What this policy covers</h2>
+          <p class="mt-3">
+            This policy describes what Stop Fungus Gnats ("this site," "we") does and doesn't do
+            with information when you visit stopfungusgnats.com.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Information we collect directly</h2>
+          <p class="mt-3">
+            This site does not require an account, does not run a comment system, and does not
+            collect names, email addresses, or other personal information through the site itself.
+            If you email us via the <a href="/contact" class="text-primary hover:underline">contact page</a>,
+            we receive whatever you include in that email, used only to respond to you.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Local storage</h2>
+          <p class="mt-3">
+            The site remembers two preferences on your own device using browser local storage
+            (not a tracking cookie): your light/dark theme choice, and your progress through the
+            interactive 7-day treatment checklist. Neither is transmitted to us or to any third
+            party — it stays in your browser and can be cleared at any time by clearing your
+            browser's site data.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Analytics, cookies, and advertising</h2>
+          <p class="mt-3">
+            As of this policy's last update, this site does not run third-party analytics and does
+            not display advertising. If that changes — for example, by adding privacy-respecting
+            analytics or Google AdSense — this policy will be updated first to disclose exactly
+            what's added, what data it involves, and what choices you have, including any required
+            consent mechanism. Advertising services, if added, may use cookies or similar
+            technology to serve and measure ads; Google's own use of advertising data is described
+            at
+            <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">policies.google.com/technologies/ads</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Hosting logs</h2>
+          <p class="mt-3">
+            Like virtually any website, our hosting provider may log standard technical
+            information (such as IP address, browser type, and request timestamps) for security
+            and reliability purposes. This is routine infrastructure logging, not used by us to
+            identify individual visitors.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Children's privacy</h2>
+          <p class="mt-3">This site is a general-audience houseplant care resource and does not knowingly collect information from children.</p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Changes to this policy</h2>
+          <p class="mt-3">
+            If this policy changes, the "last updated" date above will change with it. Material
+            changes — particularly anything involving new data collection — will be reflected here
+            before they take effect.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl font-semibold tracking-tight text-fg">Contact</h2>
+          <p class="mt-3">Questions about this policy: see <a href="/contact" class="text-primary hover:underline">contact</a>.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>

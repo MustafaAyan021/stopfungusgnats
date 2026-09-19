@@ -79,8 +79,8 @@ const PREVENTION_CARDS = [
 ---
 
 <Layout
-  title="How to Get Rid of Fungus Gnats | Stop Fungus Gnats"
-  description="How to get rid of fungus gnats for good: identify them, dry the soil, catch adults on sticky traps, kill larvae with Bti or peroxide, and prevent the next generation."
+  title="Stop Fungus Gnats | Identify, Treat & Prevent Fungus Gnats"
+  description="A specialist resource for fungus gnats on houseplants: identify them fast, follow the 7-day treatment plan, and stop them coming back for good."
 >
   <main>
     <section class="relative flex min-h-[calc(100dvh-10rem)] items-center overflow-hidden bg-grain md:min-h-[calc(100dvh-6rem)]">
@@ -129,6 +129,13 @@ const PREVENTION_CARDS = [
                 Not sure it's gnats? Identify first
               </a>
             </div>
+            <a
+              href="/how-to-get-rid-of-fungus-gnats"
+              class="focus-ring group mt-4 inline-flex min-h-9 items-center gap-1.5 rounded-md text-sm font-semibold text-primary"
+            >
+              Read the complete guide
+              <ArrowRight className="size-3.5 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+            </a>
             <ol class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
               {
                 HOW_IT_WORKS.map((step, i) => (
@@ -229,7 +236,8 @@ const PREVENTION_CARDS = [
         <p class="mt-4 leading-relaxed text-muted">
           Fungus gnats live in potting mix. Fruit flies live in kitchens. Drain flies live in
           pipes. Treat the wrong one and you're back here in seven days. Three questions will
-          sort it.
+          sort it — or see the
+          <a href="/fungus-gnats-vs-fruit-flies" class="text-primary hover:underline">full comparison</a>.
         </p>
         <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp-sm">
           <img
@@ -256,6 +264,10 @@ const PREVENTION_CARDS = [
         <h2 class="mt-2 max-w-2xl font-display text-3xl font-semibold tracking-tight">
           You're fighting a life cycle, not a few flies
         </h2>
+        <p class="mt-2 max-w-2xl text-sm text-muted">
+          Full stage-by-stage detail: <a href="/fungus-gnat-life-cycle" class="text-primary hover:underline">the fungus gnat life cycle</a>.
+          Wondering how they got here at all? <a href="/why-do-i-have-fungus-gnats" class="text-primary hover:underline">See the causes</a>.
+        </p>
         <div class="mt-8 grid gap-8">
           <div class="glass rounded-xl p-4 shadow-stamp sm:p-8">
             <GnatLifecycleDiagram />
@@ -286,10 +298,10 @@ const PREVENTION_CARDS = [
           </h2>
         </div>
         <a
-          href="/plan"
+          href="/fungus-gnat-treatments"
           class="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary"
         >
-          Follow them in order
+          See every treatment
           <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
         </a>
       </div>
@@ -306,8 +318,11 @@ const PREVENTION_CARDS = [
               <div class="overflow-hidden border-b border-border/60">
                 <img
                   src={method.image}
-                  alt=""
+                  alt={`${method.title} for fungus gnat control`}
                   class="aspect-video w-full object-cover transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-105"
+                  loading="lazy"
+                  width="800"
+                  height="450"
                 />
               </div>
               <div class="p-5">
@@ -326,7 +341,11 @@ const PREVENTION_CARDS = [
     </section>
 
     <section class="border-y border-border bg-surface/70 backdrop-blur-md" data-reveal>
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-3">
+      <div class="mx-auto max-w-6xl px-4 pt-16 sm:px-6">
+        <p class="label-mono text-[11px] text-muted">Prevention</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Keep them from coming back</h2>
+      </div>
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-3">
         {
           PREVENTION_CARDS.map((item) => (
             <article>
@@ -338,6 +357,15 @@ const PREVENTION_CARDS = [
             </article>
           ))
         }
+      </div>
+      <div class="mx-auto max-w-6xl px-4 pb-10 sm:px-6">
+        <a href="/guides/prevention" class="text-sm font-semibold text-primary hover:underline">
+          Read the full prevention guide
+        </a>
+        <span class="text-sm text-subtle"> · </span>
+        <a href="/natural-fungus-gnat-control" class="text-sm font-semibold text-primary hover:underline">
+          Natural methods, rated
+        </a>
       </div>
     </section>
 

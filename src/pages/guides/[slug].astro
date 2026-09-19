@@ -1,7 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { ArrowLeft } from "lucide-react";
-import { GUIDES, METHODS } from "@/data/content";
+import { GUIDES, LAST_UPDATED, METHODS } from "@/data/content";
+import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 export function getStaticPaths() {
   return Object.keys(GUIDES).map((slug) => ({ params: { slug } }));
@@ -11,17 +13,33 @@ const { slug } = Astro.params;
 const guide = GUIDES[slug as string];
 if (!guide) return Astro.redirect("/404");
 
+const PATH = `/guides/${slug}`;
 const others = METHODS.filter((m) => m.slug !== slug);
+const schema = schemaGraph(
+  articleSchema({
+    headline: guide.title,
+    description: guide.description,
+    path: PATH,
+    image: guide.image,
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([
+    { name: "Treatments", path: "/fungus-gnat-treatments" },
+    { name: guide.title, path: PATH },
+  ]),
+);
 ---
 
-<Layout title={`${guide.title} | Stop Fungus Gnats`} description={guide.description}>
+<Layout title={`${guide.title} | Stop Fungus Gnats`} description={guide.description} schema={[schema]} ogType="article">
+  <Breadcrumbs items={[{ name: "Treatments", path: "/fungus-gnat-treatments" }, { name: guide.title, path: PATH }]} />
   <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
     <a
-      href="/"
+      href="/fungus-gnat-treatments"
       class="focus-ring inline-flex min-h-11 items-center gap-2 rounded-md text-sm text-muted transition-colors duration-[var(--motion-quick)] hover:text-fg"
     >
       <ArrowLeft className="size-4" />
-      All methods
+      All treatments
     </a>
     <span class="label-mono mt-6 inline-flex -rotate-1 items-center rounded-md border-2 border-ink bg-primary px-3 py-1.5 text-[11px] text-primary-foreground shadow-stamp-sm">
       {guide.kicker}
@@ -29,7 +47,7 @@ const others = METHODS.filter((m) => m.slug !== slug);
     <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight">{guide.title}</h1>
     <p class="mt-4 text-lg leading-relaxed text-muted">{guide.description}</p>
     <figure class="mt-8 rotate-1 overflow-hidden rounded-xl border-2 border-ink shadow-stamp">
-      <img src={guide.image} alt="" class="aspect-video w-full object-cover" />
+      <img src={guide.image} alt={guide.title} class="aspect-video w-full object-cover" loading="lazy" width="800" height="450" />
     </figure>
     <div class="mt-10 grid gap-10">
       {
@@ -58,6 +76,14 @@ const others = METHODS.filter((m) => m.slug !== slug);
             </li>
           ))
         }
+        <li>
+          <a
+            href="/how-to-get-rid-of-fungus-gnats"
+            class="focus-ring inline-flex rounded-sm text-sm font-medium hover:text-primary hover:underline"
+          >
+            The full elimination guide
+          </a>
+        </li>
       </ul>
     </aside>
   </main>

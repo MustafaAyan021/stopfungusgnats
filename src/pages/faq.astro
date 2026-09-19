@@ -1,13 +1,18 @@
 ---
 import { ChevronDown } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { FAQS } from "@/data/content";
+import { breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/faq";
+const TITLE = "Fungus Gnat FAQ";
+const DESCRIPTION = "Do fungus gnats bite? How long to get rid of them? Is cinnamon enough? Answers for houseplant owners.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "FAQ", path: PATH }]), faqSchema(FAQS));
 ---
 
-<Layout
-  title="Fungus Gnat FAQ | Stop Fungus Gnats"
-  description="Do fungus gnats bite? How long to get rid of them? Is cinnamon enough? Answers for houseplant owners."
->
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "FAQ", path: PATH }]} />
   <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
     <p class="label-mono text-[11px] text-muted">Everything, answered</p>
     <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">

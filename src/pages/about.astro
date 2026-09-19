@@ -1,0 +1,51 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/about";
+const TITLE = "About Stop Fungus Gnats";
+const DESCRIPTION = "What Stop Fungus Gnats is, how it's written, and what it does and doesn't claim to be.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "About", path: PATH }]));
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "About", path: PATH }]} />
+  <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article class="prose-content" data-reveal>
+      <p class="label-mono text-[11px] text-muted">About</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">About Stop Fungus Gnats</h1>
+
+      <div class="mt-8 grid gap-6 text-sm leading-relaxed text-muted sm:text-base">
+        <p>
+          Stop Fungus Gnats is a focused, single-topic resource for one problem: getting rid of
+          fungus gnats on houseplants, and keeping them from coming back. It exists because most
+          pest-control content treats fungus gnats as a footnote in a general "houseplant pests"
+          roundup, when the actual fix depends on details — soil moisture, the life stage you're
+          targeting, how long treatment realistically takes — that get lost in a broad overview.
+        </p>
+        <p>
+          This site is an independent publisher, not a pest-control company, a nursery, or a
+          horticultural institution. It doesn't offer paid consultations, and it isn't affiliated
+          with the product brands it mentions (Mosquito Bits, Gnatrol, and similar names appear
+          because they're what people are searching for and what the underlying active
+          ingredient — Bti — is commonly sold as).
+        </p>
+        <p>
+          Content here is written and reviewed against publicly available university extension
+          and public-health sources — see the <a href="/editorial-policy" class="text-primary hover:underline">editorial policy</a> for
+          how that works and the <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">full guide</a>'s
+          sources section for citations. Where evidence for a common home remedy is thin, the site
+          says so directly rather than repeating the claim as fact.
+        </p>
+        <p>
+          If a plant is collapsing, or a pet has gotten into treated soil, this site is not a
+          substitute for a local nursery, veterinarian, or licensed pest control professional.
+        </p>
+        <p>
+          Questions, corrections, or something that looks wrong? See <a href="/contact" class="text-primary hover:underline">contact</a>.
+        </p>
+      </div>
+    </article>
+  </main>
+</Layout>

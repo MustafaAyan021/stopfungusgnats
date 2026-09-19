@@ -1,0 +1,44 @@
+---
+import { Mail } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/contact";
+const TITLE = "Contact";
+const DESCRIPTION = "Report a correction, ask a question, or get in touch with Stop Fungus Gnats.";
+const schema = schemaGraph(breadcrumbSchema([{ name: "Contact", path: PATH }]));
+
+const CONTACT_EMAIL = "hello@stopfungusgnats.com";
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "Contact", path: PATH }]} />
+  <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article data-reveal>
+      <p class="label-mono text-[11px] text-muted">Get in touch</p>
+      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">Contact</h1>
+      <p class="mt-4 leading-relaxed text-muted">
+        Spotted something inaccurate, have a question a guide didn't answer, or want to flag a
+        broken link? Email is the fastest way to reach us.
+      </p>
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        class="focus-ring glass mt-6 inline-flex items-center gap-3 rounded-lg px-5 py-4 shadow-stamp-sm hover:-translate-y-0.5 transition-transform duration-[var(--motion-quick)]"
+      >
+        <span class="flex size-10 shrink-0 items-center justify-center rounded-md border-2 border-ink bg-primary text-primary-foreground">
+          <Mail className="size-4.5" strokeWidth={2} />
+        </span>
+        <span>
+          <span class="block text-sm font-semibold text-fg">{CONTACT_EMAIL}</span>
+          <span class="label-mono text-[10px] text-subtle">Corrections and questions</span>
+        </span>
+      </a>
+      <p class="mt-8 text-sm leading-relaxed text-subtle">
+        This site does not offer paid consultations or personalized treatment plans by email. For
+        a severe infestation or a plant in serious decline, a local nursery or extension office is
+        a faster resource.
+      </p>
+    </article>
+  </main>
+</Layout>

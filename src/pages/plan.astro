@@ -1,12 +1,31 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { TreatmentPlan } from "@/components/TreatmentPlan";
+import { PLAN_DAYS } from "@/data/content";
+import { breadcrumbSchema, howToSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/plan";
+const TITLE = "7-Day Plan to Get Rid of Fungus Gnats";
+const DESCRIPTION = "A day-by-day plan to get rid of fungus gnats: dry the mix, set sticky traps, treat larvae, and prevent the next wave.";
+
+const schema = schemaGraph(
+  breadcrumbSchema([{ name: "7-Day Plan", path: PATH }]),
+  howToSchema({
+    name: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    totalTime: "P7D",
+    steps: PLAN_DAYS.map((day) => ({
+      name: `Day ${day.day}: ${day.title}`,
+      text: day.tasks.join(" "),
+    })),
+  }),
+);
 ---
 
-<Layout
-  title="7-Day Plan to Get Rid of Fungus Gnats | Stop Fungus Gnats"
-  description="A day-by-day plan to get rid of fungus gnats: dry the mix, set sticky traps, treat larvae, and prevent the next wave."
->
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+  <Breadcrumbs items={[{ name: "7-Day Plan", path: PATH }]} />
   <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
     <span class="label-mono inline-flex -rotate-2 items-center rounded-md border-2 border-ink bg-primary px-3 py-1.5 text-[11px] text-primary-foreground shadow-stamp-sm">
       The protocol

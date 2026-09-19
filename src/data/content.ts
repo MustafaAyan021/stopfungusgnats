@@ -4,6 +4,190 @@ export const SITE = {
   tagline: "How to get rid of fungus gnats — and keep them gone.",
 };
 
+/** Content is reviewed as a whole; update when a page's substance changes. */
+export const LAST_UPDATED = "2026-09-19";
+
+export const SOURCES = [
+  {
+    label: "Fungus Gnats — Pest Notes",
+    publisher: "UC Statewide IPM Program (UC IPM)",
+    url: "https://ipm.ucanr.edu/PMG/PESTNOTES/pn7448.html",
+  },
+  {
+    label: "How to treat pesky fungus gnats in houseplants",
+    publisher: "University of Minnesota Extension",
+    url: "https://extension.umn.edu/yard-and-garden-news/how-treat-pesky-fungus-gnats-houseplants",
+  },
+  {
+    label: "Bacillus thuringiensis (Bt) Fact Sheet",
+    publisher: "National Pesticide Information Center (NPIC)",
+    url: "https://npic.orst.edu/factsheets/btgen.html",
+  },
+  {
+    label: "Steinernema feltiae, Beneficial Nematode (Sf)",
+    publisher: "Cornell University — Integrated Pest Management",
+    url: "https://cals.cornell.edu/integrated-pest-management/outreach-education/fact-sheets/steinernema-feltiae-beneficial-nematode-sf",
+  },
+] as const;
+
+export const LIFECYCLE_STAGES = [
+  {
+    n: "01",
+    stage: "Egg",
+    duration: "3–6 days",
+    detail:
+      "Adult females lay 100–300 eggs in the top layer of moist, organic potting mix. Eggs need consistent moisture to hatch — this is the stage a dry surface prevents outright.",
+  },
+  {
+    n: "02",
+    stage: "Larva",
+    duration: "~2 weeks",
+    detail:
+      "Legless, translucent larvae with a shiny black head capsule feed on fungi, algae, and decaying organic matter in the mix, and can nibble fine root hairs. This stage lives entirely below the surface, which is why sticky traps never touch it — only a soil drench or a dry surface reaches larvae.",
+  },
+  {
+    n: "03",
+    stage: "Pupa",
+    duration: "~4–6 days",
+    detail:
+      "Larvae pupate in the soil near the surface. The pupal stage doesn't feed and is brief, but it's part of why a single treatment round rarely finishes an infestation — insects already pupating when you treat will still emerge as adults.",
+  },
+  {
+    n: "04",
+    stage: "Adult",
+    duration: "About a week",
+    detail:
+      "Adults emerge, mate, and females lay the next batch of eggs within roughly 24–48 hours — often before you've caught them on a trap. Adults are weak fliers and don't bite, but every one you see represents eggs already laid.",
+  },
+] as const;
+
+export const CAUSES = [
+  {
+    title: "Soil that never fully dries",
+    detail:
+      "This is the single biggest driver. Overwatering, poor drainage, or a moisture-retentive mix (heavy on peat) keeps the top inch of soil damp enough for eggs to survive and larvae to feed, week after week.",
+  },
+  {
+    title: "Organic matter breaking down in the mix",
+    detail:
+      "Larvae feed on fungi and decaying organic material — bark, peat, and root debris in ordinary potting mix. Compost-heavy or well-used mix gives them more to eat and a more established fungal food source.",
+  },
+  {
+    title: "New plants or bagged soil brought in already infested",
+    detail:
+      "Fungus gnats hitchhike in nursery pots and in bagged potting mix that was stored somewhere damp. A new plant is a common, easy-to-miss entry point.",
+  },
+  {
+    title: "Standing water in saucers or cachepots",
+    detail:
+      "A saucer that holds water after every watering, or a decorative cachepot with no drainage, keeps the base of the pot wet even when the surface looks dry — a second nursery you can't see.",
+  },
+  {
+    title: "Warm, stable indoor temperatures",
+    detail:
+      "Fungus gnats breed year-round indoors because homes don't get cold enough to interrupt the life cycle the way outdoor winters do. Without a dry spell, each generation overlaps the next.",
+  },
+] as const;
+
+export const PEST_COMPARISON = [
+  {
+    pest: "Fungus gnats",
+    body: "Slender, dark gray to black, mosquito-like silhouette with long legs and a single pair of clear wings.",
+    behavior: "Weak, wandering fliers. Found near soil, resting on the rim of pots or nearby walls; lift off when a pot is watered.",
+    breeds: "Moist potting soil and organic matter",
+    bite: "No",
+  },
+  {
+    pest: "Fruit flies",
+    body: "Small, tan to brown, with a rounder body and noticeably red eyes.",
+    behavior: "Strong, darting fliers. Found around ripening produce, drains, or anywhere fermenting residue collects.",
+    breeds: "Overripe fruit, drains, and fermenting liquids",
+    bite: "No",
+  },
+  {
+    pest: "Drain flies (moth flies)",
+    body: "Small and fuzzy with broad, moth-like wings held in a tent shape at rest.",
+    behavior: "Weak, short hopping flights. Rest on walls and fixtures near sinks, showers, or floor drains.",
+    breeds: "Gelatinous organic film inside drain pipes",
+    bite: "No",
+  },
+] as const;
+
+export const NATURAL_METHODS = [
+  {
+    method: "Letting the soil surface dry between waterings",
+    evidence: "well-supported",
+    note: "Removes the moisture eggs and larvae need to survive. Extension sources consistently list this as the foundation of control — not a supplement to it.",
+  },
+  {
+    method: "Bti (Bacillus thuringiensis israelensis)",
+    evidence: "well-supported",
+    note: "A naturally occurring soil bacterium sold as Mosquito Bits or Gnatrol. It targets fly larvae specifically and is used in organic growing operations.",
+  },
+  {
+    method: "Beneficial nematodes (Steinernema feltiae)",
+    evidence: "well-supported",
+    note: "A microscopic parasitic worm that actively hunts fungus gnat larvae in the soil. Needs consistently moist, temperature-appropriate soil to survive and work.",
+  },
+  {
+    method: "Yellow sticky traps",
+    evidence: "well-supported",
+    note: "Effective for monitoring and for reducing egg-laying adults. On their own, traps don't touch eggs or larvae already in the soil.",
+  },
+  {
+    method: "Sand or grit top-dressing",
+    evidence: "well-supported",
+    note: "A dry, mineral surface layer is a poor place for females to lay eggs and helps the very top of the mix dry faster.",
+  },
+  {
+    method: "Cinnamon on the soil surface",
+    evidence: "limited evidence",
+    note: "Cinnamon has mild antifungal properties, which may reduce the fungal food source larvae feed on. It is not a larvicide and won't stop an established infestation on its own.",
+  },
+  {
+    method: "Vinegar traps",
+    evidence: "limited evidence",
+    note: "Apple cider vinegar traps are built for fruit flies, which are drawn to fermentation. Fungus gnats respond far more to yellow color than to vinegar, so catch rates are typically low.",
+  },
+  {
+    method: "Diatomaceous earth (food-grade) on the surface",
+    evidence: "limited evidence",
+    note: "Can help desiccate insects it directly contacts on a dry surface, but it loses effectiveness once wet — which is often exactly when fungus gnats are breeding.",
+  },
+  {
+    method: "Essential oils (neem, cinnamon, etc.) as sprays",
+    evidence: "common claim",
+    note: "Widely recommended online with little houseplant-specific evidence behind the claim. Neem's clearer, better-supported use is as a broader-spectrum insecticidal soil drench, not a fungus-gnat-specific fix.",
+  },
+] as const;
+
+export const TROUBLESHOOTING = [
+  {
+    q: "Why do fungus gnats keep coming back after I've treated them?",
+    a: "Almost always one of three things: the soil surface is still staying damp between waterings, larvae already pupating when you treated have finished emerging as adults, or a second pot nearby is still infested and reseeding the room. Treat every pot in the area at once, and hold the dry-top habit for two full weeks after the last adult — not just until things look better.",
+  },
+  {
+    q: "Why aren't my sticky traps working?",
+    a: "Sticky traps only catch flying adults — they do nothing to eggs or larvae in the soil, which is where most of the population actually lives at any given time. A trap that stays clean can also mean the card isn't at soil level, is dusty or full, or is simply overwhelmed by egg-laying happening faster than adults are trapped. Traps are a monitoring and knock-down tool, not a standalone fix.",
+  },
+  {
+    q: "How long should full elimination realistically take?",
+    a: "A light infestation on one or two plants often clears in 7–10 days once the mix stays dry and you've run at least one larval treatment. A heavier, multi-plant infestation commonly takes 3–4 weeks, because eggs and larvae already in the soil keep completing their life cycle even after you start treating. Plan for that full window before assuming a method has failed.",
+  },
+  {
+    q: "How do I know if larvae are still in the soil?",
+    a: "The classic check is the potato test: bury a half-inch cube of raw potato just under the soil surface and leave it overnight. Larvae are drawn to it and will be visible on the underside when you lift it out the next morning. No larvae on two consecutive nights is a reasonable sign the soil population is down.",
+  },
+  {
+    q: "What should I do during a severe, multi-plant infestation?",
+    a: "Treat the whole collection at once rather than one pot at a time — gnats move freely between nearby plants. Stop watering anything that isn't visibly wilting, run sticky traps everywhere, drench every pot with Bti or a hydrogen peroxide mix on the same day, and repeat the larval treatment weekly for two to three rounds. Isolating a badly infested plant while you work on it can also slow how fast it reseeds the rest of the room.",
+  },
+  {
+    q: "Is it normal to still see a few gnats for a while after treatment starts?",
+    a: "Yes. Adults that were already pupae when you started treating will still emerge — that's expected and not a sign the plan isn't working. What matters is the trend on your sticky cards over days, not whether the count hits zero immediately.",
+  },
+] as const;
+
 export type PestId = "fungus-gnats" | "fruit-flies" | "drain-flies";
 
 export const METHODS = [

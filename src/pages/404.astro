@@ -2,14 +2,16 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="Page not found | Stop Fungus Gnats" description="This page does not exist.">
+<Layout title="Page not found | Stop Fungus Gnats" description="This page does not exist." noindex>
   <main class="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
     <p class="text-xs font-medium uppercase tracking-[0.16em] text-muted">404</p>
     <h1 class="mt-2 font-display text-4xl tracking-tight">Page not found</h1>
-    <p class="mt-4 leading-relaxed text-muted">
-      That page doesn't exist. Head back to the <a href="/" class="text-primary hover:underline"
-        >fungus gnat guide</a
-      >.
-    </p>
+    <p class="mt-4 leading-relaxed text-muted">That page doesn't exist. Try one of these instead:</p>
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-semibold">
+      <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">The full guide</a>
+      <a href="/identify" class="text-primary hover:underline">Identify the pest</a>
+      <a href="/fungus-gnat-treatments" class="text-primary hover:underline">Treatments</a>
+      <a href="/faq" class="text-primary hover:underline">FAQ</a>
+    </div>
   </main>
 </Layout>
