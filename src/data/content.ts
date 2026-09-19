@@ -110,7 +110,7 @@ export const PEST_COMPARISON = [
     pest: "Fungus gnats",
     body: "Slender, dark gray to black, mosquito-like silhouette with long legs and a single pair of clear wings.",
     behavior: "Weak, wandering fliers. Found near soil, resting on the rim of pots or nearby walls; lift off when a pot is watered.",
-    breeds: "Moist potting soil and organic matter",
+    breeds: "Usually moist potting soil; can occasionally breed in other damp organic sites",
     bite: "No",
   },
   {
@@ -483,7 +483,7 @@ export const GUIDES: Record<
   "mosquito-bits": {
     title: "Mosquito Bits (Bti) for fungus gnats",
     description:
-      "How to use Bacillus thuringiensis israelensis — Mosquito Bits or Gnatrol — as a soil drench that kills fungus gnat larvae without harming plants, pets, or people when used as labeled.",
+      "How to use Bacillus thuringiensis israelensis — Mosquito Bits or Gnatrol — as a soil treatment that targets fungus gnat larvae. Follow the current product label for application and safety precautions.",
     kicker: "Best-supported larvicide",
     image: IMAGES.kit,
     body: [
@@ -498,6 +498,12 @@ export const GUIDES: Record<
         paragraphs: [
           "Bti products are generally applied either sprinkled on the soil surface and watered in, or pre-mixed with water and applied as a drench. Follow the current label for the exact amount, preparation method, application site, and retreatment interval — directions vary by product and jurisdiction, and there is no single generic recipe that's correct across brands.",
           "Bti does not persist forever indoors, which is why labels typically call for reapplication on a schedule — follow what the label says, and use whether you're still seeing adults on traps as a guide to whether to continue past that. Treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
+        ],
+      },
+      {
+        heading: "Safety",
+        paragraphs: [
+          "Bti products labeled for fungus gnats are designed to control the larvae. Follow the current product label for application and safety precautions — this site doesn't make blanket safety claims beyond what that label states.",
         ],
       },
       {
