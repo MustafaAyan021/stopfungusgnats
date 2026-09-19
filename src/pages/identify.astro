@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ArticleByline from "@/components/ArticleByline.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
 import { IMAGES, LAST_UPDATED, PEST_COMPARISON } from "@/data/content";
 import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
@@ -66,6 +67,7 @@ const NEXT_STEPS = [
         <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">
           Are these <span class="text-primary italic">actually</span> fungus gnats?
         </h1>
+        <ArticleByline class="mt-3" />
         <p class="mt-4 leading-relaxed text-muted">
           Fungus gnats are slender, dark, mosquito-like flies that hover over houseplant soil. They
           are weak fliers. Fruit flies prefer kitchens. Drain flies look moth-like and sit on
@@ -135,6 +137,34 @@ const NEXT_STEPS = [
 
     <section class="mt-12 border-t border-border pt-10" data-reveal>
       <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+        Adult appearance vs. larval appearance
+      </h2>
+      <p class="mt-3 max-w-2xl leading-relaxed text-muted">
+        Adults are what you notice; larvae are what actually matters for treatment. They look
+        nothing alike.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <div class="glass rounded-lg p-5 shadow-stamp-sm">
+          <p class="label-mono text-[11px] text-primary">Adults</p>
+          <p class="mt-2 text-sm leading-relaxed text-muted">
+            Slender, dark gray to black, mosquito-like, with long legs and a single pair of clear
+            wings — up to about 1/8 inch long. Weak, wandering fliers that lift off soil when
+            disturbed or watered, rather than darting toward food like a fruit fly.
+          </p>
+        </div>
+        <div class="glass rounded-lg p-5 shadow-stamp-sm">
+          <p class="label-mono text-[11px] text-primary">Larvae</p>
+          <p class="mt-2 text-sm leading-relaxed text-muted">
+            Legless, translucent to whitish, worm-like, with a distinct shiny black head capsule —
+            up to about 1/4 inch. Live in the top inch or two of moist mix, not on the surface.
+            Full identification detail: <a href="/fungus-gnat-larvae" class="text-primary hover:underline">how to identify fungus gnat larvae</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 border-t border-border pt-10" data-reveal>
+      <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
         Confirmation clues, if you're still not sure
       </h2>
       <ul class="mt-4 grid gap-3 sm:grid-cols-2">
@@ -151,6 +181,35 @@ const NEXT_STEPS = [
           <strong class="font-semibold text-fg">Tap the soil surface.</strong> Springtails cluster and visibly jump when disturbed rather than taking flight — a fungus gnat will fly, a springtail will hop.
         </li>
       </ul>
+    </section>
+
+    <section class="mt-12 border-t border-border pt-10" data-reveal>
+      <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+        When it's reasonable not to treat yet
+      </h2>
+      <p class="mt-3 max-w-2xl leading-relaxed text-muted">
+        Not every sighting needs an immediate treatment plan. It's reasonable to just monitor,
+        rather than start drenching or trapping, if:
+      </p>
+      <ul class="mt-4 grid gap-3">
+        <li class="flex items-start gap-3 glass rounded-md px-3 py-2.5 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+          You've seen a single insect once, with no repeat sightings over the following days.
+        </li>
+        <li class="flex items-start gap-3 glass rounded-md px-3 py-2.5 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+          The soil surface of nearby plants is already dry and drains well — there's no obvious moist breeding site for it to have come from.
+        </li>
+        <li class="flex items-start gap-3 glass rounded-md px-3 py-2.5 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+          You're not yet sure which pest it is — treating fruit flies with a soil drench, or fungus gnats with a fruit trap, wastes effort on the wrong target.
+        </li>
+      </ul>
+      <p class="mt-4 leading-relaxed text-muted">
+        In these cases, a reasonable first step is simply placing a yellow sticky trap to monitor
+        for a few days before doing anything else — it tells you whether this is an isolated
+        insect or the start of a real infestation.
+      </p>
     </section>
 
     <section class="mt-12 border-t border-border pt-10" data-reveal>

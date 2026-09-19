@@ -6,11 +6,11 @@ import { PLAN_DAYS } from "@/data/content";
 import { breadcrumbSchema, howToSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/plan";
-const TITLE = "7-Day Plan to Get Rid of Fungus Gnats";
-const DESCRIPTION = "A day-by-day plan to get rid of fungus gnats: dry the mix, set sticky traps, treat larvae, and prevent the next wave.";
+const TITLE = "7-Day Fungus Gnat Starter Plan";
+const DESCRIPTION = "Your first-week checklist for fungus gnats: manage moisture, trap adults, and treat larvae if needed. Heavier infestations may require continued monitoring and treatment beyond day 7.";
 
 const schema = schemaGraph(
-  breadcrumbSchema([{ name: "7-Day Plan", path: PATH }]),
+  breadcrumbSchema([{ name: "7-Day Starter Plan", path: PATH }]),
   howToSchema({
     name: TITLE,
     description: DESCRIPTION,
@@ -25,21 +25,20 @@ const schema = schemaGraph(
 ---
 
 <Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
-  <Breadcrumbs items={[{ name: "7-Day Plan", path: PATH }]} />
+  <Breadcrumbs items={[{ name: "7-Day Starter Plan", path: PATH }]} />
   <main id="main-content" class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-reveal>
     <span class="label-mono inline-flex -rotate-2 items-center rounded-md border-2 border-ink bg-primary px-3 py-1.5 text-[11px] text-primary-foreground shadow-stamp-sm">
       The protocol
     </span>
     <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-      Seven days. <span class="text-primary italic">One</span> checklist.
+      7-Day Fungus Gnat <span class="text-primary italic">Starter Plan</span>
     </h1>
     <p class="mt-4 max-w-xl leading-relaxed text-muted">
-      Check off each task as you go — your progress stays on this device. This covers the first
-      week of a light-to-moderate infestation. A heavier, multi-plant infestation typically needs
-      3–4 weeks total, so don't be surprised if you're still going after day 7 — that's normal, not
-      a sign it isn't working. Keep monitoring with a sticky trap for a couple more weeks after
-      adults stop appearing, even if the air already looks clear — that's the step people skip,
-      and a common reason gnats seem to come back.
+      Your first-week checklist. Heavier infestations may require continued monitoring and
+      treatment beyond day 7 — that's normal, not a sign it isn't working. Check off each task as
+      you go; your progress stays on this device. Keep monitoring after adult numbers fall, and
+      continue moisture management and any labeled treatment long enough to account for remaining
+      immature stages — that's the step people skip, and a common reason gnats seem to come back.
     </p>
     <div class="mt-10">
       <TreatmentPlan client:idle />

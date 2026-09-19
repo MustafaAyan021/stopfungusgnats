@@ -262,8 +262,9 @@ export function PestIdentifier() {
           <div>
             <dt className="label-mono text-[10px] text-muted">What improvement looks like</dt>
             <dd className="mt-1 leading-relaxed text-fg">
-              A falling trap count over several days, not an instant zero. Light cases often turn
-              a corner within 7–10 days; heavier ones can take 3–4 weeks.
+              A falling trap count over several days, not an instant zero. You may see fewer
+              adults within days, but complete control often takes several weeks — longer for a
+              heavier, multi-plant infestation.
             </dd>
           </div>
           <div>

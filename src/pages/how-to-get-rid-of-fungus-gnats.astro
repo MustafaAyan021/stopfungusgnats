@@ -1,7 +1,8 @@
 ---
-import { ArrowRight, CircleAlert, Clock, Play, TriangleAlert, Youtube } from "lucide-react";
+import { ArrowRight, CircleAlert, Play, TriangleAlert, Youtube } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ArticleByline from "@/components/ArticleByline.astro";
 import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
 import { buttonVariants } from "@/lib/button-variants";
 import {
@@ -29,7 +30,7 @@ const MISTAKES = [
   },
   {
     title: "Stopping as soon as the flies disappear",
-    detail: "Eggs and pupae already in the soil can still finish developing after adults stop appearing. Keep the dry-top habit and a sticky trap in place for a couple more weeks and treat a fresh catch as a reason to keep going, not just stopping the moment the air looks clear.",
+    detail: "Eggs and pupae already in the soil can still finish developing after adults stop appearing. Keep monitoring after adult numbers fall, and continue moisture management and any labeled treatment long enough to account for those remaining stages — don't stop the moment the air looks clear.",
   },
   {
     title: "Watering \"just to be safe\"",
@@ -72,10 +73,7 @@ const schema = schemaGraph(
         <h1 class="mt-4 font-display text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl">
           How to get rid of fungus gnats
         </h1>
-        <p class="label-mono mt-3 flex items-center gap-1.5 text-[11px] text-subtle">
-          <Clock className="size-3.5" />
-          Written by Mustafa Ayan — reviewed {LAST_UPDATED}
-        </p>
+        <ArticleByline class="mt-3" />
 
         <div class="glass mt-6 rounded-xl p-6 shadow-stamp sm:p-7">
           <p class="label-mono text-[11px] text-primary">Direct answer</p>
@@ -84,11 +82,11 @@ const schema = schemaGraph(
             or drain flies), adjust watering so the mix dries out appropriately for that specific
             plant, set yellow sticky traps at soil level to monitor and catch adults, and — if
             moisture control and traps aren't enough on their own — use a Bti product labeled for
-            fungus gnats, following the label's rate and reapplication schedule. A light
-            infestation often shows improvement within 7–10 days; a heavier one commonly takes
-            3–4 weeks, since eggs and larvae already in the soil keep developing on their own
-            timeline. Keep monitoring trap catches for a couple of weeks after adults stop
-            appearing rather than stopping the moment things look clear.
+            fungus gnats, following the label's rate and reapplication schedule. You may see fewer
+            adults within days, but complete control often takes several weeks, since eggs and
+            larvae already in the soil keep developing on their own timeline regardless of when
+            you start treating. Keep monitoring trap catches after adult numbers fall rather than
+            stopping the moment things look clear.
           </p>
           <a href="/plan" class={`${buttonVariants({ size: "default" })} mt-5`}>
             Get the day-by-day plan
@@ -196,7 +194,7 @@ const schema = schemaGraph(
               },
               {
                 title: "Keep monitoring, and reassess if it stalls",
-                body: "Watch the trend on your sticky cards over days, not a single count. Keep going for a couple of weeks after catches drop to near zero, and treat a fresh catch as a reason to check the soil again rather than start over.",
+                body: "Watch the trend on your sticky cards over days, not a single count. Keep monitoring after adult numbers fall and continue moisture management and any labeled treatment long enough to account for remaining immature stages, rather than stopping on a fixed schedule. Treat a fresh catch as a reason to check the soil again rather than start over.",
               },
             ].map((step, i) => (
               <li class="relative flex gap-4 pl-0">
@@ -334,13 +332,14 @@ const schema = schemaGraph(
           How long elimination takes
         </h2>
         <p class="mt-3 leading-relaxed text-muted">
-          A light infestation on one or two plants usually calms in <strong class="text-fg">7–10 days</strong> once
-          the soil surface stays dry and you've run at least one larval treatment. A heavier,
-          multi-plant infestation often takes <strong class="text-fg">3–4 weeks</strong>, because
-          eggs and larvae already in the soil keep completing their development even after
-          treatment starts. Budget for the full window before concluding a method has failed —
-          see <a href="#troubleshooting" class="text-primary hover:underline">troubleshooting</a> below
-          if you're past that window and still seeing adults.
+          You may see fewer adults within days of managing moisture and trapping, but complete
+          control often takes several weeks — a light infestation on one or two plants may settle
+          within a week or two, while a heavier, multi-plant infestation commonly takes closer to
+          a month, because eggs and larvae already in the soil keep completing their development
+          even after treatment starts. These ranges are approximate and vary with temperature and
+          how consistently moisture is managed. See
+          <a href="#troubleshooting" class="text-primary hover:underline">troubleshooting</a> below
+          if progress stalls rather than just slows.
         </p>
       </section>
 

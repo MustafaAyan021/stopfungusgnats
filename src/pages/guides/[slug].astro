@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ArticleByline from "@/components/ArticleByline.astro";
 import { ArrowLeft } from "lucide-react";
 import { GUIDES, LAST_UPDATED, METHODS } from "@/data/content";
 import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
@@ -56,6 +57,7 @@ const schema = schemaGraph(
       {guide.kicker}
     </span>
     <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight">{guide.title}</h1>
+    <ArticleByline class="mt-3" />
     <p class="mt-4 text-lg leading-relaxed text-muted">{guide.description}</p>
     <figure class="mt-8 rotate-1 overflow-hidden rounded-xl border-2 border-ink shadow-stamp">
       <Image

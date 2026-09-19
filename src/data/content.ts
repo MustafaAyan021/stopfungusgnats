@@ -45,34 +45,35 @@ export const SOURCES = [
   },
 ] as const;
 
+/** All durations are approximate and temperature-dependent — faster in a warm room, slower in a cool one. */
 export const LIFECYCLE_STAGES = [
   {
     n: "01",
     stage: "Egg",
-    duration: "3–6 days",
+    duration: "roughly 3–6 days",
     detail:
-      "Adult females lay 100–300 eggs in the top layer of moist, organic potting mix. Eggs need consistent moisture to hatch — this is the stage a dry surface prevents outright.",
+      "A female can lay on the order of a hundred or more eggs over her lifespan in the top layer of moist, organic potting mix. Eggs need consistent moisture to hatch — this is the stage a dry surface most directly interferes with.",
   },
   {
     n: "02",
     stage: "Larva",
-    duration: "~2 weeks",
+    duration: "roughly 2 weeks",
     detail:
-      "Legless, translucent larvae with a shiny black head capsule feed on fungi, algae, and decaying organic matter in the mix, and can nibble fine root hairs. This stage lives entirely below the surface, which is why sticky traps never touch it — only a soil drench or a dry surface reaches larvae.",
+      "Legless, translucent larvae with a shiny black head capsule feed on fungi, algae, and decaying organic matter in the mix, and can feed on fine root hairs. This stage lives entirely below the surface, which is why sticky traps never touch it — only appropriate soil moisture management or a labeled larval treatment reaches it.",
   },
   {
     n: "03",
     stage: "Pupa",
-    duration: "~4–6 days",
+    duration: "roughly 4–6 days",
     detail:
       "Larvae pupate in the soil near the surface. The pupal stage doesn't feed and is brief, but it's part of why a single treatment round rarely finishes an infestation — insects already pupating when you treat will still emerge as adults.",
   },
   {
     n: "04",
     stage: "Adult",
-    duration: "About a week",
+    duration: "roughly a week",
     detail:
-      "Adults emerge, mate, and females can begin laying the next batch of eggs within roughly 24–48 hours — often before a trap catches them. Adults are weak fliers and don't bite. Seeing one doesn't guarantee eggs are already laid, but in an established infestation it's a reasonable working assumption.",
+      "Adult females can begin laying eggs soon after emerging, so visible adults may mean another generation is already developing in the soil. Adults are weak fliers and don't bite.",
   },
 ] as const;
 
@@ -186,7 +187,7 @@ export const NATURAL_METHODS = [
 export const TROUBLESHOOTING = [
   {
     q: "Why do fungus gnats keep coming back after I've treated them?",
-    a: "Almost always one of three things: the soil surface is still staying damp between waterings, larvae already pupating when you treated have finished emerging as adults, or a second pot nearby is still infested and reseeding the room. Treat every pot in the area at once, and hold the dry-top habit for two full weeks after the last adult — not just until things look better.",
+    a: "Almost always one of three things: the soil surface is still staying damp between waterings, larvae already pupating when you treated have finished emerging as adults, or a second pot nearby is still infested and reseeding the room. Treat every pot in the area at once. Keep monitoring after adult numbers fall, and continue moisture management and any labeled treatment long enough to account for remaining immature stages still developing in the soil — not just until things look better.",
   },
   {
     q: "Why aren't my sticky traps working?",
@@ -194,7 +195,7 @@ export const TROUBLESHOOTING = [
   },
   {
     q: "How long should full elimination realistically take?",
-    a: "A light infestation on one or two plants often clears in 7–10 days once the mix stays dry and you've run at least one larval treatment. A heavier, multi-plant infestation commonly takes 3–4 weeks, because eggs and larvae already in the soil keep completing their life cycle even after you start treating. Plan for that full window before assuming a method has failed.",
+    a: "You may see fewer adults within days once the mix stays dry and adults are being trapped, but complete control often takes several weeks — longer for a heavier, multi-plant infestation — because eggs and larvae already in the soil keep completing their life cycle even after you start treating. These timelines are approximate and depend on temperature and consistency of treatment; don't assume a method has failed before giving it that full window.",
   },
   {
     q: "How do I know if larvae are still in the soil?",
@@ -494,8 +495,8 @@ export const GUIDES: Record<
       {
         heading: "How to use it on houseplants",
         paragraphs: [
-          "Growers commonly use Bti products either sprinkled on the soil surface and watered in, or steeped in water and applied as a drench — but formulation, concentration, and steep time vary by brand and product, and using the wrong rate is a real way to waste a treatment or under-dose it. Follow the current product label for exact formulation, rate, and application method rather than a generic recipe.",
-          "Bti does not persist forever indoors, so labels typically call for reapplication on a schedule — follow what the label says, and use whether you're still seeing adults on traps as a guide to whether to continue past that. Treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
+          "Bti products are generally applied either sprinkled on the soil surface and watered in, or pre-mixed with water and applied as a drench. Follow the current label for the exact amount, preparation method, application site, and retreatment interval — directions vary by product and jurisdiction, and there is no single generic recipe that's correct across brands.",
+          "Bti does not persist forever indoors, which is why labels typically call for reapplication on a schedule — follow what the label says, and use whether you're still seeing adults on traps as a guide to whether to continue past that. Treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
         ],
       },
       {
@@ -516,7 +517,7 @@ export const GUIDES: Record<
       {
         heading: "Keep monitoring after adults stop appearing",
         paragraphs: [
-          "The life cycle from egg to adult is often about 3–4 weeks in a warm home, with larvae feeding for around two weeks — so eggs laid before you started treating can still finish developing after your trap counts look clear. There's no universal countdown that fits every case; instead, keep the dry-top habit and a sticky trap in place for a couple of weeks after the last adult you catch, and treat a fresh trap catch as a sign to check the soil and continue larval treatment rather than start over. Stopping the moment the air looks clear is a common reason infestations restart.",
+          "The life cycle from egg to adult is roughly 3–4 weeks in a warm home (slower in a cooler one), with larvae feeding for around two weeks — so eggs laid before you started treating can still finish developing after your trap counts look clear. There's no universal countdown that fits every case; instead, keep monitoring after adult numbers fall and continue moisture management and any labeled treatment long enough to account for remaining immature stages, rather than a fixed number of days. Treat a fresh trap catch as a sign to check the soil and continue, not a reason to start over. Stopping the moment the air looks clear is a common reason infestations restart.",
         ],
       },
       {
@@ -547,7 +548,7 @@ export const FAQS = [
   },
   {
     q: "How long does it take to get rid of fungus gnats?",
-    a: "A light infestation often shows improvement within 7–10 days once moisture is managed and adults are being trapped. A heavier one can take 3–4 weeks because eggs and larvae keep hatching on their own schedule. Keep monitoring with a sticky trap for a couple of weeks after adults stop appearing rather than assuming it's over the moment things look clear.",
+    a: "You may see fewer adults within days once moisture is managed and adults are being trapped, but complete control often takes several weeks, longer for a heavier infestation, because eggs and larvae keep hatching on their own schedule. Keep monitoring after adult numbers fall — don't assume it's over the moment things look clear.",
   },
   {
     q: "Will cinnamon or vinegar traps be enough?",
