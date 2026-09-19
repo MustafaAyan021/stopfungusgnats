@@ -1,8 +1,23 @@
+import heroImage from "@/assets/images/hero.jpg";
+import macroImage from "@/assets/images/macro.jpg";
+import bottomWaterImage from "@/assets/images/bottom-water.jpg";
+import stickyTrapImage from "@/assets/images/sticky-trap.jpg";
+import kitImage from "@/assets/images/kit.jpg";
+
 export const SITE = {
   name: "Stop Fungus Gnats",
   domain: "stopfungusgnats.com",
   tagline: "How to get rid of fungus gnats — and keep them gone.",
 };
+
+/** Optimized image modules, keyed for reuse across method cards, guides, and hero art. */
+export const IMAGES = {
+  hero: heroImage,
+  macro: macroImage,
+  bottomWater: bottomWaterImage,
+  stickyTrap: stickyTrapImage,
+  kit: kitImage,
+} as const;
 
 /** Content is reviewed as a whole; update when a page's substance changes. */
 export const LAST_UPDATED = "2026-09-19";
@@ -197,7 +212,7 @@ export const METHODS = [
     kicker: "Most important",
     summary:
       "Fungus gnats breed in constantly wet mix. Let the top 1–2 inches dry between waterings and you remove their nursery.",
-    image: "/images/bottom-water.jpg",
+    image: IMAGES.bottomWater,
     time: "Ongoing",
     targets: "Eggs and larvae",
   },
@@ -207,7 +222,7 @@ export const METHODS = [
     kicker: "Adults",
     summary:
       "Place yellow cards at the soil surface to catch egg-laying adults. Traps monitor the infestation — they do not finish it alone.",
-    image: "/images/sticky-trap.jpg",
+    image: IMAGES.stickyTrap,
     time: "5 minutes",
     targets: "Flying adults",
   },
@@ -217,7 +232,7 @@ export const METHODS = [
     kicker: "Larvae",
     summary:
       "A 1:4 mix of 3% hydrogen peroxide and water kills larvae in the top layer of mix. Use as a short-term knock-down, not the only step.",
-    image: "/images/kit.jpg",
+    image: IMAGES.kit,
     time: "10 minutes",
     targets: "Larvae",
   },
@@ -227,7 +242,7 @@ export const METHODS = [
     kicker: "Best larvicide",
     summary:
       "Bacillus thuringiensis israelensis is a bacteria that specifically kills fungus-gnat larvae. Soak Bits, then water with the tea, or sprinkle on soil.",
-    image: "/images/kit.jpg",
+    image: IMAGES.kit,
     time: "15 minutes, repeat weekly",
     targets: "Larvae",
   },
@@ -237,7 +252,7 @@ export const METHODS = [
     kicker: "Keep them gone",
     summary:
       "Bottom watering, a sand or grit top-dress, sterile mix, and empty cachepots. Two extra dry weeks after the last adult is the finish line.",
-    image: "/images/bottom-water.jpg",
+    image: IMAGES.bottomWater,
     time: "Habit change",
     targets: "The next generation",
   },
@@ -316,7 +331,7 @@ export const GUIDES: Record<
     title: string;
     description: string;
     kicker: string;
-    image: string;
+    image: ImageMetadata;
     body: { heading: string; paragraphs: string[] }[];
   }
 > = {
@@ -325,7 +340,7 @@ export const GUIDES: Record<
     description:
       "Wet mix is the nursery. Here is how dry the top should be, how to water without restarting the infestation, and what to do with plants that hate drought.",
     kicker: "Cultural control",
-    image: "/images/bottom-water.jpg",
+    image: IMAGES.bottomWater,
     body: [
       {
         heading: "Why this is the real fix",
@@ -354,7 +369,7 @@ export const GUIDES: Record<
     description:
       "How to place yellow sticky cards so they catch adult fungus gnats, how to read the catch, and why traps alone will not end an infestation.",
     kicker: "Adults",
-    image: "/images/sticky-trap.jpg",
+    image: IMAGES.stickyTrap,
     body: [
       {
         heading: "What traps do well",
@@ -382,7 +397,7 @@ export const GUIDES: Record<
     description:
       "The 1:4 mix of 3% hydrogen peroxide and water, how to apply it, which plants to skip, and why it is a knock-down rather than a cure.",
     kicker: "Larvae",
-    image: "/images/kit.jpg",
+    image: IMAGES.kit,
     body: [
       {
         heading: "The mix",
@@ -410,7 +425,7 @@ export const GUIDES: Record<
     description:
       "How to use Bacillus thuringiensis israelensis — Mosquito Bits or Gnatrol — as a soil drench that kills fungus gnat larvae without harming plants, pets, or people when used as labeled.",
     kicker: "Best larvicide",
-    image: "/images/kit.jpg",
+    image: IMAGES.kit,
     body: [
       {
         heading: "What Bti is",
@@ -438,7 +453,7 @@ export const GUIDES: Record<
     description:
       "Bottom watering, sand top-dressing, quarantine for new plants, and the two-week rule after the last adult.",
     kicker: "Keep them gone",
-    image: "/images/bottom-water.jpg",
+    image: IMAGES.bottomWater,
     body: [
       {
         heading: "The two-week rule",

@@ -1,5 +1,6 @@
 ---
 import { ArrowRight } from "lucide-react";
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { LAST_UPDATED, METHODS } from "@/data/content";
@@ -47,13 +48,15 @@ const schema = schemaGraph(
               class="focus-ring group overflow-hidden glass rounded-xl shadow-stamp transition-transform duration-[var(--motion-quick)] hover:-translate-y-1"
             >
               <div class="overflow-hidden border-b border-border/60">
-                <img
+                <Image
                   src={method.image}
                   alt={`${method.title} for fungus gnat control`}
                   class="aspect-video w-full object-cover transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-105"
+                  widths={[400, 700]}
+                  sizes="(min-width: 640px) 45vw, 100vw"
+                  format="webp"
+                  quality={72}
                   loading="lazy"
-                  width="800"
-                  height="450"
                 />
               </div>
               <div class="p-5">

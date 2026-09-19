@@ -10,11 +10,12 @@ import {
   Sparkles,
   TriangleAlert,
 } from "lucide-react";
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
 import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
 import { buttonVariants } from "@/lib/button-variants";
-import { FAQS, METHODS } from "@/data/content";
+import { FAQS, IMAGES, METHODS } from "@/data/content";
 
 const HOW_IT_WORKS = [
   { icon: Search, label: "Identify" },
@@ -155,12 +156,16 @@ const PREVENTION_CARDS = [
             </ol>
           </div>
           <figure class="relative rotate-1 overflow-hidden rounded-xl border-2 border-ink shadow-stamp">
-            <img
-              src="/images/hero.jpg"
+            <Image
+              src={IMAGES.hero}
               alt="Indoor houseplant on a windowsill with damp soil where fungus gnats breed"
               class="aspect-[4/5] w-full object-cover"
-              width={1792}
-              height={1008}
+              widths={[480, 768, 1024]}
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              format="webp"
+              quality={78}
+              loading="eager"
+              fetchpriority="high"
             />
             <figcaption class="label-mono absolute bottom-3 left-3 flex items-center gap-2 rounded-md border-2 border-ink bg-bg px-3 py-2 text-[10px] text-fg shadow-stamp-sm">
               <TriangleAlert className="size-3.5 shrink-0 text-danger" />
@@ -240,16 +245,19 @@ const PREVENTION_CARDS = [
           <a href="/fungus-gnats-vs-fruit-flies" class="text-primary hover:underline">full comparison</a>.
         </p>
         <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp-sm">
-          <img
-            src="/images/macro.jpg"
+          <Image
+            src={IMAGES.macro}
             alt="Close-up of a fungus gnat on moist potting soil"
             class="aspect-4/3 w-full object-cover"
-            width={1600}
-            height={1200}
+            widths={[400, 700]}
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            format="webp"
+            quality={75}
+            loading="lazy"
           />
         </figure>
       </div>
-      <PestIdentifier client:load />
+      <PestIdentifier client:visible />
     </section>
 
     <section class="relative overflow-hidden border-y border-border bg-surface/70 backdrop-blur-md" data-reveal>
@@ -316,13 +324,15 @@ const PREVENTION_CARDS = [
               ]}
             >
               <div class="overflow-hidden border-b border-border/60">
-                <img
+                <Image
                   src={method.image}
                   alt={`${method.title} for fungus gnat control`}
                   class="aspect-video w-full object-cover transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-105"
+                  widths={[400, 700]}
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  format="webp"
+                  quality={72}
                   loading="lazy"
-                  width="800"
-                  height="450"
                 />
               </div>
               <div class="p-5">

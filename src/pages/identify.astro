@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
+import { IMAGES } from "@/data/content";
 import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/identify";
@@ -30,10 +32,16 @@ const CLUES = [
         porcelain. Treat the wrong one and you'll be right back here in a week.
       </p>
       <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp">
-        <img
-          src="/images/macro.jpg"
+        <Image
+          src={IMAGES.macro}
           alt="Macro photo of a fungus gnat on potting soil"
           class="aspect-4/3 w-full object-cover"
+          widths={[400, 700]}
+          sizes="(min-width: 1024px) 45vw, 100vw"
+          format="webp"
+          quality={75}
+          loading="eager"
+          fetchpriority="high"
         />
       </figure>
       <ul class="mt-6 grid gap-3">
@@ -50,6 +58,6 @@ const CLUES = [
         Full comparison table
       </a>
     </div>
-    <PestIdentifier client:load />
+    <PestIdentifier client:idle />
   </main>
 </Layout>

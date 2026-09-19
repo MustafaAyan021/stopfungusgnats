@@ -2,10 +2,15 @@ const SITE_URL = "https://stopfungusgnats.com";
 const SITE_NAME = "Stop Fungus Gnats";
 const LOGO_URL = `${SITE_URL}/favicon.svg`;
 
-/** Matches the site's canonical URL shape: every path ends in a trailing slash. */
+/** Page URL, matching the site's canonical shape: every path ends in a trailing slash. */
 export function absoluteUrl(path: string): string {
   const normalized = path.endsWith("/") ? path : `${path}/`;
   return new URL(normalized, SITE_URL).toString();
+}
+
+/** Asset URL (images, etc.) — resolved as-is, never slash-normalized. */
+export function absoluteAssetUrl(path: string): string {
+  return new URL(path, SITE_URL).toString();
 }
 
 export function organizationSchema() {
@@ -82,7 +87,7 @@ export function articleSchema(input: ArticleInput) {
     description: input.description,
     mainEntityOfPage: absoluteUrl(input.path),
     url: absoluteUrl(input.path),
-    image: input.image ? absoluteUrl(input.image) : undefined,
+    image: input.image ? absoluteAssetUrl(input.image) : undefined,
     datePublished: input.datePublished,
     dateModified: input.dateModified,
     author: { "@id": `${SITE_URL}/#organization` },
@@ -109,7 +114,7 @@ export function howToSchema(input: {
     name: input.name,
     description: input.description,
     mainEntityOfPage: absoluteUrl(input.path),
-    image: input.image ? absoluteUrl(input.image) : undefined,
+    image: input.image ? absoluteAssetUrl(input.image) : undefined,
     totalTime: input.totalTime,
     step: input.steps.map((step) => ({
       "@type": "HowToStep",

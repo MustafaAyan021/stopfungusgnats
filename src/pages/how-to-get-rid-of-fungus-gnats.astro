@@ -8,6 +8,7 @@ import {
   CAUSES,
   FAQS,
   GUIDES,
+  IMAGES,
   LAST_UPDATED,
   METHODS,
   NATURAL_METHODS,
@@ -50,7 +51,7 @@ const schema = schemaGraph(
     headline: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    image: "/images/hero.jpg",
+    image: IMAGES.hero.src,
     datePublished: LAST_UPDATED,
     dateModified: LAST_UPDATED,
   }),
@@ -113,7 +114,7 @@ const schema = schemaGraph(
         </ol>
       </nav>
 
-      <section id="why-they-appear" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="why-they-appear" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Why fungus gnats appear
         </h2>
@@ -138,7 +139,7 @@ const schema = schemaGraph(
         </ul>
       </section>
 
-      <section id="identify" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="identify" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           How to identify fungus gnats
         </h2>
@@ -152,7 +153,7 @@ const schema = schemaGraph(
         </p>
       </section>
 
-      <section id="life-cycle" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="life-cycle" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           The fungus gnat life cycle
         </h2>
@@ -167,7 +168,7 @@ const schema = schemaGraph(
         </div>
       </section>
 
-      <section id="steps" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="steps" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Step-by-step elimination process
         </h2>
@@ -218,7 +219,7 @@ const schema = schemaGraph(
         </a>
       </section>
 
-      <section id="video" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="video" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <p class="label-mono flex items-center gap-1.5 text-[11px] text-muted">
           <Youtube className="size-3.5 text-primary" />
           Suggested YouTube video
@@ -261,7 +262,7 @@ const schema = schemaGraph(
         </figure>
       </section>
 
-      <section id="treatments" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="treatments" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Every treatment option, compared
         </h2>
@@ -297,7 +298,7 @@ const schema = schemaGraph(
         </div>
       </section>
 
-      <section id="natural" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="natural" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Natural methods, honestly rated
         </h2>
@@ -330,7 +331,7 @@ const schema = schemaGraph(
         </ul>
       </section>
 
-      <section id="timeline" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="timeline" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           How long elimination takes
         </h2>
@@ -345,7 +346,7 @@ const schema = schemaGraph(
         </p>
       </section>
 
-      <section id="prevention" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="prevention" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Keeping them from coming back
         </h2>
@@ -358,7 +359,7 @@ const schema = schemaGraph(
         </p>
       </section>
 
-      <section id="mistakes" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="mistakes" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Common mistakes
         </h2>
@@ -377,7 +378,7 @@ const schema = schemaGraph(
         </ul>
       </section>
 
-      <section id="troubleshooting" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="troubleshooting" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           Troubleshooting
         </h2>
@@ -396,7 +397,7 @@ const schema = schemaGraph(
         </div>
       </section>
 
-      <section id="faq" class="mt-14 scroll-mt-20" data-reveal>
+      <section id="faq" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">FAQ</h2>
         <div class="mt-6 grid gap-3">
           {
@@ -413,7 +414,7 @@ const schema = schemaGraph(
         </div>
       </section>
 
-      <section id="sources" class="mt-14 scroll-mt-20 border-t border-border pt-8" data-reveal>
+      <section id="sources" class="mt-14 scroll-mt-20 border-t border-border pt-8 cv-auto" data-reveal>
         <h2 class="font-display text-xl font-semibold tracking-tight">Sources</h2>
         <p class="mt-2 text-sm leading-relaxed text-muted">
           Factual claims about biology and treatment mechanisms on this page are checked against

@@ -170,6 +170,18 @@
     border: 1.5px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
   }
 
+  /* backdrop-filter is one of the most GPU/compositing-expensive properties in
+     the sheet, and pages here stack dozens of .glass cards at once. On phones
+     and small tablets — the weakest GPUs, and where jank is most noticeable —
+     use a much cheaper blur radius and drop the saturate pass entirely. */
+  @media (max-width: 640px) {
+    .glass {
+      background: color-mix(in oklab, var(--color-surface-2) 78%, transparent);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+  }
+
   /* Subtle grain so flat color fields feel printed, not flat vector. */
   .bg-grain {
     position: relative;
@@ -208,6 +220,16 @@
   [data-reveal].in-view {
     opacity: 1;
     transform: none;
+  }
+
+  /* Skip layout/paint work for content that's definitely below the fold until
+     the browser is about to need it — a big win on the longer guide pages,
+     which run a dozen-plus sections deep. Opt-in only (never applied to
+     above-the-fold content), with a rough height estimate so scrollbar/anchor
+     jumps stay close to correct before a section has actually been measured. */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
   }
 }
 
