@@ -289,9 +289,9 @@ export function PestIdentifier() {
           <div>
             <dt className="label-mono text-[10px] text-muted">When to reassess the diagnosis</dt>
             <dd className="mt-1 leading-relaxed text-fg">
-              If two weeks of consistent moisture management and trapping make no visible
-              difference at all, it's worth reconsidering whether this is really fungus gnats —
-              revisit the full comparison rather than escalating treatment on the same guess.
+              If consistent moisture management and trapping make no visible difference at all
+              over time, it's worth reconsidering whether this is really fungus gnats — revisit
+              the full comparison rather than escalating treatment on the same guess.
             </dd>
           </div>
         </dl>
