@@ -13,15 +13,8 @@ const NAV = [
   { href: "/about", label: "About" },
 ] as const;
 
-const TICKER = [
-  "EGGS HATCH IN DAYS",
-  "IMPROVEMENT CAN START WITHIN DAYS",
-  "COMPLETE CONTROL OFTEN TAKES WEEKS",
-  "DRY SOIL = NO NURSERY",
-  "TRAP THE ADULTS",
-  "MANAGE THE LARVAE",
-  "MONITOR THE TREND",
-];
+/** The single shared ticker message used site-wide — do not fork per-route variants. */
+const TICKER = ["IMPROVEMENT CAN START WITHIN DAYS", "COMPLETE CONTROL OFTEN TAKES WEEKS"];
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));

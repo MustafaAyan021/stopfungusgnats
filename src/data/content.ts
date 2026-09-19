@@ -573,7 +573,7 @@ export const FAQS = [
   },
   {
     q: "Will a store-bought fogger or spray get rid of them?",
-    a: "A fogger or contact spray kills adults on contact but does nothing to eggs, larvae, or pupae sealed in the soil — so the population rebuilds within days. If you use one, treat it as a short-term knockdown alongside a soil-directed treatment (Bti or peroxide), not a replacement for one, and always follow the product's label instructions.",
+    a: "Adult sprays may reduce the flies you see temporarily, but they do not address eggs, larvae, or pupae developing in the growing medium. For a houseplant infestation, focus first on finding the source, managing moisture appropriately, monitoring adults, and using an appropriate labeled larval treatment when needed. Foggers and contact sprays aren't part of the standard workflow here — that's not a claim that every such product is unsafe or ineffective, just that they don't reach the stage actually driving the infestation.",
   },
   {
     q: "What about succulents, cacti, or orchids specifically?",
