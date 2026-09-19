@@ -55,7 +55,16 @@ const schema = schemaGraph(
         </div>
       </section>
 
-      <section class="mt-10 grid gap-5" data-reveal>
+      <section class="mt-10" data-reveal>
+        <p class="text-sm leading-relaxed text-subtle">
+          Stage duration varies with temperature and environmental conditions, so the numbers
+          below are useful as a guide rather than a fixed calendar. Because generations overlap,
+          new adults may continue emerging for a while after treatment begins — that's expected,
+          not a sign the plan has failed.
+        </p>
+      </section>
+
+      <section class="mt-6 grid gap-5" data-reveal>
         {
           LIFECYCLE_STAGES.map((stage) => (
             <article class="glass rounded-xl p-5 shadow-stamp-sm sm:p-6">

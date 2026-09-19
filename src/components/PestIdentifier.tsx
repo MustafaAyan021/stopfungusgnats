@@ -88,24 +88,30 @@ const QUESTIONS = [
   },
 ] as const;
 
-const RESULTS: Record<PestId, { title: string; blurb: string; next: { to: string; label: string } }> = {
+const RESULTS: Record<
+  PestId,
+  { title: string; blurb: string; clue: string; next: { to: string; label: string } }
+> = {
   "fungus-gnats": {
     title: "Your answers are consistent with fungus gnats",
     blurb:
       "They breed in damp houseplant mix. This is a questionnaire, not a lab test — if anything below doesn't match what you're seeing, double-check with the full comparison.",
+    clue: "soil location, mosquito-like appearance, and/or damp mix",
     next: { to: "/plan", label: "Open the 7-day plan" },
   },
   "fruit-flies": {
     title: "Your answers are consistent with fruit flies",
     blurb:
       "They breed in fermenting food, not potting mix. Toss overripe produce, rinse recycling, and use an apple-cider vinegar + dish soap trap.",
-    next: { to: "/", label: "Back to the gnat guide" },
+    clue: "kitchen/produce location and a rounder, red-eyed appearance",
+    next: { to: "/fungus-gnats-vs-fruit-flies", label: "See the full comparison" },
   },
   "drain-flies": {
     title: "Your answers are consistent with drain flies",
     blurb:
       "They breed in the biofilm inside drains. Scrub the drain, flush with hot water, and keep it dry. Sticky cards on plants will not fix this.",
-    next: { to: "/", label: "Back to the gnat guide" },
+    clue: "drain location and a fuzzy, moth-like appearance",
+    next: { to: "/fungus-gnats-vs-fruit-flies", label: "See the full comparison" },
   },
 };
 
@@ -201,6 +207,11 @@ export function PestIdentifier() {
             <div>
               <h3 className="font-display text-2xl font-semibold tracking-tight">{result.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{result.blurb}</p>
+              <p className="mt-2 text-xs leading-relaxed text-subtle">
+                Based mainly on: {result.clue}. Small, wingless insects that jump rather than fly
+                are a different pest again — springtails — see the full comparison if that fits
+                better.
+              </p>
             </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -225,8 +236,9 @@ export function PestIdentifier() {
           <div>
             <h3 className="font-display text-2xl font-semibold tracking-tight">{result.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              This is a short questionnaire, not a lab identification — treat it as a strong
-              starting point, and switch tracks if what you see stops matching.
+              Based mainly on: {result.clue}. This is a short questionnaire, not a lab
+              identification — treat it as a strong starting point, and switch tracks if what you
+              see stops matching.
             </p>
           </div>
         </div>
