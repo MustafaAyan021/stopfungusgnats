@@ -109,22 +109,22 @@ export const PEST_COMPARISON = [
   {
     pest: "Fungus gnats",
     body: "Slender, dark gray to black, mosquito-like silhouette with long legs and a single pair of clear wings.",
-    behavior: "Weak, wandering fliers. Found near soil, resting on the rim of pots or nearby walls; lift off when a pot is watered.",
-    breeds: "Usually moist potting soil; can occasionally breed in other damp organic sites",
+    behavior: "Weak, wandering fliers. Rest on soil, pot rims, or nearby walls; lift off when a pot is watered.",
+    breeds: "Usually moist potting soil; can also occur in other damp organic sites",
     bite: "No",
   },
   {
     pest: "Fruit flies",
     body: "Small, tan to brown, with a rounder body and noticeably red eyes.",
-    behavior: "Strong, darting fliers. Found around ripening produce, drains, or anywhere fermenting residue collects.",
-    breeds: "Overripe fruit, drains, and fermenting liquids",
+    behavior: "Strong, darting fliers. Found around ripening produce or anywhere fermenting residue collects.",
+    breeds: "Commonly fruit, trash, and fermenting organic material",
     bite: "No",
   },
   {
     pest: "Drain flies (moth flies)",
     body: "Small and fuzzy with broad, moth-like wings held in a tent shape at rest.",
     behavior: "Weak, short hopping flights. Rest on walls and fixtures near sinks, showers, or floor drains.",
-    breeds: "Gelatinous organic film inside drain pipes",
+    breeds: "Commonly drains and organic buildup in drain traps",
     bite: "No",
   },
   {
@@ -307,7 +307,7 @@ export const PLAN_DAYS = [
     title: "Confirm it, find the source, and cut the moisture",
     tasks: [
       "Confirm they are fungus gnats (soil, not fruit or drains)",
-      "Check every nearby pot to find the likely breeding source — usually the wettest one",
+      "Check every nearby pot for the likely breeding source — a consistently damp one is common, but also check drains and other damp organic sites",
       "Note what kind of plant is affected — tropical, succulent/cactus, orchid, seedling, cutting, or edible — moisture tolerance differs by type",
       "Empty saucers and decorative cachepots",
       "Skip watering any plant whose mix is still damp at the depth appropriate for that plant",
