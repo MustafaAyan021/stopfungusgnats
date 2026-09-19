@@ -503,11 +503,11 @@ export const GUIDES: Record<
       {
         heading: "Safety",
         paragraphs: [
-          "Bti products labeled for fungus gnats are designed to control the larvae. Follow the current product label for application and safety precautions — this site doesn't make blanket safety claims beyond what that label states.",
+          "Bti is a narrow-spectrum bacterium — it's used in organic growing operations because it targets specific fly larvae rather than a broad range of organisms. That's a different claim from \"safe for everything, no precautions needed.\" For handling, storage, and any precautions around children, pets, or edible plants, follow the current product label rather than a general statement here, since specifics can vary by product and formulation.",
         ],
       },
       {
-        heading: "Why people call this the closer",
+        heading: "Where Bti fits in the overall plan",
         paragraphs: [
           "Dry soil stops new eggs. Traps catch adults. Bti kills the larvae already in the pot. Together they cover the life cycle. Beneficial nematodes (Steinernema feltiae) are another strong larval option if Bti is hard to find where you live — but they're a living product, not a shelf-stable one. They need to arrive cold, be applied within days, and kept in consistently moist soil to survive, which makes them a better fit for someone who can apply them right away than a backup sitting in a cabinet.",
         ],

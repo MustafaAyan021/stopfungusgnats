@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, CircleAlert, Play, TriangleAlert, Youtube } from "lucide-react";
+import { ArrowRight, CircleAlert, Play, TriangleAlert, Video } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
@@ -226,7 +226,7 @@ const schema = schemaGraph(
 
       <section id="video" class="mt-14 scroll-mt-20 cv-auto" data-reveal>
         <p class="label-mono flex items-center gap-1.5 text-[11px] text-muted">
-          <Youtube className="size-3.5 text-primary" />
+          <Video className="size-3.5 text-primary" />
           Suggested YouTube video
         </p>
         <h2 class="mt-2 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -257,7 +257,7 @@ const schema = schemaGraph(
               <Play className="size-6 translate-x-0.5" fill="currentColor" strokeWidth={0} />
             </span>
             <span class="label-mono absolute bottom-3 left-3 flex items-center gap-1.5 rounded-md border-2 border-ink bg-bg px-2.5 py-1.5 text-[10px] text-fg shadow-stamp-sm">
-              <Youtube className="size-3.5 shrink-0 text-danger" />
+              <Video className="size-3.5 shrink-0 text-danger" />
               Watch on YouTube
             </span>
           </a>
