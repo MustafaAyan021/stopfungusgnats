@@ -26,7 +26,7 @@ const path = Astro.url.pathname;
 const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
 ---
 
-<div class="h-9 overflow-hidden border-b border-border bg-surface-2/80 backdrop-blur-md" aria-hidden="true" data-print-hide>
+<div class="hidden h-9 overflow-hidden border-b border-border bg-surface-2/80 backdrop-blur-md sm:block" aria-hidden="true" data-print-hide>
   <div class="marquee-track h-9 items-center">
     {
       Array.from({ length: 2 }).map(() => (

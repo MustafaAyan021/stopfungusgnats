@@ -1,6 +1,7 @@
 const SITE_URL = "https://stopfungusgnats.com";
 const SITE_NAME = "Stop Fungus Gnats";
 const LOGO_URL = `${SITE_URL}/favicon.svg`;
+const AUTHOR_NAME = "Mustafa Ayan";
 
 /** Page URL, matching the site's canonical shape: every path ends in a trailing slash. */
 export function absoluteUrl(path: string): string {
@@ -23,6 +24,15 @@ export function organizationSchema() {
       "@type": "ImageObject",
       url: LOGO_URL,
     },
+  };
+}
+
+export function personSchema() {
+  return {
+    "@type": "Person",
+    "@id": `${SITE_URL}/#author`,
+    name: AUTHOR_NAME,
+    url: `${SITE_URL}/about/`,
   };
 }
 
@@ -90,7 +100,7 @@ export function articleSchema(input: ArticleInput) {
     image: input.image ? absoluteAssetUrl(input.image) : undefined,
     datePublished: input.datePublished,
     dateModified: input.dateModified,
-    author: { "@id": `${SITE_URL}/#organization` },
+    author: { "@id": `${SITE_URL}/#author` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
   };

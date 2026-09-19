@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { TroubleshootChecker } from "@/components/TroubleshootChecker";
 import { LAST_UPDATED, TROUBLESHOOTING } from "@/data/content";
 import { articleSchema, breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/seo";
 
@@ -33,12 +34,19 @@ const schema = schemaGraph(
           When the plan <span class="text-primary italic">isn't working</span>
         </h1>
         <p class="mt-4 max-w-2xl leading-relaxed text-muted">
-          Most "this doesn't work" reports trace back to one of a handful of causes. Find your
-          situation below.
+          Most "this doesn't work" reports trace back to one of a handful of causes. Run the
+          self-check below, or scan the situations underneath it.
         </p>
       </header>
 
-      <section class="mt-10 grid gap-4" data-reveal>
+      <section class="mt-10" data-reveal>
+        <TroubleshootChecker client:visible />
+      </section>
+
+      <section class="mt-10 grid gap-4 border-t border-border pt-10" data-reveal>
+        <h2 class="font-display text-lg font-semibold tracking-tight text-muted">
+          Or find your exact situation
+        </h2>
         {
           TROUBLESHOOTING.map((item) => (
             <div class="glass rounded-xl p-5 shadow-stamp-sm sm:p-6">

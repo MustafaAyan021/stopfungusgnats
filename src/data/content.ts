@@ -144,22 +144,22 @@ export const NATURAL_METHODS = [
   {
     method: "Bti (Bacillus thuringiensis israelensis)",
     evidence: "well-supported",
-    note: "A naturally occurring soil bacterium sold as Mosquito Bits or Gnatrol. It targets fly larvae specifically and is used in organic growing operations.",
+    note: "A naturally occurring soil bacterium sold as Mosquito Bits or Gnatrol. It targets fly larvae specifically and is used in organic growing operations. A drench is itself a watering event — apply it in place of a scheduled watering, not on top of one, so you're not undoing the dry-soil habit while treating larvae.",
   },
   {
     method: "Beneficial nematodes (Steinernema feltiae)",
     evidence: "well-supported",
-    note: "A microscopic parasitic worm that actively hunts fungus gnat larvae in the soil. Needs consistently moist, temperature-appropriate soil to survive and work.",
+    note: "A microscopic parasitic worm that actively hunts fungus gnat larvae in the soil. Needs consistently moist, temperature-appropriate soil to survive and work. They're a live product with a short shelf life — buy from a supplier that ships them cold, apply promptly, and expect a higher cost per treatment and less retail availability than Bti.",
   },
   {
     method: "Yellow sticky traps",
     evidence: "well-supported",
-    note: "Effective for monitoring and for reducing egg-laying adults. On their own, traps don't touch eggs or larvae already in the soil.",
+    note: "Well-supported specifically for monitoring and knocking down egg-laying adults — that's the claim, not elimination. On their own, traps don't touch eggs or larvae already in the soil, so a clean-looking card doesn't mean the pot is clear.",
   },
   {
     method: "Sand or grit top-dressing",
-    evidence: "well-supported",
-    note: "A dry, mineral surface layer is a poor place for females to lay eggs and helps the very top of the mix dry faster.",
+    evidence: "limited evidence",
+    note: "A dry, mineral surface layer is a plausible deterrent to egg-laying and helps the very top of the mix dry faster, but it's a supplementary, preventive step, not a documented larvicide — use it after larvae numbers are already down, not as a first-line treatment.",
   },
   {
     method: "Cinnamon on the soil surface",
@@ -369,6 +369,13 @@ export const GUIDES: Record<
           "Ferns, calatheas, and some tropicals wilt if the whole pot dries. You can still dry the surface: water less often, switch to a chunkier mix, and top-dress with sand so the top layer dries even when the root zone stays evenly moist.",
         ],
       },
+      {
+        heading: "Succulents, cacti, and orchids",
+        paragraphs: [
+          "These aren't usually where a heavy infestation starts — they're already grown in fast-draining mix and watered infrequently, which is inhospitable to fungus gnats in the first place. If you do see gnats around a succulent or cactus, the mix is likely staying wetter than it should for that plant; fix the mix (more grit, a terracotta pot, less frequent watering) rather than adding a liquid larval drench, since repeated moisture is a bigger risk to these plants than to a moisture-tolerant tropical.",
+          "Orchids in bark mix behave differently from soil-grown plants: bark dries fast and unevenly, so the finger test can be misleading. Check moisture by weight (a dry pot is noticeably lighter) rather than by feel at the surface.",
+        ],
+      },
     ],
   },
   "sticky-traps": {
@@ -416,13 +423,14 @@ export const GUIDES: Record<
         heading: "How to apply",
         paragraphs: [
           "Water the pot with the mix until the soil is evenly moist and a little drains. You will often see fizzing — that is oxygen releasing as it contacts organic matter and larvae. Let it drain fully and empty the saucer.",
-          "Repeat every 5–7 days for two or three rounds if adults are still appearing, and keep the surface drying between applications.",
+          "This drench is a full watering, not an extra one — time it for whenever that pot was due for water anyway, and let the top 1–2 inches dry out again before the next round. Repeat every 5–7 days for two or three rounds if adults are still appearing.",
         ],
       },
       {
         heading: "Cautions",
         paragraphs: [
           "Spot-test on one plant first, especially delicate ferns and seedlings. Peroxide is a short-term tool. It does not stay active in the mix the way Bti does, and it will not replace a drier watering habit.",
+          "Succulents, cacti, and other drought-adapted plants are already vulnerable to rot from excess moisture — a repeated drench schedule is a poor fit for them. If gnats are breeding in a succulent's mix, treating with a light Bti sprinkle and fixing drainage is usually safer than repeated liquid drenches.",
         ],
       },
     ],
@@ -444,13 +452,13 @@ export const GUIDES: Record<
         heading: "How to use Mosquito Bits on houseplants",
         paragraphs: [
           "Two common methods: sprinkle Bits on the soil surface and water them in, or steep a handful in a watering can of water for 30 minutes, then water with the tea (some growers leave the Bits in a mesh bag). Follow the product label for rates.",
-          "Bti does not persist forever indoors. Reapply about every 7 days while you still see adults on traps, then once more after they stop.",
+          "Bti does not persist forever indoors. Reapply about every 7 days while you still see adults on traps, then once more after they stop — but treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
         ],
       },
       {
         heading: "Why people call this the closer",
         paragraphs: [
-          "Dry soil stops new eggs. Traps catch adults. Bti kills the larvae already in the pot. Together they cover the life cycle. Beneficial nematodes (Steinernema feltiae) are another strong larval option if Bti is hard to find where you live.",
+          "Dry soil stops new eggs. Traps catch adults. Bti kills the larvae already in the pot. Together they cover the life cycle. Beneficial nematodes (Steinernema feltiae) are another strong larval option if Bti is hard to find where you live — but they're a living product, not a shelf-stable one. They need to arrive cold, be applied within days, and kept in consistently moist soil to survive, which makes them a better fit for someone who can apply them right away than a backup sitting in a cabinet.",
         ],
       },
     ],
@@ -509,5 +517,21 @@ export const FAQS = [
   {
     q: "Can I just repot?",
     a: "Repotting into fresh, well-draining mix helps if the old mix is compacted and constantly wet. Rinse as much old mix off as the plant will allow, and still use traps plus a drier watering schedule. Repotting alone often leaves eggs on the bench and in nearby pots.",
+  },
+  {
+    q: "Are Bti and hydrogen peroxide safe around pets and kids?",
+    a: "Bti (Mosquito Bits/Gnatrol) is targeted at fly larvae and is widely used in organic growing; a 1:4 hydrogen peroxide drench is a household-strength dilution. Both are considered low-risk when used as directed, but sticky traps are genuinely hazardous to curious pets (they can stick to fur or be swallowed) — keep cards out of reach of paws and hands, and always follow the current product label for any packaged pesticide, since labels can change and vary by product and region.",
+  },
+  {
+    q: "Do fungus gnats spread from one plant to another?",
+    a: "Yes. Adults are weak fliers but wander freely between nearby pots, and a female can lay eggs in any moist mix she finds — including a neighboring plant that was never infested to begin with. This is why treating only the pot you first noticed gnats in often fails: check and treat every plant in the same room or shelf, not just the source.",
+  },
+  {
+    q: "Will a store-bought fogger or spray get rid of them?",
+    a: "A fogger or contact spray kills adults on contact but does nothing to eggs, larvae, or pupae sealed in the soil — so the population rebuilds within days. If you use one, treat it as a short-term knockdown alongside a soil-directed treatment (Bti or peroxide), not a replacement for one, and always follow the product's label instructions.",
+  },
+  {
+    q: "What about succulents, cacti, or orchids specifically?",
+    a: "Fungus gnats are far less common in these because their mix is already fast-draining and watered infrequently. If you do see them, the usual cause is a mix or pot holding more moisture than that plant needs — fixing drainage matters more than adding a liquid drench, since repeated moisture is a bigger risk to a succulent than to a moisture-tolerant tropical. See the drying guide's note on succulents and orchid bark for specifics.",
   },
 ];

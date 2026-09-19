@@ -2,7 +2,7 @@
 import SiteHeader from "@/components/SiteHeader.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import MobileBottomNav from "@/components/MobileBottomNav.astro";
-import { organizationSchema, websiteSchema, schemaGraph } from "@/lib/seo";
+import { organizationSchema, personSchema, websiteSchema, schemaGraph } from "@/lib/seo";
 import "@/styles/global.css";
 
 interface Props {
@@ -31,7 +31,7 @@ const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
 // Each page-level `schema` entry may itself be a full {@context,@graph} document
 // (built with schemaGraph()) — flatten those into one top-level @graph instead of nesting.
 const extraNodes = schema.flatMap((node: any) => (node && Array.isArray(node["@graph"]) ? node["@graph"] : [node]));
-const jsonLd = schemaGraph(organizationSchema(), websiteSchema(), ...extraNodes);
+const jsonLd = schemaGraph(organizationSchema(), personSchema(), websiteSchema(), ...extraNodes);
 ---
 
 <!doctype html>

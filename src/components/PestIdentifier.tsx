@@ -88,7 +88,7 @@ export function PestIdentifier() {
   const finished = picks.length === QUESTIONS.length;
   const question = QUESTIONS[step];
 
-  const winner: PestId = (() => {
+  const { winner, ambiguous } = (() => {
     const tally: Record<PestId, number> = { "fungus-gnats": 0, "fruit-flies": 0, "drain-flies": 0 };
     picks.forEach((pick, qi) => {
       const scores = QUESTIONS[qi].options[pick].scores;
@@ -96,7 +96,10 @@ export function PestIdentifier() {
         tally[k] += scores[k];
       });
     });
-    return (Object.entries(tally) as [PestId, number][]).sort((a, b) => b[1] - a[1])[0][0];
+    const ranked = (Object.entries(tally) as [PestId, number][]).sort((a, b) => b[1] - a[1]);
+    const top = ranked[0][1];
+    const tiedForTop = ranked.filter(([, score]) => score === top);
+    return { winner: ranked[0][0], ambiguous: top > 0 && tiedForTop.length > 1 };
   })();
 
   const result = RESULTS[winner];
@@ -118,17 +121,25 @@ export function PestIdentifier() {
         key="result"
         className="animate-in glass rounded-xl p-6 shadow-stamp"
       >
-        <p className="label-mono text-[11px] text-primary">Verdict</p>
+        <p className="label-mono text-[11px] text-primary">{ambiguous ? "Not clear-cut" : "Verdict"}</p>
         <div className="mt-3 flex items-start gap-3">
           <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" />
           <div>
-            <h3 className="font-display text-2xl font-semibold tracking-tight">{result.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{result.blurb}</p>
+            <h3 className="font-display text-2xl font-semibold tracking-tight">
+              {ambiguous ? "Your answers point to more than one pest" : result.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              {ambiguous
+                ? "Your answers are close between two possibilities — you may have more than one pest at once (e.g. fungus gnats in a plant and fruit flies from the kitchen). Closest match below, but check the full comparison before treating."
+                : result.blurb}
+            </p>
           </div>
         </div>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild>
-            <a href={result.next.to}>{result.next.label}</a>
+            <a href={ambiguous ? "/fungus-gnats-vs-fruit-flies" : result.next.to}>
+              {ambiguous ? "See the full comparison" : result.next.label}
+            </a>
           </Button>
           <Button variant="secondary" onClick={reset}>
             Start over
