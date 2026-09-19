@@ -203,7 +203,7 @@ export const TROUBLESHOOTING = [
   },
   {
     q: "What should I do during a severe, multi-plant infestation?",
-    a: "Treat the whole collection at once rather than one pot at a time — gnats move freely between nearby plants. Stop watering anything that isn't visibly wilting, run sticky traps everywhere, drench every pot with Bti or a hydrogen peroxide mix on the same day, and repeat the larval treatment weekly for two to three rounds. Isolating a badly infested plant while you work on it can also slow how fast it reseeds the rest of the room.",
+    a: "Treat the whole collection at once rather than one pot at a time — gnats move freely between nearby plants. Stop watering anything that isn't visibly wilting, run sticky traps everywhere, and use a Bti product labeled for fungus gnats across every affected pot, following the current label for amount and retreatment interval rather than a fixed weekly schedule. Isolating a badly infested plant while you work on it can also slow how fast it reseeds the rest of the room. Hydrogen peroxide is an optional, cautious add-on some people use — not a required or equally-weighted step.",
   },
   {
     q: "Is it normal to still see a few gnats for a while after treatment starts?",
@@ -304,9 +304,10 @@ export const METHODS = [
 export const PLAN_DAYS = [
   {
     day: 1,
-    title: "Confirm it, and cut the moisture",
+    title: "Confirm it, find the source, and cut the moisture",
     tasks: [
       "Confirm they are fungus gnats (soil, not fruit or drains)",
+      "Check every nearby pot to find the likely breeding source — usually the wettest one",
       "Note what kind of plant is affected — tropical, succulent/cactus, orchid, seedling, cutting, or edible — moisture tolerance differs by type",
       "Empty saucers and decorative cachepots",
       "Skip watering any plant whose mix is still damp at the depth appropriate for that plant",
@@ -390,7 +391,7 @@ export const GUIDES: Record<
         heading: "Why this is the real fix",
         paragraphs: [
           "Adult fungus gnats do not live long. They need moist, organic mix to lay eggs. If the surface stays wet, a new generation appears every two to three weeks. Traps and sprays only buy time unless you break that moisture cycle.",
-          "For many established houseplants in ordinary potting mix, letting roughly the top 1 to 2 inches dry before watering again is a reasonable starting point — checked by a finger test, not a calendar. But how dry is safe depends entirely on the plant: a moisture-loving tropical, a succulent, an orchid in bark, a seedling, a fresh cutting, and an edible herb each tolerate a different amount of drying, covered below. If you're not sure which category a plant falls into, err toward less aggressive drying and watch the plant's own response.",
+          "The general principle is to allow the growing medium to dry as far as the plant safely tolerates — not the same fixed depth for every pot. For many established houseplants in ordinary potting mix, that works out to roughly the top 1 to 2 inches before watering again, checked by a finger test, not a calendar. But how dry is safe depends entirely on the plant: a moisture-loving tropical, a succulent, an orchid in bark, a seedling, a fresh cutting, and an edible herb each tolerate a different amount of drying, covered below. If you're not sure which category a plant falls into, err toward less aggressive drying and watch the plant's own response.",
         ],
       },
       {
@@ -564,7 +565,7 @@ export const FAQS = [
   },
   {
     q: "Are Bti and hydrogen peroxide safe around pets and kids?",
-    a: "Bti (Mosquito Bits/Gnatrol) is targeted at fly larvae and is widely used in organic growing; a 1:4 hydrogen peroxide drench is a household-strength dilution. Both are considered low-risk when used as directed, but sticky traps are genuinely hazardous to curious pets (they can stick to fur or be swallowed) — keep cards out of reach of paws and hands, and always follow the current product label for any packaged pesticide, since labels can change and vary by product and region.",
+    a: "Bti (Mosquito Bits/Gnatrol) is targeted at fly larvae and is widely used in organic growing, generally considered low-risk when used as labeled; hydrogen peroxide at the diluted, household-strength concentrations some sources describe is also generally considered low-risk, but this site treats it as an optional, cautious add-on rather than a default step. Sticky traps are genuinely hazardous to curious pets (they can stick to fur or be swallowed) — keep cards out of reach of paws and hands. Always follow the current product label for any packaged pesticide, since directions can differ by product and jurisdiction.",
   },
   {
     q: "Do fungus gnats spread from one plant to another?",

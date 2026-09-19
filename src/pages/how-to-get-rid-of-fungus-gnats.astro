@@ -79,14 +79,15 @@ const schema = schemaGraph(
           <p class="label-mono text-[11px] text-primary">Direct answer</p>
           <p class="mt-2 text-lg leading-relaxed">
             Get rid of fungus gnats in this order: confirm it's actually fungus gnats (not fruit
-            or drain flies), adjust watering so the mix dries out appropriately for that specific
-            plant, set yellow sticky traps at soil level to monitor and catch adults, and — if
-            moisture control and traps aren't enough on their own — use a Bti product labeled for
-            fungus gnats, following the label's rate and reapplication schedule. You may see fewer
-            adults within days, but complete control often takes several weeks, since eggs and
-            larvae already in the soil keep developing on their own timeline regardless of when
-            you start treating. Keep monitoring trap catches after adult numbers fall rather than
-            stopping the moment things look clear.
+            or drain flies), find the likely breeding source (the wettest nearby pot is the usual
+            culprit), adjust watering so the mix dries out appropriately for that specific plant,
+            set yellow sticky traps at soil level to monitor and catch adults, and — if moisture
+            control and traps aren't enough on their own — use a Bti product labeled for fungus
+            gnats, following the current label's rate and reapplication schedule. You may see
+            fewer adults within days, but complete control often takes several weeks, since eggs
+            and larvae already in the soil keep developing on their own timeline regardless of
+            when you start treating. Keep monitoring trap catches after adult numbers fall rather
+            than stopping the moment things look clear.
           </p>
           <a href="/plan" class={`${buttonVariants({ size: "default" })} mt-5`}>
             Get the day-by-day plan
@@ -181,20 +182,28 @@ const schema = schemaGraph(
                 body: "Rule out fruit flies and drain flies first — see the identifier or the comparison guide. Treating the wrong pest is the most common reason a plan seems to fail.",
               },
               {
+                title: "Find the likely breeding source",
+                body: "Check every nearby pot's soil moisture, any saucer or cachepot holding water, and whether a recently acquired plant or bag of mix is involved. Treating a plant that isn't actually the source wastes effort and delays real progress.",
+              },
+              {
                 title: "Manage moisture for that specific plant",
-                body: "Most houseplants do well letting the top 1–2 inches dry between waterings, but that's not a universal rule — a succulent, a seedling, and an orchid in bark each tolerate moisture differently. See what fits your plant in the drying guide.",
+                body: "Most houseplants do well letting the top 1–2 inches dry between waterings, but that's not a universal rule — a succulent, a seedling, and an orchid in bark each tolerate moisture differently. Allow the growing medium to dry as far as the plant safely tolerates — see what fits your plant in the drying guide.",
               },
               {
                 title: "Set yellow sticky traps at soil level",
-                body: "One card per small pot, two for a large planter, pushed into the mix so the yellow face sits just above the soil. Traps monitor and knock down adults — they don't touch eggs or larvae in the soil.",
+                body: "One card per small pot, two for a large planter, pushed into the mix so the yellow face sits just above the soil. Traps monitor and capture adults — they don't touch eggs or larvae in the soil.",
               },
               {
-                title: "Add a labeled Bti product if moisture control and traps aren't enough",
-                body: "Bti (sold as Mosquito Bits or Gnatrol) targets fly larvae in the soil. Use a product labeled for fungus gnats and follow its instructions for rate, mixing, and how often to reapply — labels vary by brand and formulation.",
+                title: "Add a labeled Bti product if suitable",
+                body: "Bti (sold as Mosquito Bits or Gnatrol) targets fly larvae in the soil. Use a product labeled for the intended application and follow the current label for the exact amount, preparation method, application site, and retreatment interval — directions vary by product and jurisdiction.",
               },
               {
-                title: "Keep monitoring, and reassess if it stalls",
-                body: "Watch the trend on your sticky cards over days, not a single count. Keep monitoring after adult numbers fall and continue moisture management and any labeled treatment long enough to account for remaining immature stages, rather than stopping on a fixed schedule. Treat a fresh catch as a reason to check the soil again rather than start over.",
+                title: "Monitor the trend and continue accordingly",
+                body: "Watch the trend on your sticky cards over days, not a single count. Continue moisture management and any labeled treatment according to the label and what you're observing, long enough to account for remaining immature stages, rather than stopping on a fixed schedule.",
+              },
+              {
+                title: "Troubleshoot if activity doesn't decline",
+                body: "A flat or rising trend after a reasonable stretch of consistent treatment usually means the source wasn't fully addressed, not that the method failed. The troubleshooting self-check walks through the common reasons.",
               },
             ].map((step, i) => (
               <li class="relative flex gap-4 pl-0">
