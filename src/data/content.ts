@@ -72,7 +72,7 @@ export const LIFECYCLE_STAGES = [
     stage: "Adult",
     duration: "About a week",
     detail:
-      "Adults emerge, mate, and females lay the next batch of eggs within roughly 24–48 hours — often before you've caught them on a trap. Adults are weak fliers and don't bite, but every one you see represents eggs already laid.",
+      "Adults emerge, mate, and females can begin laying the next batch of eggs within roughly 24–48 hours — often before a trap catches them. Adults are weak fliers and don't bite. Seeing one doesn't guarantee eggs are already laid, but in an established infestation it's a reasonable working assumption.",
   },
 ] as const;
 
@@ -212,6 +212,41 @@ export const TROUBLESHOOTING = [
 
 export type PestId = "fungus-gnats" | "fruit-flies" | "drain-flies";
 
+export type PlantType = "tropical" | "succulent" | "orchid" | "seedling" | "edible" | "unknown";
+
+export const PLANT_MOISTURE_GUIDANCE: Record<PlantType, { label: string; guidance: string }> = {
+  tropical: {
+    label: "Tropical houseplant",
+    guidance:
+      "Let the top 1–2 inches of mix dry before watering again, checked by finger, not a calendar. Bottom-water where practical so the surface stays drier than the root zone.",
+  },
+  succulent: {
+    label: "Succulent or cactus",
+    guidance:
+      "These rarely host a heavy infestation to begin with — if you're seeing gnats here, the mix is likely staying wetter than this plant needs. Fix drainage (more grit, a terracotta pot, less frequent watering) rather than adding a liquid drench, since repeated moisture is riskier for this plant than the gnats are.",
+  },
+  orchid: {
+    label: "Orchid (bark mix)",
+    guidance:
+      "Bark dries fast and unevenly, so a finger test at the surface can be misleading. Judge dryness by weight — a dry pot is noticeably lighter — rather than by feel alone.",
+  },
+  seedling: {
+    label: "Seedling or fresh cutting",
+    guidance:
+      "Small root systems can't tolerate the same drought as an established plant. Dry only the very top surface layer, not a full 1–2 inches, and lean more on a sticky trap and airflow than on aggressive drying.",
+  },
+  edible: {
+    label: "Edible herb or vegetable",
+    guidance:
+      "Treat like a typical houseplant — dry the top layer between waterings — but avoid soil drenches close to harvest, and follow the label on anything used near food crops.",
+  },
+  unknown: {
+    label: "Not sure / rather not say",
+    guidance:
+      "Without knowing the plant, start conservatively: dry only the top inch, watch how the plant responds over a few days, and adjust from there rather than applying one rule to every pot.",
+  },
+};
+
 export const METHODS = [
   {
     slug: "let-soil-dry",
@@ -234,23 +269,23 @@ export const METHODS = [
     targets: "Flying adults",
   },
   {
-    slug: "hydrogen-peroxide",
-    title: "Hydrogen peroxide drench",
-    kicker: "Larvae",
+    slug: "mosquito-bits",
+    title: "Bti (Mosquito Bits)",
+    kicker: "Best-supported larvicide",
     summary:
-      "A 1:4 mix of 3% hydrogen peroxide and water kills larvae in the top layer of mix. Use as a short-term knock-down, not the only step.",
+      "Bacillus thuringiensis israelensis is a bacterium that specifically targets fly larvae. Use a product labeled for fungus gnats and follow its rate and reapplication instructions.",
     image: IMAGES.kit,
-    time: "10 minutes",
+    time: "Per product label",
     targets: "Larvae",
   },
   {
-    slug: "mosquito-bits",
-    title: "Bti (Mosquito Bits)",
-    kicker: "Best larvicide",
+    slug: "hydrogen-peroxide",
+    title: "Hydrogen peroxide drench",
+    kicker: "Optional — use cautiously",
     summary:
-      "Bacillus thuringiensis israelensis is a bacteria that specifically kills fungus-gnat larvae. Soak Bits, then water with the tea, or sprinkle on soil.",
+      "A diluted peroxide drench is a common household suggestion, but extension guidance on it is mixed. Not part of the default plan — read the cautions before using it.",
     image: IMAGES.kit,
-    time: "15 minutes, repeat weekly",
+    time: "10 minutes",
     targets: "Larvae",
   },
   {
@@ -258,7 +293,7 @@ export const METHODS = [
     title: "Prevention that actually sticks",
     kicker: "Keep them gone",
     summary:
-      "Bottom watering, a sand or grit top-dress, sterile mix, and empty cachepots. Two extra dry weeks after the last adult is the finish line.",
+      "Bottom watering, a sand or grit top-dress, sterile mix, and empty cachepots. Keep monitoring for a couple of weeks after adults stop appearing.",
     image: IMAGES.bottomWater,
     time: "Habit change",
     targets: "The next generation",
@@ -268,21 +303,22 @@ export const METHODS = [
 export const PLAN_DAYS = [
   {
     day: 1,
-    title: "Cut the nursery",
+    title: "Confirm it, and cut the moisture",
     tasks: [
       "Confirm they are fungus gnats (soil, not fruit or drains)",
+      "Note what kind of plant is affected — tropical, succulent/cactus, orchid, seedling, cutting, or edible — moisture tolerance differs by type",
       "Empty saucers and decorative cachepots",
-      "Skip watering any plant whose top inch is still damp",
+      "Skip watering any plant whose mix is still damp at the depth appropriate for that plant",
       "Stand yellow sticky traps at soil level in every infested pot",
     ],
   },
   {
     day: 2,
-    title: "Hit the larvae",
+    title: "Let moisture and traps do the first work",
     tasks: [
-      "Drench with Bti tea, or a 1:4 3% hydrogen peroxide mix",
-      "Water only enough to wet the mix — no standing runoff",
-      "Remove dead leaves and moldy top dressing",
+      "Water only what actually needs it, and only as much as the plant needs — no standing runoff",
+      "Remove dead leaves and moldy top dressing, which can also feed larvae",
+      "If you're using a Bti product, this is a reasonable day to start it — follow its label for rate and application",
     ],
   },
   {
@@ -291,24 +327,24 @@ export const PLAN_DAYS = [
     tasks: [
       "Count gnats on each sticky trap (rough is fine)",
       "Replace any card that is already full",
-      "Feel the top inch of soil — it should be drying, not soggy",
+      "Check soil moisture in a way that fits the plant — finger test for most houseplants, weight for orchid bark",
     ],
   },
   {
     day: 4,
     title: "Hold the dry line",
     tasks: [
-      "Do not water unless the top 1–2 inches are dry",
-      "If you must water, bottom-water and dump leftover tray water after 20 minutes",
+      "Don't water ahead of schedule out of habit — check each plant, don't guess",
+      "If you must water, bottom-water where practical and empty leftover tray water after 15–20 minutes",
       "Wipe windowsills and nearby surfaces",
     ],
   },
   {
     day: 5,
-    title: "Second larval pass",
+    title: "Reassess before a second round",
     tasks: [
-      "Repeat Bti if you started it (larvae hatch in waves)",
-      "Optional: potato slice test — bury a cube overnight, then throw it out",
+      "If using Bti, follow the product label on whether and when to reapply — don't reapply on a fixed schedule that ignores the label",
+      "Optional: potato slice test to check for larvae — bury a cube overnight, then throw it out",
       "Replace sticky traps that are dusty or full",
     ],
   },
@@ -316,18 +352,18 @@ export const PLAN_DAYS = [
     day: 6,
     title: "Close the soil surface",
     tasks: [
-      "Top-dress with 1/2 inch of coarse sand, grit, or decorative gravel",
-      "This makes egg-laying harder once larvae are reduced",
-      "Inspect new or recently gifted plants before they join the shelf",
+      "Top-dress with 1/2 inch of coarse sand, grit, or decorative gravel once larvae numbers are down",
+      "This makes egg-laying harder without changing how the plant is watered",
+      "Inspect new or recently acquired plants before they join the shelf",
     ],
   },
   {
     day: 7,
-    title: "Review and keep going",
+    title: "Review and keep monitoring",
     tasks: [
-      "Adults should be down. If cards are still busy, keep Bti + dry cycles",
-      "Continue dry-top watering for 14 more days after the last adult",
-      "One wet week can restart the whole cycle",
+      "Adult counts should be trending down, not necessarily at zero — that's normal this early",
+      "Keep the sticky trap and moisture habit going for another week or two; a fresh catch is a reason to recheck the soil, not a sign the plan failed",
+      "If catches aren't trending down at all by now, see the troubleshooting self-check",
     ],
   },
 ] as const;
@@ -353,7 +389,7 @@ export const GUIDES: Record<
         heading: "Why this is the real fix",
         paragraphs: [
           "Adult fungus gnats do not live long. They need moist, organic mix to lay eggs. If the surface stays wet, a new generation appears every two to three weeks. Traps and sprays only buy time unless you break that moisture cycle.",
-          "Let the top 1 to 2 inches of mix dry before you water again. For most houseplants that is a finger test, not a calendar. Seedlings and very small pots dry faster; peat-heavy mixes stay wet longer.",
+          "For many established houseplants in ordinary potting mix, letting roughly the top 1 to 2 inches dry before watering again is a reasonable starting point — checked by a finger test, not a calendar. But how dry is safe depends entirely on the plant: a moisture-loving tropical, a succulent, an orchid in bark, a seedling, a fresh cutting, and an edible herb each tolerate a different amount of drying, covered below. If you're not sure which category a plant falls into, err toward less aggressive drying and watch the plant's own response.",
         ],
       },
       {
@@ -374,6 +410,13 @@ export const GUIDES: Record<
         paragraphs: [
           "These aren't usually where a heavy infestation starts — they're already grown in fast-draining mix and watered infrequently, which is inhospitable to fungus gnats in the first place. If you do see gnats around a succulent or cactus, the mix is likely staying wetter than it should for that plant; fix the mix (more grit, a terracotta pot, less frequent watering) rather than adding a liquid larval drench, since repeated moisture is a bigger risk to these plants than to a moisture-tolerant tropical.",
           "Orchids in bark mix behave differently from soil-grown plants: bark dries fast and unevenly, so the finger test can be misleading. Check moisture by weight (a dry pot is noticeably lighter) rather than by feel at the surface.",
+        ],
+      },
+      {
+        heading: "Seedlings, cuttings, and edibles",
+        paragraphs: [
+          "Seedlings and fresh cuttings are the opposite problem: their small root systems can't tolerate the mix drying as aggressively as an established houseplant, so \"let it dry\" needs to be gentler here — dry the very top surface layer only, not a full 1–2 inches, and lean on a sticky trap and good airflow rather than an aggressive drought. A thin layer of sand or vermiculite on the surface can help keep the top dry without drying the root zone a seedling depends on.",
+          "Edible herbs and vegetables in containers are usually treated like any other houseplant for this purpose — dry the top layer between waterings — but avoid soil drenches close to harvest, and always follow the label on any product used near food crops.",
         ],
       },
     ],
@@ -409,28 +452,28 @@ export const GUIDES: Record<
   "hydrogen-peroxide": {
     title: "Hydrogen peroxide drench for fungus gnat larvae",
     description:
-      "The 1:4 mix of 3% hydrogen peroxide and water, how to apply it, which plants to skip, and why it is a knock-down rather than a cure.",
-    kicker: "Larvae",
+      "An optional, cautious option some sources describe — what a 1:4 dilution means, why extension guidance on it is mixed, and why it isn't part of the default plan on this site.",
+    kicker: "Optional — use cautiously",
     image: IMAGES.kit,
     body: [
       {
-        heading: "The mix",
+        heading: "Why this is optional, not a default step",
         paragraphs: [
-          "Use regular 3% pharmacy hydrogen peroxide. Mix 1 part peroxide with 4 parts water. Example: 1 cup peroxide + 4 cups water. Do not use higher-strength salon or food-grade peroxide without converting the ratio — it can burn roots.",
+          "A diluted hydrogen peroxide drench is a widely repeated home suggestion, and the basic mechanism — oxygen release disrupting soft-bodied larvae on contact — is plausible. But it isn't uniformly recommended across university extension sources the way Bti is: some describe it as a reasonable short-term option, others don't mention it as a first-line treatment at all, and none of it is a substitute for fixing the underlying moisture problem. Treat it as an optional add-on you choose deliberately, not a required step.",
         ],
       },
       {
-        heading: "How to apply",
+        heading: "If you decide to use it",
         paragraphs: [
-          "Water the pot with the mix until the soil is evenly moist and a little drains. You will often see fizzing — that is oxygen releasing as it contacts organic matter and larvae. Let it drain fully and empty the saucer.",
-          "This drench is a full watering, not an extra one — time it for whenever that pot was due for water anyway, and let the top 1–2 inches dry out again before the next round. Repeat every 5–7 days for two or three rounds if adults are still appearing.",
+          "The dilution commonly described is 1 part regular 3% pharmacy hydrogen peroxide to 4 parts water (roughly 1 cup peroxide to 4 cups water). Higher-strength salon or food-grade peroxide is not the same product and is not a simple ratio conversion — don't substitute it.",
+          "Water the pot with the mix until the soil is evenly moist and a little drains, then let it drain fully and empty the saucer. This drench is a full watering, not an extra one — time it for whenever that pot was due for water anyway, and let the top of the mix dry out again before the next round, however long that takes for that specific plant.",
         ],
       },
       {
         heading: "Cautions",
         paragraphs: [
-          "Spot-test on one plant first, especially delicate ferns and seedlings. Peroxide is a short-term tool. It does not stay active in the mix the way Bti does, and it will not replace a drier watering habit.",
-          "Succulents, cacti, and other drought-adapted plants are already vulnerable to rot from excess moisture — a repeated drench schedule is a poor fit for them. If gnats are breeding in a succulent's mix, treating with a light Bti sprinkle and fixing drainage is usually safer than repeated liquid drenches.",
+          "Spot-test on one plant first, especially delicate ferns and seedlings. Peroxide is a short-term contact treatment — it doesn't stay active in the mix the way Bti does, and repeated use may also affect beneficial soil microbes, which is part of why it isn't the default recommendation here.",
+          "Succulents, cacti, and other drought-adapted plants are already vulnerable to rot from excess moisture — a repeated liquid drench schedule is a poor fit for them regardless of what's in the water. If gnats are breeding in a succulent's mix, fixing drainage and watering frequency matters more than any drench.",
         ],
       },
     ],
@@ -439,7 +482,7 @@ export const GUIDES: Record<
     title: "Mosquito Bits (Bti) for fungus gnats",
     description:
       "How to use Bacillus thuringiensis israelensis — Mosquito Bits or Gnatrol — as a soil drench that kills fungus gnat larvae without harming plants, pets, or people when used as labeled.",
-    kicker: "Best larvicide",
+    kicker: "Best-supported larvicide",
     image: IMAGES.kit,
     body: [
       {
@@ -449,10 +492,10 @@ export const GUIDES: Record<
         ],
       },
       {
-        heading: "How to use Mosquito Bits on houseplants",
+        heading: "How to use it on houseplants",
         paragraphs: [
-          "Two common methods: sprinkle Bits on the soil surface and water them in, or steep a handful in a watering can of water for 30 minutes, then water with the tea (some growers leave the Bits in a mesh bag). Follow the product label for rates.",
-          "Bti does not persist forever indoors. Reapply about every 7 days while you still see adults on traps, then once more after they stop — but treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
+          "Growers commonly use Bti products either sprinkled on the soil surface and watered in, or steeped in water and applied as a drench — but formulation, concentration, and steep time vary by brand and product, and using the wrong rate is a real way to waste a treatment or under-dose it. Follow the current product label for exact formulation, rate, and application method rather than a generic recipe.",
+          "Bti does not persist forever indoors, so labels typically call for reapplication on a schedule — follow what the label says, and use whether you're still seeing adults on traps as a guide to whether to continue past that. Treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
         ],
       },
       {
@@ -466,14 +509,14 @@ export const GUIDES: Record<
   prevention: {
     title: "How to prevent fungus gnats from coming back",
     description:
-      "Bottom watering, sand top-dressing, quarantine for new plants, and the two-week rule after the last adult.",
+      "Bottom watering, sand top-dressing, quarantine for new plants, and how long to keep monitoring after adults stop appearing.",
     kicker: "Keep them gone",
     image: IMAGES.bottomWater,
     body: [
       {
-        heading: "The two-week rule",
+        heading: "Keep monitoring after adults stop appearing",
         paragraphs: [
-          "The life cycle from egg to adult is often about 3–4 weeks in a warm home, with larvae feeding for around two weeks. After you see zero adults on traps, keep the dry-top habit and one more Bti pass for 14 days. Stopping the day the air looks clear is how infestations restart.",
+          "The life cycle from egg to adult is often about 3–4 weeks in a warm home, with larvae feeding for around two weeks — so eggs laid before you started treating can still finish developing after your trap counts look clear. There's no universal countdown that fits every case; instead, keep the dry-top habit and a sticky trap in place for a couple of weeks after the last adult you catch, and treat a fresh trap catch as a sign to check the soil and continue larval treatment rather than start over. Stopping the moment the air looks clear is a common reason infestations restart.",
         ],
       },
       {
@@ -504,7 +547,7 @@ export const FAQS = [
   },
   {
     q: "How long does it take to get rid of fungus gnats?",
-    a: "A light infestation often calms in 7–10 days if you dry the mix, trap adults, and treat larvae. A heavy one can take 3–4 weeks because eggs and larvae keep hatching. Plan for two extra dry weeks after the last adult.",
+    a: "A light infestation often shows improvement within 7–10 days once moisture is managed and adults are being trapped. A heavier one can take 3–4 weeks because eggs and larvae keep hatching on their own schedule. Keep monitoring with a sticky trap for a couple of weeks after adults stop appearing rather than assuming it's over the moment things look clear.",
   },
   {
     q: "Will cinnamon or vinegar traps be enough?",

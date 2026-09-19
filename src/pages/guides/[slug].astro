@@ -16,6 +16,16 @@ if (!guide) throw new Error(`No guide content for slug: ${slug}`);
 
 const PATH = `/guides/${slug}`;
 const others = METHODS.filter((m) => m.slug !== slug);
+
+const PLANT_LINKS: Record<string, { to: string; label: string }[]> = {
+  "let-soil-dry": [
+    { to: "/fungus-gnats-in-seedlings", label: "Fungus gnats in seedlings" },
+    { to: "/fungus-gnats-in-succulents", label: "Fungus gnats in succulents & cacti" },
+  ],
+  prevention: [{ to: "/new-plant-fungus-gnats", label: "Gnats after bringing home a new plant" }],
+  "mosquito-bits": [{ to: "/fungus-gnat-larvae", label: "How to identify fungus gnat larvae" }],
+};
+const plantLinks = PLANT_LINKS[slug as string] ?? [];
 const schema = schemaGraph(
   articleSchema({
     headline: guide.title,
@@ -72,7 +82,26 @@ const schema = schemaGraph(
         ))
       }
     </div>
-    <aside class="mt-14 glass rounded-lg p-5 shadow-stamp-sm">
+    {
+      plantLinks.length > 0 && (
+        <aside class="mt-14 glass rounded-lg p-5 shadow-stamp-sm">
+          <p class="label-mono text-[11px] text-primary">Specific to your plant</p>
+          <ul class="mt-3 grid gap-2">
+            {plantLinks.map((link) => (
+              <li>
+                <a
+                  href={link.to}
+                  class="focus-ring inline-flex rounded-sm text-sm font-medium hover:text-primary hover:underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+    <aside class="mt-6 glass rounded-lg p-5 shadow-stamp-sm">
       <p class="label-mono text-[11px] text-primary">Next up</p>
       <ul class="mt-3 grid gap-2">
         {

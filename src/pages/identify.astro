@@ -1,63 +1,177 @@
 ---
+import { ArrowRight } from "lucide-react";
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { PestIdentifier } from "@/components/PestIdentifier";
-import { IMAGES } from "@/data/content";
-import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import { IMAGES, LAST_UPDATED, PEST_COMPARISON } from "@/data/content";
+import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/identify";
-const TITLE = "Identify Fungus Gnats vs. Fruit Flies";
-const DESCRIPTION = "Tell fungus gnats from fruit flies and drain flies in three questions so you treat the right pest.";
-const schema = schemaGraph(breadcrumbSchema([{ name: "Identify", path: PATH }]));
+const TITLE = "Identify Fungus Gnats vs. Fruit Flies, Drain Flies, and Springtails";
+const DESCRIPTION =
+  "How to tell fungus gnats apart from fruit flies, drain flies, and springtails — appearance, behavior, where each breeds, confirmation clues, and what to do next.";
+const schema = schemaGraph(
+  articleSchema({
+    headline: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([{ name: "Identify", path: PATH }]),
+);
 
 const CLUES = [
   { who: "Fungus gnats", where: "Soil, long legs, fly up when you water." },
   { who: "Fruit flies", where: "Fruit, trash, compost — rounder body, red eyes." },
   { who: "Drain flies", where: "Drains, fuzzy wings — hop more than they fly." },
+  { who: "Springtails", where: "Wet soil surface — no wings, they jump instead of fly." },
 ];
+
+const NEXT_STEPS = [
+  {
+    pest: "Fungus gnats",
+    detail: "Confirmed by soil, weak flight, and long legs.",
+    to: "/how-to-get-rid-of-fungus-gnats",
+    label: "Start the elimination guide",
+  },
+  {
+    pest: "Fruit flies",
+    detail: "Confirmed by kitchen location and darting flight toward produce.",
+    to: "/fungus-gnats-vs-fruit-flies",
+    label: "Fruit fly control tips",
+  },
+  {
+    pest: "Drain flies",
+    detail: "Confirmed by drain location and moth-like resting posture.",
+    to: "/fungus-gnats-vs-fruit-flies",
+    label: "Drain fly control tips",
+  },
+  {
+    pest: "Springtails",
+    detail: "Confirmed by jumping (not flying) and no wings at all.",
+    to: "/fungus-gnats-vs-fruit-flies",
+    label: "Springtail control tips",
+  },
+] as const;
 ---
 
-<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]}>
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
   <Breadcrumbs items={[{ name: "Identify", path: PATH }]} />
-  <main id="main-content" class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2" data-reveal>
-    <div>
-      <p class="label-mono text-[11px] text-muted">Diagnosis</p>
-      <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">
-        Are these <span class="text-primary italic">actually</span> fungus gnats?
-      </h1>
-      <p class="mt-4 leading-relaxed text-muted">
-        Fungus gnats are slender, dark, mosquito-like flies that hover over houseplant soil. They
-        are weak fliers. Fruit flies prefer kitchens. Drain flies look moth-like and sit on
-        porcelain. Treat the wrong one and you'll be right back here in a week.
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="grid gap-10 lg:grid-cols-2" data-reveal>
+      <div>
+        <p class="label-mono text-[11px] text-muted">Diagnosis</p>
+        <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight">
+          Are these <span class="text-primary italic">actually</span> fungus gnats?
+        </h1>
+        <p class="mt-4 leading-relaxed text-muted">
+          Fungus gnats are slender, dark, mosquito-like flies that hover over houseplant soil. They
+          are weak fliers. Fruit flies prefer kitchens. Drain flies look moth-like and sit on
+          porcelain. Springtails aren't flies at all — they jump, not fly. Treat the wrong one and
+          you'll be right back here in a week.
+        </p>
+        <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp">
+          <Image
+            src={IMAGES.macro}
+            alt="Macro photo of a fungus gnat on potting soil"
+            class="aspect-4/3 w-full object-cover"
+            widths={[400, 700]}
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            format="webp"
+            quality={75}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+        <ul class="mt-6 grid gap-3">
+          {
+            CLUES.map((clue) => (
+              <li class="flex items-start gap-3 glass rounded-md px-3 py-2.5 shadow-stamp-sm">
+                <span class="label-mono shrink-0 text-[11px] text-primary">{clue.who}</span>
+                <span class="text-sm leading-relaxed text-muted">{clue.where}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <PestIdentifier client:idle />
+    </div>
+
+    <section class="mt-16 border-t border-border pt-10" data-reveal>
+      <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+        Full comparison: appearance, behavior, and breeding site
+      </h2>
+      <p class="mt-3 max-w-2xl leading-relaxed text-muted">
+        Where an insect keeps returning to is usually the fastest, most reliable clue — more
+        reliable than color or size alone, which can be hard to judge on something this small.
       </p>
-      <figure class="mt-6 -rotate-1 overflow-hidden rounded-lg border-2 border-ink shadow-stamp">
-        <Image
-          src={IMAGES.macro}
-          alt="Macro photo of a fungus gnat on potting soil"
-          class="aspect-4/3 w-full object-cover"
-          widths={[400, 700]}
-          sizes="(min-width: 1024px) 45vw, 100vw"
-          format="webp"
-          quality={75}
-          loading="eager"
-          fetchpriority="high"
-        />
-      </figure>
-      <ul class="mt-6 grid gap-3">
+      <div class="mt-6 overflow-x-auto rounded-lg border-2 border-ink">
+        <table class="w-full min-w-[640px] border-collapse text-sm">
+          <thead>
+            <tr class="border-b-2 border-ink bg-surface-2 text-left">
+              <th scope="col" class="p-3 font-display font-semibold">Pest</th>
+              <th scope="col" class="p-3 font-display font-semibold">Appearance</th>
+              <th scope="col" class="p-3 font-display font-semibold">Behavior</th>
+              <th scope="col" class="p-3 font-display font-semibold">Breeds in</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              PEST_COMPARISON.map((row) => (
+                <tr class="border-b border-border last:border-none align-top">
+                  <td class="p-3 font-medium text-fg">{row.pest}</td>
+                  <td class="p-3 text-muted">{row.body}</td>
+                  <td class="p-3 text-muted">{row.behavior}</td>
+                  <td class="p-3 text-muted">{row.breeds}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-12 border-t border-border pt-10" data-reveal>
+      <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+        Confirmation clues, if you're still not sure
+      </h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+        <li class="glass rounded-lg p-4 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <strong class="font-semibold text-fg">Wiggle a pot.</strong> If small flies lift off the soil surface when you disturb or water a houseplant, that points strongly to fungus gnats.
+        </li>
+        <li class="glass rounded-lg p-4 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <strong class="font-semibold text-fg">Potato test.</strong> Bury a half-inch cube of raw potato just under the soil surface overnight — fungus gnat larvae are drawn to it and will be visible on the underside the next morning.
+        </li>
+        <li class="glass rounded-lg p-4 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <strong class="font-semibold text-fg">Check the drain, not the plant.</strong> Run a finger around the inside rim of a floor or sink drain — a slimy film is drain fly breeding material, unrelated to any nearby plants.
+        </li>
+        <li class="glass rounded-lg p-4 shadow-stamp-sm text-sm leading-relaxed text-muted">
+          <strong class="font-semibold text-fg">Tap the soil surface.</strong> Springtails cluster and visibly jump when disturbed rather than taking flight — a fungus gnat will fly, a springtail will hop.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-12 border-t border-border pt-10" data-reveal>
+      <h2 class="font-display text-2xl font-semibold tracking-tight sm:text-3xl">What to do next</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
         {
-          CLUES.map((clue) => (
-            <li class="flex items-start gap-3 glass rounded-md px-3 py-2.5 shadow-stamp-sm">
-              <span class="label-mono shrink-0 text-[11px] text-primary">{clue.who}</span>
-              <span class="text-sm leading-relaxed text-muted">{clue.where}</span>
-            </li>
+          NEXT_STEPS.map((step) => (
+            <a
+              href={step.to}
+              class="focus-ring group glass rounded-lg p-5 shadow-stamp-sm transition-transform duration-[var(--motion-quick)] hover:-translate-y-0.5"
+            >
+              <p class="label-mono text-[10px] text-primary">{step.pest}</p>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{step.detail}</p>
+              <p class="mt-3 flex items-center gap-1.5 text-sm font-semibold text-fg">
+                {step.label}
+                <ArrowRight className="size-4 shrink-0 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+              </p>
+            </a>
           ))
         }
-      </ul>
-      <a href="/fungus-gnats-vs-fruit-flies" class="focus-ring mt-4 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-primary hover:underline">
-        Full comparison table
-      </a>
-    </div>
-    <PestIdentifier client:idle />
+      </div>
+    </section>
   </main>
 </Layout>

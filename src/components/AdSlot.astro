@@ -1,0 +1,36 @@
+---
+/**
+ * Placeholder for a future AdSense unit. Not wired into any page yet — this
+ * component exists so ad slots can be dropped in later without a layout
+ * change, not to serve ads today.
+ *
+ * Rules for where this is allowed to go, once real ad code lands here:
+ * - Never inside the diagnostic tool (PestIdentifier), the checklist
+ *   (TreatmentPlan), or the troubleshooting self-check — no ads inside the
+ *   core interactive flow.
+ * - Never on a page whose only content is a tool with little surrounding
+ *   text (e.g. never standalone on /plan above the fold).
+ * - Never styled to resemble a nav link, button, or CTA.
+ * - Only between clearly separate content sections on long, substantive
+ *   pages (the pillar guide, treatment guides), never above the first
+ *   screen of content.
+ *
+ * `slot` is a label for which placement this is (e.g. "in-article",
+ * "sidebar") — purely for our own bookkeeping until real ad units exist.
+ */
+interface Props {
+  slot: string;
+  class?: string;
+}
+
+const { slot, class: className } = Astro.props;
+---
+
+<div
+  class:list={["ad-slot", className]}
+  data-ad-slot={slot}
+  aria-hidden="true"
+  style="display:none"
+>
+  <p class="label-mono text-center text-[10px] text-subtle">Advertisement</p>
+</div>

@@ -1,0 +1,121 @@
+---
+import { ArrowRight } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { LAST_UPDATED, SOURCES } from "@/data/content";
+import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/how-to-know-treatment-is-working";
+const TITLE = "How to Know Your Fungus Gnat Treatment Is Working";
+const DESCRIPTION =
+  "What real progress looks like day to day, why zero adults isn't the right first milestone, and how to tell a slow-but-working plan from a stalled one.";
+
+const schema = schemaGraph(
+  articleSchema({
+    headline: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([{ name: "Is Treatment Working?", path: PATH }]),
+);
+
+const SIGNS_WORKING = [
+  "Your sticky trap count is trending down week over week, even if it isn't zero",
+  "Fewer adults appear at windows or on other plants nearby, not just the treated pot",
+  "A potato test shows fewer or no larvae compared to when you started",
+  "The soil surface is visibly, consistently drier between waterings",
+];
+
+const SIGNS_STALLED = [
+  "Trap counts stay flat or climb for more than a week of consistent treatment",
+  "New adults keep appearing from a pot you haven't actually treated",
+  "The soil surface still feels damp within a day of watering, despite intending to let it dry",
+  "You've only treated one pot while others nearby stay untouched",
+];
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
+  <Breadcrumbs items={[{ name: "Is Treatment Working?", path: PATH }]} />
+  <main id="main-content" class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <article>
+      <header data-reveal>
+        <p class="label-mono text-[11px] text-muted">Monitoring</p>
+        <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+          How do you know it's <span class="text-primary italic">actually working</span>?
+        </h1>
+        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
+          <p class="label-mono text-[11px] text-primary">Direct answer</p>
+          <p class="mt-2 leading-relaxed">
+            Watch the trend on a sticky trap over several days, not whether the count has hit zero.
+            Eggs and larvae already in the soil when you started keep developing on their own
+            schedule, so a falling — not flat, not zero-yet — trap count is the real early signal
+            that moisture control and any larval treatment are doing their job.
+          </p>
+        </div>
+      </header>
+
+      <section class="mt-10 grid gap-6 sm:grid-cols-2" data-reveal>
+        <div class="glass rounded-xl p-5 shadow-stamp-sm">
+          <h2 class="font-display text-lg font-semibold tracking-tight text-primary">Signs it's working</h2>
+          <ul class="mt-3 grid gap-2.5 text-sm leading-relaxed text-muted">
+            {SIGNS_WORKING.map((s) => <li class="flex items-start gap-2"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />{s}</li>)}
+          </ul>
+        </div>
+        <div class="glass rounded-xl p-5 shadow-stamp-sm">
+          <h2 class="font-display text-lg font-semibold tracking-tight text-danger">Signs it's stalled</h2>
+          <ul class="mt-3 grid gap-2.5 text-sm leading-relaxed text-muted">
+            {SIGNS_STALLED.map((s) => <li class="flex items-start gap-2"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-danger" />{s}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">Why "zero adults" is the wrong first milestone</h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Adults that were already pupae when you started treating will still emerge — that's
+          expected, not a sign the plan has failed. Because egg-to-adult takes roughly 3–4 weeks
+          indoors, and every stage overlaps, a working plan usually looks like a gradually
+          shrinking trap count over one to a few weeks, not a clean stop. Judging progress by a
+          single day's count, instead of the trend across several, is one of the most common
+          reasons people give up on a plan that was actually working.
+        </p>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">If the trend really is flat or rising</h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          That's a genuinely different situation from "still going, but slowly" — it usually means
+          the soil is still staying wetter than intended, a second untreated pot nearby is
+          reseeding the room, or the identification was wrong to begin with. The
+          <a href="/fungus-gnat-troubleshooting" class="text-primary hover:underline">troubleshooting self-check</a> walks
+          through each of those directly.
+        </p>
+        <a
+          href="/plan"
+          class="focus-ring group mt-6 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary"
+        >
+          Track progress with the 7-day plan
+          <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+        </a>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-xl font-semibold tracking-tight">Sources</h2>
+        <ul class="mt-3 grid gap-1.5 text-sm">
+          {
+            SOURCES.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                  {source.label}
+                </a>
+                <span class="text-muted"> — {source.publisher}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </article>
+  </main>
+</Layout>

@@ -30,16 +30,16 @@ const SYMPTOMS = [
 ];
 
 const STEPS = [
-  "Let the top 1–2 inches of mix dry before you water again. Empty saucers.",
-  "Stand yellow sticky cards at soil level to catch egg-laying adults.",
-  "Drench larvae with Bti (Mosquito Bits) or a 1:4 mix of 3% hydrogen peroxide and water.",
-  "Keep that up for two weeks after the last fly. One soggy week restarts the cycle.",
+  "Confirm it's actually fungus gnats, not fruit flies or drain flies.",
+  "Adjust watering so the mix dries appropriately for that specific plant — not the same rule for a succulent as a seedling.",
+  "Stand yellow sticky cards at soil level to monitor and catch adults.",
+  "If soil moisture and traps alone aren't enough, use a Bti product labeled for fungus gnats, following the label.",
 ];
 
 const STATS = [
-  { value: "3–4", unit: "weeks", label: "egg to adult, indoors" },
-  { value: "~2", unit: "weeks", label: "larvae feed in the mix" },
-  { value: "7–10", unit: "days", label: "to clear a light infestation" },
+  { value: "3–4", unit: "weeks", label: "typical egg-to-adult time indoors" },
+  { value: "~2", unit: "weeks", label: "larvae typically feed in the mix" },
+  { value: "7–10", unit: "days", label: "often the first sign of improvement, light cases" },
 ];
 
 const CYCLE_CARDS = [
@@ -94,14 +94,15 @@ const PREVENTION_CARDS = [
           <div>
             <span class="label-mono inline-flex -rotate-2 items-center gap-1.5 rounded-md border-2 border-ink bg-danger px-3 py-1.5 text-[11px] text-bg shadow-stamp-sm">
               <TriangleAlert className="size-3.5" />
-              If you see them, they're already breeding
+              One visible adult usually means more are developing in the soil
             </span>
             <h1 class="mt-5 font-display text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Fungus gnats don't stop at <span class="text-primary italic">one</span> fly.
             </h1>
             <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-              Swat one and a hundred eggs are already in the soil. New adults emerge every few
-              days — the cycle doesn't break on its own. This is how you break it.
+              A female fungus gnat can lay dozens of eggs in moist potting mix, and a new batch of
+              adults can emerge every few days once a pot is infested — the cycle doesn't break on
+              its own. This is how you break it.
             </p>
 
             <div class="mt-6 inline-block rotate-1 rounded-lg border-2 border-dashed border-border bg-surface p-4">
@@ -183,11 +184,11 @@ const PREVENTION_CARDS = [
               The whole fix
             </p>
             <h2 class="mt-2 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-              Dry the top, trap the adults, treat the larvae
+              Confirm it, manage moisture, trap adults, treat larvae if needed
             </h2>
             <p class="mt-4 max-w-md leading-relaxed text-muted">
-              Four moves, stacked in order. Skip the order and you're just delaying the next
-              generation. The 7-day plan turns this into a checklist you can't get wrong.
+              In that order. Skip identification or moisture and you're just delaying the next
+              generation, not stopping it. The 7-day plan turns this into a day-by-day checklist.
             </p>
             <a
               href="/plan"

@@ -1,0 +1,119 @@
+---
+import { ArrowRight } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { LAST_UPDATED, SOURCES } from "@/data/content";
+import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+
+const PATH = "/fungus-gnats-in-seedlings";
+const TITLE = "Fungus Gnats in Seedlings: What's Different, and What to Do";
+const DESCRIPTION =
+  "Why fungus gnats are a bigger risk for seedlings than mature houseplants, how to manage moisture without stressing small roots, and when larvae actually threaten a seedling.";
+
+const schema = schemaGraph(
+  articleSchema({
+    headline: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([{ name: "Fungus Gnats in Seedlings", path: PATH }]),
+);
+---
+
+<Layout title={`${TITLE} | Stop Fungus Gnats`} description={DESCRIPTION} schema={[schema]} ogType="article">
+  <Breadcrumbs items={[{ name: "Fungus Gnats in Seedlings", path: PATH }]} />
+  <main id="main-content" class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <article>
+      <header data-reveal>
+        <p class="label-mono text-[11px] text-muted">Plants</p>
+        <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+          Fungus gnats in <span class="text-primary italic">seedlings</span>
+        </h1>
+        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
+          <p class="label-mono text-[11px] text-primary">Direct answer</p>
+          <p class="mt-2 leading-relaxed">
+            Seedlings are more vulnerable to fungus gnat larvae than established plants, because a
+            small, developing root system has less to spare if larvae feed on fine root hairs. The
+            usual "let the soil dry" advice still applies but needs a gentler version: dry only
+            the very top surface, not a full 1–2 inches, since seed-starting mix in a small cell
+            or tray dries fast and a seedling can't tolerate the same drought as a mature
+            houseplant.
+          </p>
+        </div>
+      </header>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">Why seedlings are different</h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Seed-starting mix is typically light, peat- or coir-based, and kept consistently moist on
+          purpose to support germination — conditions that also happen to suit fungus gnat eggs
+          and larvae well. A mature houseplant with an established root system can lose some fine
+          roots to larval feeding without much visible effect; a seedling with only a few true
+          roots has far less margin, so heavier larval feeding can show up as stunted growth,
+          wilting despite moist mix, or damping-off–like collapse at the stem base.
+        </p>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">Managing moisture without stressing the seedling</h2>
+        <ul class="mt-4 grid gap-3 text-sm leading-relaxed text-muted">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 size-1.5 shrink-0 rounded-full bg-primary" />
+            Dry the very top surface layer between waterings rather than a full 1–2 inches — check by looking at surface color and a light touch, not a deep finger probe that disturbs roots.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 size-1.5 shrink-0 rounded-full bg-primary" />
+            Bottom-water trays where the setup allows it, and remove any standing water after 15–20 minutes rather than leaving cells sitting in it.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 size-1.5 shrink-0 rounded-full bg-primary" />
+            A thin layer of fine sand, vermiculite, or perlite on the surface can help the top dry faster without changing how deep moisture sits for the roots.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 size-1.5 shrink-0 rounded-full bg-primary" />
+            Improve airflow with a small fan on low — it speeds surface drying and also helps prevent damping-off fungus, which is a separate but related moisture problem.
+          </li>
+        </ul>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">If moisture management alone isn't enough</h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Yellow sticky cards still work at seedling scale — small strips cut to size and placed
+          just above the tray. If larvae are confirmed (see the
+          <a href="/fungus-gnat-larvae" class="text-primary hover:underline">larvae identification guide</a>)
+          and moisture control plus traps aren't enough, a Bti product labeled for fungus gnats is
+          the better-supported option here — avoid a hydrogen peroxide drench on seedlings
+          specifically, since their small root systems and delicate tissue make them a poor
+          candidate for a treatment the site already treats as optional and cautious for
+          established plants.
+        </p>
+        <a
+          href="/guides/let-soil-dry"
+          class="focus-ring group mt-6 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary"
+        >
+          Read the full drying guide
+          <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+        </a>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-xl font-semibold tracking-tight">Sources</h2>
+        <ul class="mt-3 grid gap-1.5 text-sm">
+          {
+            SOURCES.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                  {source.label}
+                </a>
+                <span class="text-muted"> — {source.publisher}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </article>
+  </main>
+</Layout>

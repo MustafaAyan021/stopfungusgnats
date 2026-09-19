@@ -29,7 +29,7 @@ const MISTAKES = [
   },
   {
     title: "Stopping as soon as the flies disappear",
-    detail: "Eggs and pupae already in the soil will still finish developing. Hold the dry-top habit for two more weeks after the last adult, not just until the air looks clear.",
+    detail: "Eggs and pupae already in the soil can still finish developing after adults stop appearing. Keep the dry-top habit and a sticky trap in place for a couple more weeks and treat a fresh catch as a reason to keep going, not just stopping the moment the air looks clear.",
   },
   {
     title: "Watering \"just to be safe\"",
@@ -80,13 +80,15 @@ const schema = schemaGraph(
         <div class="glass mt-6 rounded-xl p-6 shadow-stamp sm:p-7">
           <p class="label-mono text-[11px] text-primary">Direct answer</p>
           <p class="mt-2 text-lg leading-relaxed">
-            Get rid of fungus gnats by doing three things at once: let the top 1–2 inches of soil
-            dry between waterings so eggs and larvae lose their moisture, set yellow sticky traps
-            at soil level to catch and count egg-laying adults, and drench the soil with Bti
-            (sold as Mosquito Bits) or a 1:4 hydrogen-peroxide-to-water mix to kill larvae already
-            feeding underground. A light infestation usually clears in 7–10 days; a heavy one can
-            take 3–4 weeks. Keep the dry-soil habit for two extra weeks after the last adult —
-            that's the step most people skip, and the reason gnats come back.
+            Get rid of fungus gnats in this order: confirm it's actually fungus gnats (not fruit
+            or drain flies), adjust watering so the mix dries out appropriately for that specific
+            plant, set yellow sticky traps at soil level to monitor and catch adults, and — if
+            moisture control and traps aren't enough on their own — use a Bti product labeled for
+            fungus gnats, following the label's rate and reapplication schedule. A light
+            infestation often shows improvement within 7–10 days; a heavier one commonly takes
+            3–4 weeks, since eggs and larvae already in the soil keep developing on their own
+            timeline. Keep monitoring trap catches for a couple of weeks after adults stop
+            appearing rather than stopping the moment things look clear.
           </p>
           <a href="/plan" class={`${buttonVariants({ size: "default" })} mt-5`}>
             Get the day-by-day plan
@@ -177,28 +179,24 @@ const schema = schemaGraph(
           {
             [
               {
-                title: "Confirm the pest and stop watering on a schedule",
-                body: "Rule out fruit flies and drain flies. Check the top inch of every pot — anything still damp does not get watered today, no matter the calendar.",
+                title: "Confirm the pest",
+                body: "Rule out fruit flies and drain flies first — see the identifier or the comparison guide. Treating the wrong pest is the most common reason a plan seems to fail.",
+              },
+              {
+                title: "Manage moisture for that specific plant",
+                body: "Most houseplants do well letting the top 1–2 inches dry between waterings, but that's not a universal rule — a succulent, a seedling, and an orchid in bark each tolerate moisture differently. See what fits your plant in the drying guide.",
               },
               {
                 title: "Set yellow sticky traps at soil level",
-                body: "One card per small pot, two for a large planter, pushed into the mix so the yellow face sits just above the soil. This is your monitoring tool for the rest of the process.",
+                body: "One card per small pot, two for a large planter, pushed into the mix so the yellow face sits just above the soil. Traps monitor and knock down adults — they don't touch eggs or larvae in the soil.",
               },
               {
-                title: "Target the adults (what's flying now)",
-                body: "Sticky traps intercept egg-laying females before they lay the next batch. This slows the population but does nothing to eggs or larvae already in the soil — it's step two of three, not the whole plan.",
+                title: "Add a labeled Bti product if moisture control and traps aren't enough",
+                body: "Bti (sold as Mosquito Bits or Gnatrol) targets fly larvae in the soil. Use a product labeled for fungus gnats and follow its instructions for rate, mixing, and how often to reapply — labels vary by brand and formulation.",
               },
               {
-                title: "Target the larvae (what's in the soil)",
-                body: "Drench with Bti (Mosquito Bits or Gnatrol) or a 1:4 mix of 3% hydrogen peroxide and water. This is the step that actually reduces the population living in the pot.",
-              },
-              {
-                title: "Hold the dry-top habit and repeat",
-                body: "Let the top 1–2 inches dry between waterings, bottom-water where possible, and repeat the larval treatment every 5–7 days for two to three rounds if adults are still appearing.",
-              },
-              {
-                title: "Keep going for two weeks after the last adult",
-                body: "Eggs and pupae already in the soil will still finish developing. Stopping early is the most common reason an infestation comes back.",
+                title: "Keep monitoring, and reassess if it stalls",
+                body: "Watch the trend on your sticky cards over days, not a single count. Keep going for a couple of weeks after catches drop to near zero, and treat a fresh catch as a reason to check the soil again rather than start over.",
               },
             ].map((step, i) => (
               <li class="relative flex gap-4 pl-0">
@@ -441,6 +439,27 @@ const schema = schemaGraph(
               <p class="label-mono text-[10px] text-primary">{guide.kicker}</p>
               <p class="mt-1 flex items-center justify-between gap-2 font-medium text-fg">
                 {guide.title}
+                <ArrowRight className="size-4 shrink-0 text-subtle" />
+              </p>
+            </a>
+          ))
+        }
+      </nav>
+
+      <nav aria-label="Plant-specific and situational guides" class="mt-6 grid gap-3 sm:grid-cols-2" data-reveal>
+        {
+          [
+            { to: "/fungus-gnat-larvae", kicker: "Identification", title: "How to identify fungus gnat larvae" },
+            { to: "/fungus-gnats-in-seedlings", kicker: "Seedlings", title: "Fungus gnats in seedlings" },
+            { to: "/fungus-gnats-in-succulents", kicker: "Succulents & cacti", title: "Fungus gnats in succulents and cacti" },
+            { to: "/new-plant-fungus-gnats", kicker: "Prevention", title: "Gnats after a new plant" },
+            { to: "/how-to-know-treatment-is-working", kicker: "Monitoring", title: "How to know treatment is working" },
+            { to: "/fungus-gnat-troubleshooting", kicker: "Troubleshooting", title: "Fungus gnats won't go away?" },
+          ].map((item) => (
+            <a href={item.to} class="focus-ring glass rounded-lg p-4 shadow-stamp-sm hover:-translate-y-0.5 transition-transform duration-[var(--motion-quick)]">
+              <p class="label-mono text-[10px] text-primary">{item.kicker}</p>
+              <p class="mt-1 flex items-center justify-between gap-2 font-medium text-fg">
+                {item.title}
                 <ArrowRight className="size-4 shrink-0 text-subtle" />
               </p>
             </a>
