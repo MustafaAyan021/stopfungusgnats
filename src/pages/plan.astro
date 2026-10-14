@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import DirectAnswer from "@/components/DirectAnswer.astro";
 import { TreatmentPlan } from "@/components/TreatmentPlan";
 import { PLAN_DAYS } from "@/data/content";
 import { breadcrumbSchema, howToSchema, schemaGraph } from "@/lib/seo";
@@ -33,13 +34,12 @@ const schema = schemaGraph(
     <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
       7-Day Fungus Gnat <span class="text-primary italic">Starter Plan</span>
     </h1>
-    <p class="mt-4 max-w-xl leading-relaxed text-muted">
-      Your first-week checklist. Heavier infestations may require continued monitoring and
-      treatment beyond day 7 — that's normal, not a sign it isn't working. Check off each task as
-      you go; your progress stays on this device. Keep monitoring after adult numbers fall, and
-      continue moisture management and any labeled treatment long enough to account for remaining
-      immature stages — that's the step people skip, and a common reason gnats seem to come back.
-    </p>
+    <DirectAnswer>
+      The 7-day plan: manage moisture first by letting the mix dry as far as each plant tolerates, set yellow sticky traps at soil level to catch adults, and add a Bti product labeled for fungus gnats if needed. Heavier infestations need monitoring beyond day 7, because immature stages already in the soil keep developing.
+      <Fragment slot="more">
+        Check off each task as you go; your progress stays on this device. Keep monitoring after adult numbers fall, and continue moisture management and any labeled treatment long enough to account for remaining immature stages — that's the step people skip, and a common reason gnats seem to come back.
+      </Fragment>
+    </DirectAnswer>
     <div class="mt-10">
       <TreatmentPlan client:idle />
     </div>

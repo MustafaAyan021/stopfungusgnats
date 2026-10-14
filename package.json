@@ -8,6 +8,7 @@
     "preview": "astro preview --host 0.0.0.0",
     "typecheck": "astro check",
     "format": "prettier --write .",
+    "page-dates": "node scripts/update-page-dates.mjs",
     "deploy": "astro build && wrangler pages deploy dist --project-name=stopfungusgnats"
   },
   "dependencies": {

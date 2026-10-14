@@ -3,9 +3,10 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
-import { IMAGES, LAST_UPDATED } from "@/data/content";
+import DirectAnswer from "@/components/DirectAnswer.astro";
+import { IMAGES } from "@/data/content";
 import { TOPICS, TOPIC_BY_SLUG } from "@/data/topics";
-import { articleSchema, breadcrumbSchema, faqSchema, howToSchema, schemaGraph } from "@/lib/seo";
+import { articleSchema, pageDatesFor, breadcrumbSchema, faqSchema, howToSchema, schemaGraph } from "@/lib/seo";
 
 export function getStaticPaths() {
   return TOPICS.map((t) => ({ params: { topic: t.slug } }));
@@ -22,8 +23,7 @@ const schema = schemaGraph(
     description: topic.description,
     path: PATH,
     image: IMAGES.hero.src,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH, "topic"),
   }),
   breadcrumbSchema([{ name: topic.h1, path: PATH }]),
   topic.howTo && howToSchema({ ...topic.howTo, description: topic.description, path: PATH, image: IMAGES.hero.src }),
@@ -39,10 +39,9 @@ const schema = schemaGraph(
         <p class="label-mono text-[11px] text-muted">{topic.kicker}</p>
         <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">{topic.h1}</h1>
         <ArticleByline class="mt-3" />
-        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
-          <p class="label-mono text-[11px] text-primary">Direct answer</p>
-          <p class="mt-2 text-lg leading-relaxed">{topic.directAnswer}</p>
-        </div>
+        <DirectAnswer large>
+          {topic.directAnswer}
+        </DirectAnswer>
       </header>
 
       {

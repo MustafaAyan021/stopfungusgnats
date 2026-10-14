@@ -3,8 +3,9 @@ import { ArrowRight } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
-import { LAST_UPDATED, SOURCES } from "@/data/content";
-import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import DirectAnswer from "@/components/DirectAnswer.astro";
+import { SOURCES } from "@/data/content";
+import { articleSchema, pageDatesFor, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/fungus-gnats-in-seedlings";
 const TITLE = "Fungus Gnats in Seedlings: What's Different, and What to Do";
@@ -16,8 +17,7 @@ const schema = schemaGraph(
     headline: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH),
   }),
   breadcrumbSchema([{ name: "Fungus Gnats in Seedlings", path: PATH }]),
 );
@@ -33,17 +33,9 @@ const schema = schemaGraph(
           Fungus gnats in <span class="text-primary italic">seedlings</span>
         </h1>
         <ArticleByline class="mt-3" />
-        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
-          <p class="label-mono text-[11px] text-primary">Direct answer</p>
-          <p class="mt-2 leading-relaxed">
-            Seedlings are more vulnerable to fungus gnat larvae than established plants, because a
-            small, developing root system has less to spare if larvae feed on fine root hairs. The
-            usual "let the soil dry" advice still applies but needs a gentler version: dry only
-            the very top surface, not a full 1–2 inches, since seed-starting mix in a small cell
-            or tray dries fast and a seedling can't tolerate the same drought as a mature
-            houseplant.
-          </p>
-        </div>
+        <DirectAnswer>
+          Seedlings are more vulnerable to fungus gnat larvae than established plants, because a small root system has little to spare if larvae feed on fine root hairs. Let only the very top surface dry, not a full 1–2 inches, since seedlings can't tolerate the drought a mature houseplant can.
+        </DirectAnswer>
       </header>
 
       <section class="mt-10 border-t border-border pt-8" data-reveal>

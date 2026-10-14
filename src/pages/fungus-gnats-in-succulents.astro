@@ -3,8 +3,9 @@ import { ArrowRight } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
-import { LAST_UPDATED, SOURCES } from "@/data/content";
-import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import DirectAnswer from "@/components/DirectAnswer.astro";
+import { SOURCES } from "@/data/content";
+import { articleSchema, pageDatesFor, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/fungus-gnats-in-succulents";
 const TITLE = "Fungus Gnats in Succulents and Cacti";
@@ -16,8 +17,7 @@ const schema = schemaGraph(
     headline: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH),
   }),
   breadcrumbSchema([{ name: "Fungus Gnats in Succulents", path: PATH }]),
 );
@@ -33,16 +33,9 @@ const schema = schemaGraph(
           Fungus gnats in <span class="text-primary italic">succulents and cacti</span>
         </h1>
         <ArticleByline class="mt-3" />
-        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
-          <p class="label-mono text-[11px] text-primary">Direct answer</p>
-          <p class="mt-2 leading-relaxed">
-            Fungus gnats are genuinely uncommon in succulents and cacti, because their fast-draining
-            mix and infrequent watering are inhospitable to gnat eggs and larvae in the first
-            place. If you do see them here, it's a reliable signal that this particular pot is
-            staying wetter than it should for that plant — fixing the mix and watering habit
-            usually matters more than any larval treatment.
-          </p>
-        </div>
+        <DirectAnswer>
+          Fungus gnats are uncommon in succulents and cacti, because fast-draining mix and infrequent watering don't suit gnat eggs and larvae. If you do see them, that pot is likely staying wetter than it should for that plant, so fixing the mix and watering habit usually matters more than any larval treatment.
+        </DirectAnswer>
       </header>
 
       <section class="mt-10 border-t border-border pt-8" data-reveal>

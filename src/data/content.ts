@@ -375,6 +375,8 @@ export const GUIDES: Record<
   {
     title: string;
     description: string;
+    /** 40–60 word self-contained answer shown at the top of the page (quoted by answer engines). */
+    directAnswer: string;
     kicker: string;
     image: ImageMetadata;
     body: { heading: string; paragraphs: string[] }[];
@@ -384,6 +386,8 @@ export const GUIDES: Record<
     title: "Let the soil dry to stop fungus gnats",
     description:
       "Wet mix is the nursery. Here is how dry the top should be, how to water without restarting the infestation, and what to do with plants that hate drought.",
+    directAnswer:
+      "Letting the soil dry removes the moist organic mix that fungus gnat eggs and larvae need. Allow the mix to dry as far as each plant safely tolerates, often the top 1–2 inches for established houseplants, and bottom-water to keep the surface dry. Seedlings, ferns, and other moisture-loving plants need gentler drying.",
     kicker: "Cultural control",
     image: IMAGES.bottomWater,
     body: [
@@ -427,6 +431,8 @@ export const GUIDES: Record<
     title: "Yellow sticky traps for fungus gnats",
     description:
       "How to place yellow sticky cards so they catch adult fungus gnats, how to read the catch, and why traps alone will not end an infestation.",
+    directAnswer:
+      "Yellow sticky traps catch adult fungus gnats and show whether your treatment is working, but they don't end an infestation alone because larvae in the soil keep producing new adults. Lay or stand cards at soil level, replace them when full, and watch whether the catch trends down over several days.",
     kicker: "Adults",
     image: IMAGES.stickyTrap,
     body: [
@@ -455,6 +461,8 @@ export const GUIDES: Record<
     title: "Hydrogen Peroxide for Fungus Gnats: Does It Work?",
     description:
       "Does hydrogen peroxide kill fungus gnats? The commonly described 1:4 dilution, why extension guidance is mixed, the cautions, and why it isn't part of the default plan.",
+    directAnswer:
+      "A diluted hydrogen peroxide drench can kill fungus gnat larvae it directly contacts, but it's short-acting, doesn't prevent new eggs, and extension guidance on it is mixed. It's an optional add-on, not part of the default plan. Use moisture control, sticky traps, and Bti first, and read the cautions before using it.",
     kicker: "Optional — use cautiously",
     image: IMAGES.kit,
     body: [
@@ -490,6 +498,8 @@ export const GUIDES: Record<
     title: "Mosquito Bits for Fungus Gnats: How to Use Them (Bti)",
     description:
       "How to use Mosquito Bits for fungus gnats: what Bti is, how to apply it to houseplant soil, how often to repeat, and how it compares with Gnatrol. Follow the current product label.",
+    directAnswer:
+      "Mosquito Bits contain Bti (Bacillus thuringiensis israelensis), a bacterium that specifically targets fly larvae such as fungus gnat larvae. Use a product labeled for fungus gnats, follow the current label's rate and reapplication schedule, and combine it with drier soil and sticky traps, since it targets larvae rather than adults.",
     kicker: "Best-supported larvicide",
     image: IMAGES.kit,
     body: [
@@ -537,6 +547,8 @@ export const GUIDES: Record<
     title: "How to prevent fungus gnats from coming back",
     description:
       "Bottom watering, sand top-dressing, quarantine for new plants, and how long to keep monitoring after adults stop appearing.",
+    directAnswer:
+      "To keep fungus gnats from coming back, water from below, top-dress the soil with sand or grit, use sterile potting mix, empty cachepots, and quarantine new plants. Keep monitoring with sticky traps for a couple of weeks after adults stop appearing, since eggs and larvae may still be developing.",
     kicker: "Keep them gone",
     image: IMAGES.bottomWater,
     body: [

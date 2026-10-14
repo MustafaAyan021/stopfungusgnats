@@ -4,8 +4,9 @@ import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
-import { LAST_UPDATED, METHODS } from "@/data/content";
-import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import DirectAnswer from "@/components/DirectAnswer.astro";
+import { METHODS } from "@/data/content";
+import { articleSchema, pageDatesFor, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/fungus-gnat-treatments";
 const TITLE = "Fungus Gnat Treatment: Every Method Compared";
@@ -17,8 +18,7 @@ const schema = schemaGraph(
     headline: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH),
   }),
   breadcrumbSchema([{ name: "Treatments", path: PATH }]),
 );
@@ -34,12 +34,13 @@ const schema = schemaGraph(
           Fungus gnat treatment, <span class="text-primary italic">side by side</span>
         </h1>
         <ArticleByline class="mt-3" />
-        <p class="mt-4 max-w-2xl leading-relaxed text-muted">
-          No single method finishes a fungus gnat infestation alone — each one below reaches a
-          different stage of the <a href="/fungus-gnat-life-cycle" class="text-primary hover:underline">life cycle</a>. The
-          <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">full guide</a> explains
-          how to stack them; each card here links to complete, step-by-step instructions.
-        </p>
+        <DirectAnswer>
+          No single treatment ends a fungus gnat infestation, because each method reaches a different life stage. Drying the mix and Bti target eggs and larvae, while sticky traps catch adults. Combine moisture control and traps, add Bti if needed, then keep monitoring for several weeks.
+          <Fragment slot="more">
+            Each method below reaches a different stage of the <a href="/fungus-gnat-life-cycle" class="text-primary hover:underline">life cycle</a>. The
+            <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">full guide</a> explains how to stack them; each card links to complete, step-by-step instructions.
+          </Fragment>
+        </DirectAnswer>
       </header>
 
       <section class="mt-10 grid gap-6 sm:grid-cols-2" data-reveal>

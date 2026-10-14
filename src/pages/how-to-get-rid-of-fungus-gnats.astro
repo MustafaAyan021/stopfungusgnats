@@ -3,6 +3,7 @@ import { ArrowRight, CircleAlert, Play, TriangleAlert, Video } from "lucide-reac
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
+import DirectAnswer from "@/components/DirectAnswer.astro";
 import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
 import { buttonVariants } from "@/lib/button-variants";
 import {
@@ -10,13 +11,12 @@ import {
   FAQS,
   GUIDES,
   IMAGES,
-  LAST_UPDATED,
   METHODS,
   NATURAL_METHODS,
   SOURCES,
   TROUBLESHOOTING,
 } from "@/data/content";
-import { articleSchema, breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/seo";
+import { articleSchema, pageDatesFor, breadcrumbSchema, faqSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/how-to-get-rid-of-fungus-gnats";
 const TITLE = "How to Get Rid of Fungus Gnats: Step-by-Step Guide";
@@ -53,8 +53,7 @@ const schema = schemaGraph(
     description: DESCRIPTION,
     path: PATH,
     image: IMAGES.hero.src,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH),
   }),
   breadcrumbSchema([{ name: "How to Get Rid of Fungus Gnats", path: PATH }]),
   faqSchema(FAQS),
@@ -75,26 +74,18 @@ const schema = schemaGraph(
         </h1>
         <ArticleByline class="mt-3" />
 
-        <div class="glass mt-6 rounded-xl p-6 shadow-stamp sm:p-7">
-          <p class="label-mono text-[11px] text-primary">Direct answer</p>
-          <p class="mt-2 text-lg leading-relaxed">
-            Get rid of fungus gnats in this order: confirm it's actually fungus gnats (not fruit
-            or drain flies), find the likely breeding source (a consistently damp nearby pot is a
-            common culprit, but check other damp organic sites too, such as drains), adjust
-            watering so the mix dries out appropriately for that specific plant,
-            set yellow sticky traps at soil level to monitor and catch adults, and — if moisture
-            control and traps aren't enough on their own — use a Bti product labeled for fungus
-            gnats, following the current label's rate and reapplication schedule. You may see
-            fewer adults within days, but complete control often takes several weeks, since eggs
-            and larvae already in the soil keep developing on their own timeline regardless of
-            when you start treating. Keep monitoring trap catches after adult numbers fall rather
-            than stopping the moment things look clear.
-          </p>
-          <a href="/plan" class={`${buttonVariants({ size: "default" })} mt-5`}>
+        <DirectAnswer large>
+          To get rid of fungus gnats: confirm they're fungus gnats, find the damp breeding source, let the mix dry as far as each plant tolerates, set yellow sticky traps at soil level, and add a Bti product labeled for fungus gnats if needed. Expect several weeks for full control, not days.
+          <Fragment slot="more">
+            Keep monitoring trap catches after adult numbers fall: eggs and larvae already in the soil keep developing regardless of when you start. Follow the current Bti label for rate and reapplication, and if you can't find the source, check other damp organic sites such as drains.
+          </Fragment>
+          <Fragment slot="after">
+            <a href="/plan" class={`${buttonVariants({ size: "default" })} mt-5`}>
             Get the day-by-day plan
             <ArrowRight className="size-4" />
           </a>
-        </div>
+          </Fragment>
+        </DirectAnswer>
       </header>
 
       <nav aria-label="On this page" class="mt-10 rounded-lg border-2 border-dashed border-border p-4" data-reveal>

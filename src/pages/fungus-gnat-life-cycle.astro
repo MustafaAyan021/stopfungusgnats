@@ -3,9 +3,10 @@ import { ArrowRight } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
+import DirectAnswer from "@/components/DirectAnswer.astro";
 import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
-import { LAST_UPDATED, LIFECYCLE_STAGES } from "@/data/content";
-import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import { LIFECYCLE_STAGES } from "@/data/content";
+import { articleSchema, pageDatesFor, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/fungus-gnat-life-cycle";
 const TITLE = "Fungus Gnat Life Cycle: Egg to Adult, Explained";
@@ -17,8 +18,7 @@ const schema = schemaGraph(
     headline: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH),
   }),
   breadcrumbSchema([{ name: "Fungus Gnat Life Cycle", path: PATH }]),
 );
@@ -34,19 +34,10 @@ const schema = schemaGraph(
           The fungus gnat <span class="text-primary italic">life cycle</span>
         </h1>
         <ArticleByline class="mt-3" />
-        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
-          <p class="label-mono text-[11px] text-primary">Direct answer</p>
-          <p class="mt-2 leading-relaxed">
-            Indoors, a fungus gnat goes from egg to breeding adult in roughly
-            <strong class="text-fg"> three to four weeks</strong> at typical room temperature —
-            faster in a warm spot like near a heat vent or grow light, slower in a cool room, since
-            development speed is temperature-dependent. Because a female lays a new
-            batch of eggs within a day or two of emerging, generations overlap — new eggs, larvae,
-            pupae, and adults are usually all present in an infested pot at once. That overlap is
-            why a single treatment rarely ends an infestation, and why the
-            <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">full elimination plan</a> targets more than one stage at a time.
-          </p>
-        </div>
+        <DirectAnswer>
+          Indoors, a fungus gnat goes from egg to breeding adult in roughly <strong class="text-fg">three to four weeks</strong> at room temperature — faster when warm, slower when cool. Because females lay new eggs within a day or two of emerging, generations overlap, and every life stage is usually present in an infested pot at once.
+          <Fragment slot="more">That overlap is why a single treatment rarely ends an infestation, and why the <a href="/how-to-get-rid-of-fungus-gnats" class="text-primary hover:underline">full elimination plan</a> targets more than one stage at a time.</Fragment>
+        </DirectAnswer>
       </header>
 
       <section class="mt-10" data-reveal>

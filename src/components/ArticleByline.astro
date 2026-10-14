@@ -1,12 +1,14 @@
 ---
 import { Clock } from "lucide-react";
-import { LAST_UPDATED } from "@/data/content";
+import { pageDatesForRoute } from "@/lib/seo";
 
 interface Props {
   class?: string;
 }
 
 const { class: className } = Astro.props;
+
+const LAST_UPDATED = pageDatesForRoute(Astro.url.pathname).dateModified;
 
 const reviewedDate = new Date(`${LAST_UPDATED}T00:00:00Z`).toLocaleDateString("en-US", {
   year: "numeric",

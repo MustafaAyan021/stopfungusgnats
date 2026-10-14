@@ -3,8 +3,9 @@ import { ArrowRight } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleByline from "@/components/ArticleByline.astro";
-import { CAUSES, LAST_UPDATED } from "@/data/content";
-import { articleSchema, breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import DirectAnswer from "@/components/DirectAnswer.astro";
+import { CAUSES } from "@/data/content";
+import { articleSchema, pageDatesFor, breadcrumbSchema, schemaGraph } from "@/lib/seo";
 
 const PATH = "/why-do-i-have-fungus-gnats";
 const TITLE = "Where Do Fungus Gnats Come From? Why You Have Them";
@@ -16,8 +17,7 @@ const schema = schemaGraph(
     headline: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    datePublished: LAST_UPDATED,
-    dateModified: LAST_UPDATED,
+    ...pageDatesFor(PATH),
   }),
   breadcrumbSchema([{ name: "Why Do I Have Fungus Gnats?", path: PATH }]),
 );
@@ -33,18 +33,10 @@ const schema = schemaGraph(
           Where do <span class="text-primary italic">fungus gnats</span> come from?
         </h1>
         <ArticleByline class="mt-3" />
-        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
-          <p class="label-mono text-[11px] text-primary">Direct answer</p>
-          <p class="mt-2 leading-relaxed">
-            Fungus gnats show up because something in your home offers moist, organic material
-            for long enough to complete a life cycle — most commonly overwatered or
-            moisture-retentive potting mix, a new plant that arrived already infested, or a
-            saucer that never fully drains. Potting mix is the usual source, but they can
-            occasionally breed in other damp organic sites too, including drains with a buildup
-            of debris. Fix the moisture at the actual source and you remove the reason they're
-            there at all.
-          </p>
-        </div>
+        <DirectAnswer>
+          Fungus gnats appear when your home offers moist organic material long enough to complete a life cycle. The most common sources are overwatered or moisture-retentive potting mix, a new plant that arrived infested, or a saucer that never drains. Fix the moisture at the source and you remove the reason they're there.
+          <Fragment slot="more">Potting mix is the usual source, but they can occasionally breed in other damp organic sites too, including drains with a buildup of debris.</Fragment>
+        </DirectAnswer>
       </header>
 
       <section class="mt-10 grid gap-4" data-reveal>

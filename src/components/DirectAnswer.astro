@@ -1,0 +1,24 @@
+---
+// Keep the default slot to ~40–60 words: a self-contained answer is what answer engines quote.
+// Put nuance in the "more" slot.
+interface Props {
+  /** Larger type for the hero-style answer on the main guide. */
+  large?: boolean;
+  class?: string;
+}
+
+const { large = false, class: className } = Astro.props;
+---
+
+<div class:list={["glass mt-6 rounded-xl p-6 shadow-stamp", large && "sm:p-7", className]}>
+  <p class="label-mono text-[11px] text-primary">Direct answer</p>
+  <p class:list={["mt-2 leading-relaxed", large && "text-lg"]}><slot /></p>
+  {
+    Astro.slots.has("more") && (
+      <p class="mt-3 text-sm leading-relaxed text-muted">
+        <slot name="more" />
+      </p>
+    )
+  }
+  <slot name="after" />
+</div>

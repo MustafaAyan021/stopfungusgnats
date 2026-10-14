@@ -2,12 +2,15 @@
 import { Mail } from "lucide-react";
 import Layout from "@/layouts/Layout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import { breadcrumbSchema, schemaGraph } from "@/lib/seo";
+import { breadcrumbSchema, schemaGraph, webPageSchema } from "@/lib/seo";
 
 const PATH = "/contact";
 const TITLE = "Contact";
 const DESCRIPTION = "Report a correction, ask a question, or get in touch with Stop Fungus Gnats.";
-const schema = schemaGraph(breadcrumbSchema([{ name: "Contact", path: PATH }]));
+const schema = schemaGraph(
+  webPageSchema({ type: "ContactPage", name: TITLE, description: DESCRIPTION, path: PATH }),
+  breadcrumbSchema([{ name: "Contact", path: PATH }]),
+);
 
 const CONTACT_EMAIL = "hello@stopfungusgnats.com";
 ---

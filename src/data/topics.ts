@@ -33,7 +33,7 @@ export const TOPICS: Topic[] = [
     description:
       "What fungus gnats are, where they live, what they eat, whether they're harmful, and why they show up around houseplants. A plain-language primer.",
     directAnswer:
-      "Fungus gnats are small, dark, weak-flying flies (family Sciaridae, most often Bradysia species indoors) whose larvae live in moist potting mix and feed on fungi, decaying organic matter, and sometimes fine roots. The adults you see hovering around plants and windows are harmless to people. They don't bite and they don't sting. The soil-dwelling larvae are the real issue for plants, especially seedlings.",
+      "Fungus gnats are small, dark, weak-flying flies (family Sciaridae, usually Bradysia indoors) whose larvae live in moist potting mix and feed on fungi, decaying matter, and sometimes fine roots. The adults hovering around plants are harmless to people: they don't bite or sting. The soil-dwelling larvae are the real issue for plants, especially seedlings.",
     sections: [
       {
         id: "overview",
@@ -95,7 +95,7 @@ export const TOPICS: Topic[] = [
     description:
       "How to recognize adult fungus gnats, larvae, and pupae by size, color, and behavior, and how to tell them apart from fruit flies and drain flies.",
     directAnswer:
-      "Adult fungus gnats are tiny (about 1/8 inch), slender, dark gray to black flies with long legs, long antennae, and clear or smoky wings, shaped like miniature mosquitoes. They fly weakly and hover close to houseplant soil. Their larvae are thin, translucent-white worms up to about 1/4 inch long with a shiny black head, found in the top inch or two of damp potting mix.",
+      "Adult fungus gnats are tiny (about 1/8 inch), slender, dark gray to black flies with long legs and antennae, shaped like miniature mosquitoes, that fly weakly near houseplant soil. Their larvae are thin, translucent-white worms up to about 1/4 inch long with a shiny black head, found in the top inch or two of damp mix.",
     sections: [
       {
         id: "adults",
@@ -217,7 +217,7 @@ export const TOPICS: Topic[] = [
     description:
       "How to kill fungus gnats at every stage: sticky traps for adults, Bti and drying for larvae, and what actually works for eggs. A tested order of attack.",
     directAnswer:
-      "To kill fungus gnats you have to hit every life stage. Trap adults with yellow sticky cards, kill larvae with a Bti product (Mosquito Bits or Gnatrol) or beneficial nematodes, and stop new eggs by letting the top of the soil dry between waterings. Killing only the flying adults won't end an infestation, because eggs, larvae, and pupae in the soil keep producing new ones.",
+      "To kill fungus gnats, hit every life stage: trap adults with yellow sticky cards, kill larvae with a Bti product (Mosquito Bits or Gnatrol) or beneficial nematodes, and stop new eggs by letting the top of the soil dry between waterings. Killing only the adults won't end an infestation, because eggs, larvae, and pupae keep producing new ones.",
     sections: [
       {
         id: "adults",
@@ -304,7 +304,7 @@ export const TOPICS: Topic[] = [
     description:
       "Fungus gnats in the house: how to find where they're breeding (it isn't always a plant), clear every room, and keep them from coming back.",
     directAnswer:
-      "To get rid of fungus gnats in your house, find every moist, organic breeding source, not just the plant you noticed them near. Check all potted plants, saucers and cachepots, drains, and any wet organic debris, let the soil dry, put sticky traps in each affected room, and treat larvae in infested pots with a Bti product. Treating one pot while another stays wet is the most common reason they keep coming back.",
+      "To get rid of fungus gnats in your house, find every moist, organic breeding source, not just the plant you noticed them near: check all pots, saucers, cachepots, and drains. Let soil dry, put sticky traps in affected rooms, and treat infested pots with Bti. Treating one pot while another stays wet is the usual reason they return.",
     sections: [
       {
         id: "why-house",
@@ -370,7 +370,7 @@ export const TOPICS: Topic[] = [
     description:
       "How to get rid of fungus gnats in houseplants and potted plants: dry the mix, trap adults, treat larvae, and adjust care for succulents, seedlings, and tropicals.",
     directAnswer:
-      "To get rid of fungus gnats in plants, treat the soil, because that's where the larvae live. Let the top 1–2 inches of mix dry between waterings (less aggressively for seedlings and moisture-loving plants), trap adults with yellow sticky cards, and drench with a Bti product such as Mosquito Bits or Gnatrol in place of a scheduled watering. Repeat per the label and keep monitoring for several weeks.",
+      "To get rid of fungus gnats in plants, treat the soil, where larvae live. Let the top 1–2 inches dry between waterings (less aggressively for seedlings and moisture-loving plants), trap adults with yellow sticky cards, and use a Bti product such as Mosquito Bits or Gnatrol in place of a watering. Repeat per the label and keep monitoring for weeks.",
     sections: [
       {
         id: "soil",
@@ -446,7 +446,7 @@ export const TOPICS: Topic[] = [
     description:
       "Does neem oil kill fungus gnats? What neem can and can't do, why a leaf spray misses the larvae, and what works better, including Bti.",
     directAnswer:
-      "Neem oil can help, but it isn't the best-supported fix. Neem's active compound, azadirachtin, acts as an insect growth regulator and feeding deterrent, so a neem soil drench may affect larvae. A leaf spray does little, because larvae live in the soil. Evidence specific to fungus gnats is limited compared with Bti (Mosquito Bits or Gnatrol), so use neem as a supplement, not your main treatment.",
+      "Neem oil can help, but it isn't the best-supported fix. Its active compound, azadirachtin, is an insect growth regulator, so a soil drench may affect larvae, while a leaf spray does little because larvae live in the soil. Evidence for fungus gnats is limited compared with Bti, so use neem as a supplement, not your main treatment.",
     sections: [
       {
         id: "how",

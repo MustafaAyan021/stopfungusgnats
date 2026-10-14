@@ -17,6 +17,7 @@ import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
 import { buttonVariants } from "@/lib/button-variants";
 import { FAQS, IMAGES, METHODS } from "@/data/content";
 import { TOPICS } from "@/data/topics";
+import { faqSchema, schemaGraph, webPageSchema } from "@/lib/seo";
 
 const MORE_GUIDES = [
   ...TOPICS.map((t) => ({ href: `/${t.slug}`, label: t.h1 })),
@@ -87,12 +88,23 @@ const PREVENTION_CARDS = [
     body: "Nursery mix is a common hitchhike. One sticky card for a week before they join the shelf.",
   },
 ];
+
+const TITLE = "How to Get Rid of Fungus Gnats | Stop Fungus Gnats";
+const DESCRIPTION =
+  "How to get rid of fungus gnats in your house and plants: identify them, kill them with Mosquito Bits (Bti), sticky traps, and dry soil, and stop them coming back.";
+const schema = schemaGraph(
+  webPageSchema({
+    name: TITLE,
+    description: DESCRIPTION,
+    path: "/",
+    about: { "@type": "Thing", name: "Fungus gnats (Sciaridae) on houseplants" },
+  }),
+  // Only the questions rendered in the "Common questions" section below.
+  faqSchema(FAQS.slice(0, 4)),
+);
 ---
 
-<Layout
-  title="How to Get Rid of Fungus Gnats | Stop Fungus Gnats"
-  description="How to get rid of fungus gnats in your house and plants: identify them, kill them with Mosquito Bits (Bti), sticky traps, and dry soil, and stop them coming back."
->
+<Layout title={TITLE} description={DESCRIPTION} schema={[schema]}>
   <main id="main-content">
     <section class="relative flex min-h-[calc(100dvh-10rem)] items-center overflow-hidden bg-grain md:min-h-[calc(100dvh-6rem)]">
         <div
