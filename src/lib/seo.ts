@@ -5,7 +5,7 @@ const SITE_NAME = "Stop Fungus Gnats";
 const LOGO_URL = `${SITE_URL}/logo.png`;
 const AUTHOR_NAME = "Mustafa Ayan";
 /** Public profile URLs (LinkedIn, GitHub, etc.) that verify the author. Add real ones only. */
-const AUTHOR_SAME_AS: string[] = [];
+const AUTHOR_SAME_AS: string[] = ["https://github.com/MustafaAyan021"];
 
 /** Page URL, matching the site's canonical shape: every path ends in a trailing slash. */
 export function absoluteUrl(path: string): string {
