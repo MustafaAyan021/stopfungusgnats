@@ -1,0 +1,104 @@
+---
+import { ArrowRight, ChevronDown } from "lucide-react";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ArticleByline from "@/components/ArticleByline.astro";
+import { IMAGES, LAST_UPDATED } from "@/data/content";
+import { TOPICS, TOPIC_BY_SLUG } from "@/data/topics";
+import { articleSchema, breadcrumbSchema, faqSchema, howToSchema, schemaGraph } from "@/lib/seo";
+
+export function getStaticPaths() {
+  return TOPICS.map((t) => ({ params: { topic: t.slug } }));
+}
+
+const { topic: slug } = Astro.params;
+const topic = TOPIC_BY_SLUG[slug as string];
+if (!topic) throw new Error(`No topic content for slug: ${slug}`);
+
+const PATH = `/${topic.slug}`;
+const schema = schemaGraph(
+  articleSchema({
+    headline: topic.title,
+    description: topic.description,
+    path: PATH,
+    image: IMAGES.hero.src,
+    datePublished: LAST_UPDATED,
+    dateModified: LAST_UPDATED,
+  }),
+  breadcrumbSchema([{ name: topic.h1, path: PATH }]),
+  topic.howTo && howToSchema({ ...topic.howTo, description: topic.description, path: PATH, image: IMAGES.hero.src }),
+  faqSchema(topic.faqs),
+);
+---
+
+<Layout title={`${topic.title} | Stop Fungus Gnats`} description={topic.description} schema={[schema]} ogType="article">
+  <Breadcrumbs items={[{ name: topic.h1, path: PATH }]} />
+  <main id="main-content" class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <article>
+      <header data-reveal>
+        <p class="label-mono text-[11px] text-muted">{topic.kicker}</p>
+        <h1 class="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">{topic.h1}</h1>
+        <ArticleByline class="mt-3" />
+        <div class="glass mt-6 rounded-xl p-6 shadow-stamp">
+          <p class="label-mono text-[11px] text-primary">Direct answer</p>
+          <p class="mt-2 text-lg leading-relaxed">{topic.directAnswer}</p>
+        </div>
+      </header>
+
+      {
+        topic.sections.map((section) => (
+          <section id={section.id} class="mt-10 scroll-mt-20 border-t border-border pt-8" data-reveal>
+            <h2 class="font-display text-2xl font-semibold tracking-tight">{section.heading}</h2>
+            {section.paragraphs?.map((p) => <p class="mt-3 leading-relaxed text-muted">{p}</p>)}
+            {section.list &&
+              (section.ordered ? (
+                <ol class="mt-4 list-decimal space-y-2 pl-5 text-muted marker:text-primary">
+                  {section.list.map((item) => <li class="leading-relaxed">{item}</li>)}
+                </ol>
+              ) : (
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-muted marker:text-primary">
+                  {section.list.map((item) => <li class="leading-relaxed">{item}</li>)}
+                </ul>
+              ))}
+          </section>
+        ))
+      }
+
+      <section id="faq" class="mt-10 scroll-mt-20 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">Common questions</h2>
+        <div class="mt-4 grid gap-3">
+          {
+            topic.faqs.map((item) => (
+              <details class="group glass rounded-lg px-4 py-1 shadow-stamp-sm">
+                <summary class="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-md font-medium [&::-webkit-details-marker]:hidden">
+                  {item.q}
+                  <ChevronDown className="size-4 shrink-0 text-muted transition-transform duration-[var(--motion-quick)] group-open:rotate-180" />
+                </summary>
+                <p class="mt-1 pb-4 text-sm leading-relaxed text-muted">{item.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="mt-10 border-t border-border pt-8" data-reveal>
+        <h2 class="font-display text-2xl font-semibold tracking-tight">Keep reading</h2>
+        <ul class="mt-4 grid gap-2">
+          {
+            topic.related.map((link) => (
+              <li>
+                <a href={link.href} class="focus-ring group inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primary">
+                  {link.label}
+                  <ArrowRight className="size-4 transition-transform duration-[var(--motion-quick)] group-hover:translate-x-0.5" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a href="/how-to-get-rid-of-fungus-gnats" class="focus-ring mt-2 inline-flex min-h-11 items-center text-sm text-muted hover:text-fg">
+          Full guide: how to get rid of fungus gnats
+        </a>
+      </section>
+    </article>
+  </main>
+</Layout>

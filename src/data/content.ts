@@ -452,12 +452,18 @@ export const GUIDES: Record<
     ],
   },
   "hydrogen-peroxide": {
-    title: "Hydrogen peroxide drench for fungus gnat larvae",
+    title: "Hydrogen Peroxide for Fungus Gnats: Does It Work?",
     description:
-      "An optional, cautious option some sources describe — what a 1:4 dilution means, why extension guidance on it is mixed, and why it isn't part of the default plan on this site.",
+      "Does hydrogen peroxide kill fungus gnats? The commonly described 1:4 dilution, why extension guidance is mixed, the cautions, and why it isn't part of the default plan.",
     kicker: "Optional — use cautiously",
     image: IMAGES.kit,
     body: [
+      {
+        heading: "Does hydrogen peroxide kill fungus gnats?",
+        paragraphs: [
+          "It can kill larvae it directly contacts, which is why it's a popular home suggestion. But it's short-acting, it doesn't prevent new eggs, and it is not recommended as consistently as Bti or dry soil. If you want a dependable larvicide, use Bti first.",
+        ],
+      },
       {
         heading: "Why this is optional, not a default step",
         paragraphs: [
@@ -481,12 +487,19 @@ export const GUIDES: Record<
     ],
   },
   "mosquito-bits": {
-    title: "Mosquito Bits (Bti) for fungus gnats",
+    title: "Mosquito Bits for Fungus Gnats: How to Use Them (Bti)",
     description:
-      "How to use Bacillus thuringiensis israelensis — Mosquito Bits or Gnatrol — as a soil treatment that targets fungus gnat larvae. Follow the current product label for application and safety precautions.",
+      "How to use Mosquito Bits for fungus gnats: what Bti is, how to apply it to houseplant soil, how often to repeat, and how it compares with Gnatrol. Follow the current product label.",
     kicker: "Best-supported larvicide",
     image: IMAGES.kit,
     body: [
+      {
+        heading: "Do Mosquito Bits work on fungus gnats?",
+        paragraphs: [
+          "Yes — Mosquito Bits are one of the best-supported ways to kill fungus gnat larvae. The product is simply Bti (Bacillus thuringiensis israelensis) in a granule form. When larvae eat it, the toxin damages their gut and they stop feeding and die. Adults are not affected, so pair it with sticky cards.",
+          "Mosquito Bits is labeled for mosquito larvae in standing water; using it on houseplant soil is a common home application of the same active ingredient. Gnatrol is the Bti product labeled specifically for fungus gnats, so if you want the fully labeled route, use that and follow its directions.",
+        ],
+      },
       {
         heading: "What Bti is",
         paragraphs: [
@@ -498,6 +511,12 @@ export const GUIDES: Record<
         paragraphs: [
           "Bti products are generally applied either sprinkled on the soil surface and watered in, or pre-mixed with water and applied as a drench. Follow the current label for the exact amount, preparation method, application site, and retreatment interval — directions vary by product and jurisdiction, and there is no single generic recipe that's correct across brands.",
           "Bti does not persist forever indoors, which is why labels typically call for reapplication on a schedule — follow what the label says, and use whether you're still seeing adults on traps as a guide to whether to continue past that. Treat each application as that pot's scheduled watering, not an addition to it, so the dry-top habit stays intact between rounds.",
+        ],
+      },
+      {
+        heading: "How long until Mosquito Bits work?",
+        paragraphs: [
+          "Larvae that eat Bti usually stop feeding quickly and die within a day or two, but you won't see fewer flying adults right away, because pupae and eggs already in the soil still emerge. Expect trap counts to fall over roughly one to two weeks, and keep monitoring beyond that. Reapply on the label's schedule if adults keep appearing.",
         ],
       },
       {
@@ -545,6 +564,50 @@ export const GUIDES: Record<
 };
 
 export const FAQS = [
+  {
+    q: "What are fungus gnats?",
+    a: "Fungus gnats are small, dark, mosquito-like flies whose larvae live in moist potting mix and feed on fungi, decaying organic matter, and sometimes fine roots. Adults are weak fliers that hover around houseplants and windows. They are harmless to people but can damage seedlings.",
+  },
+  {
+    q: "How do I get rid of fungus gnats?",
+    a: "Let the top 1–2 inches of soil dry between waterings, set yellow sticky traps at soil level to catch adults, and treat larvae with a Bti product such as Mosquito Bits or Gnatrol if moisture control isn't enough. Complete control usually takes several weeks.",
+  },
+  {
+    q: "How do I kill fungus gnats?",
+    a: "Kill adults with yellow sticky cards and larvae with Bti or beneficial nematodes, and stop new eggs by letting the soil dry. Killing only the flying adults won't end the infestation.",
+  },
+  {
+    q: "What do fungus gnats look like?",
+    a: "Adults are about 1/8 inch long, slender, and dark gray to black with long legs and antennae. Larvae are translucent white worms with a shiny black head, up to about 1/4 inch.",
+  },
+  {
+    q: "Where do fungus gnats come from?",
+    a: "They usually arrive on new plants or bagged potting mix, or through windows, and then breed in any consistently damp, organic-rich soil. Overwatering is the main reason they stay.",
+  },
+  {
+    q: "How do I get rid of fungus gnats in my house?",
+    a: "Find every breeding source (all potted plants, saucers, and any damp organic spots), dry the soil surface, place sticky cards in each affected room, and treat infested pots with Bti.",
+  },
+  {
+    q: "How do I get rid of fungus gnats in plants?",
+    a: "Treat the soil: let it dry as far as the plant tolerates, bottom-water, add a sand or grit top layer, and drench with Bti in place of a scheduled watering. Trap the adults with sticky cards.",
+  },
+  {
+    q: "Does neem oil kill fungus gnats?",
+    a: "Neem may help as a soil drench because it acts as an insect growth regulator, but evidence specific to fungus gnats is limited and leaf sprays don't reach the larvae. Bti is better supported.",
+  },
+  {
+    q: "How do I use Mosquito Bits for fungus gnats?",
+    a: "Mosquito Bits contain Bti. Apply it to the soil of infested pots (sprinkled and watered in, or steeped in water as a drench) following the current product label, and use it in place of a scheduled watering. Reapply as the label directs and keep using sticky cards for the adults.",
+  },
+  {
+    q: "Do hydrogen peroxide drenches kill fungus gnats?",
+    a: "A diluted drench (commonly described as 1 part 3% peroxide to 4 parts water) can kill larvae it contacts, but guidance on it is mixed and it's short-acting. Treat it as an optional add-on to dry soil and Bti.",
+  },
+  {
+    q: "What's the difference between fungus gnats and fruit flies?",
+    a: "Fungus gnats are dark, slender, and hover around houseplant soil. Fruit flies are tan with red eyes and gather around ripe produce and drains. They need different treatments.",
+  },
   {
     q: "How do I know if I have fungus gnats?",
     a: "They are tiny dark flies that look like mosquitoes, with long legs. They hover around houseplant soil and often fly up when you water. Fruit flies hang around kitchens and produce. Drain flies look fuzzy and sit on bathroom or kitchen drains.",

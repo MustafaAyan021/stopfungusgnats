@@ -16,6 +16,15 @@ import { PestIdentifier } from "@/components/PestIdentifier";
 import GnatLifecycleDiagram from "@/components/GnatLifecycleDiagram.astro";
 import { buttonVariants } from "@/lib/button-variants";
 import { FAQS, IMAGES, METHODS } from "@/data/content";
+import { TOPICS } from "@/data/topics";
+
+const MORE_GUIDES = [
+  ...TOPICS.map((t) => ({ href: `/${t.slug}`, label: t.h1 })),
+  { href: "/guides/mosquito-bits", label: "Mosquito Bits for fungus gnats" },
+  { href: "/guides/hydrogen-peroxide", label: "Hydrogen peroxide for fungus gnats" },
+  { href: "/fungus-gnats-vs-fruit-flies", label: "Fungus gnats vs fruit flies" },
+  { href: "/fungus-gnat-treatments", label: "Fungus gnat treatment options" },
+];
 
 const HOW_IT_WORKS = [
   { icon: Search, label: "Identify" },
@@ -81,8 +90,8 @@ const PREVENTION_CARDS = [
 ---
 
 <Layout
-  title="Stop Fungus Gnats | Identify, Treat & Prevent Fungus Gnats"
-  description="A specialist resource for fungus gnats on houseplants: identify them fast, follow the 7-day treatment plan, and stop them coming back for good."
+  title="How to Get Rid of Fungus Gnats | Stop Fungus Gnats"
+  description="How to get rid of fungus gnats in your house and plants: identify them, kill them with Mosquito Bits (Bti), sticky traps, and dry soil, and stop them coming back."
 >
   <main id="main-content">
     <section class="relative flex min-h-[calc(100dvh-10rem)] items-center overflow-hidden bg-grain md:min-h-[calc(100dvh-6rem)]">
@@ -380,6 +389,23 @@ const PREVENTION_CARDS = [
           Natural methods, rated
         </a>
       </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6" data-reveal>
+      <p class="label-mono text-[11px] text-muted">Quick answers</p>
+      <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Fungus gnat guides</h2>
+      <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          MORE_GUIDES.map((g) => (
+            <li>
+              <a href={g.href} class="focus-ring glass flex min-h-14 items-center justify-between gap-3 rounded-lg px-4 py-3 font-medium shadow-stamp-sm hover:text-primary">
+                {g.label}
+                <ArrowRight className="size-4 shrink-0" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6" data-reveal>
